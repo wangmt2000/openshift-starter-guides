@@ -1,13 +1,14 @@
-= Welcome to OpenShift Starter Guides
+= 欢迎使用 OpenShift 入门指南
 :!sectids:
 ifndef::lab[]
 :lab-name: Java
 endif::[]
 
-== Developing {lab-name} Applications on OpenShift - Starter Lab
+== Developing {lab-name} Applications on OpenShift - Starter Lab  在 OpenShift 上开发 {lab-name} 应用程序 - 入门实验室
 
-link:https://www.redhat.com/en/topics/containers/whats-a-linux-container-vb[Containers,window='_blank'] are a standardized way to package apps with all of their dependencies to simplify deployment and speed delivery. Unlike virtual machines, containers do not bundle to the operating system. Only the application code, run time, libraries, and settings are packaged inside of containers. Thus, containers are more lightweight, portable, and efficient as compared to virtual machines.
 
-For developers looking to kickstart their projects, link:https://openshift.com/[OpenShift,window='_blank'] enables efficient application development through streamlined workflows and validated integrations.
+link:https://www.redhat.com/en/topics/containers/whats-a-linux-container-vb[Containers,window='_blank'] 是将应用程序及其所有依赖项打包以简化部署和加速交付的标准化方式。与虚拟机不同，容器不绑定到操作系统。只有应用程序代码、运行时、库和设置被打包在容器内。因此，与虚拟机相比，容器更轻量、更便携、更高效。
 
-This Lab is accompanied by the slide deck available at link:https://dn.dev/openshift-workshop[dn.dev/openshift-workshop,window='_blank']
+对于希望启动项目的开发人员, link:https://openshift.com/[OpenShift,window='_blank'] 提供简化的工作流程和经过验证的集成实现高效的应用程序开发。
+
+本实验附有link:https://dn.dev/openshift-workshop[dn.dev/openshift-workshop,window='_blank']提供的幻灯片
