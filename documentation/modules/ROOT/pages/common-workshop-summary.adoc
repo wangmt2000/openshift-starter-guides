@@ -19,3 +19,31 @@ Topics which this workshop will cover include:
 * Setting up web hooks to enable automated application builds.
 
 Additional topics may also be covered relevant to the specific programming language used by the applications being deployed.
+
+本次研讨会将涵盖的主题包括：
+
+使用 OpenShift 命令行客户端和 Web 控制台。
+
+使用预先存在的容器映像部署应用程序。
+
+使用应用程序标签来识别组件。
+
+扩展您的应用程序以处理网络流量。
+
+将您的应用程序暴露给集群外的用户。
+
+查看和使用应用程序生成的日志。
+
+访问您的应用程序容器并与之交互。
+
+授予其他用户访问权限以在您的应用程序上进行协作。
+
+从 Git 存储库中的源代码部署应用程序。
+
+从 OpenShift 服务目录部署数据库。
+
+配置应用程序以便它可以访问数据库。
+
+设置 webhooks 以启用自动应用程序构建。
+
+还可能涵盖与正在部署的应用程序使用的特定编程语言相关的其他主题。
