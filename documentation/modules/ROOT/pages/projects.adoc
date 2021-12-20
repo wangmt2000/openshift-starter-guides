@@ -5,23 +5,22 @@ Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户�
 
 在本实验中，我们将使用一些不同的命令来确保环境中的事物按预期工作。如果您不理解https://github.com/redhat-scholars/openshift-starter-guides所有术语，请不要担心，因为我们将在后面的实验中详细介绍。
 
-
+使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节
 [#create_your_first_project]
 == 创建您的第一个项目
+Create a project named *%PROJECT%*. From left-side menu, click to *Projects*, then from top-right click
+to *Create Project*.
 
-使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节
-
-创建一个名为 *%PROJECT%* 的项目，从左侧菜单中，单击 *Projects* , 然后从右上角单击 *Create Project*.
-
-从表单中，输入项目名称 *%PROJECT%* 然后单击 *Create*.
+From the form, insert the name of your project *%PROJECT%* and click to *Create*.
 
 image::prerequisites_create_project.png[Create Project]
 
-如果您有多个项目，您要做的第一件事就是切换到 *%PROJECT%* project 以确保从现在开始您的项目是正确的。
+If you had multiple projects, the first thing you would want to do is to switch
+to the *%PROJECT%* project to make sure you're on the correct project from now on.
 
 image::explore-webconsole2.png[Explore Project]
 
-在左侧导航菜单的顶部，您可以在管理员视角*Administrator*和开发者视角*Developer*之间切换。 
+At the top of the left navigation menu, you can toggle between the *Administrator* perspective and the *Developer* perspective.
 
 image::explore-perspective-toggle.png[Toggle Between Perspectives]
 
