@@ -1,19 +1,13 @@
-= Projects
+= Projects 项目
 :navtitle: Projects
 
-Projects are a top level concept to help you organize your deployments. An
-OpenShift project allows a community of users (or a user) to organize and manage
-their content in isolation from other communities. Each project has its own
-resources, policies (who can or cannot perform actions), and constraints (quotas
-and limits on resources, etc). Projects act as a "wrapper" around all the
-application services and endpoints you (or your teams) are using for your work.
+Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户社区（或用户）独立于其他社区来组织和管理他们的内容。每个项目都有自己的资源、策略（谁可以或不能执行操作）和约束（资源配额和限制等）。项目充当您（或您的团队）用于工作的所有应用程序服务和端点的“包装器”。
 
-During this lab, we are going to use a few different commands to make sure that
-things in the environment are working as expected.  Don't worry if you don't
-understand all of the terminology as we will cover it in detail in later labs.
+在本实验中，我们将使用一些不同的命令来确保环境中的事物按预期工作。如果您不理解所有术语，请不要担心，因为我们将在后面的实验中详细介绍。
+
 
 [#create_your_first_project]
-== Create your first Project
+== 创建您的第一个项目
 
 Create a project named *%PROJECT%*. From left-side menu, click to *Projects*, then from top-right click
 to *Create Project*.
