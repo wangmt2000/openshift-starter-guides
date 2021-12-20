@@ -9,6 +9,8 @@ Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户�
 [#create_your_first_project]
 == 创建您的第一个项目
 
+（使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节）
+
 Create a project named *%PROJECT%*. From left-side menu, click to *Projects*, then from top-right click
 to *Create Project*.
 
