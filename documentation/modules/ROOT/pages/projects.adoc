@@ -24,19 +24,25 @@ image::prerequisites_create_project.png[Create Project]
 If you had multiple projects, the first thing you would want to do is to switch
 to the *%PROJECT%* project to make sure you're on the correct project from now on.
 
+如果您有多个项目，您要做的第一件事就是切换到*%PROJECT%*项目，以确保从现在开始您的项目是正确的。
+
 image::explore-webconsole2.png[Explore Project]
 
 At the top of the left navigation menu, you can toggle between the *Administrator* perspective and the *Developer* perspective.
+在左侧导航菜单的顶部，您可以在管理员视角和开发者视角之间切换。
 
 image::explore-perspective-toggle.png[Toggle Between Perspectives]
 
 Select *Developer* to switch to the Developer perspective. Once the Developer perspective loads, you should be in the *+Add* view.
+选择Developer以切换到 Developer 透视图。一旦 Developer 视角加载，您应该在+Add视图中。
 
 image::explore-add-application.png[Add New Applications]
 
 Right now, there are no applications or components to view, but once you begin working on the lab, you'll be able to visualize and interact with the components in your application in the *Topology* view.
+目前，没有应用程序或组件可查看，但是一旦您开始在实验室中工作，您将能够在拓扑视图中可视化应用程序中的组件并与之交互。
 
 You can also create and manage project from the CLI as well. Let's use our newly created project %PROJECT% as our default one:
+您还可以从 CLI 创建和管理项目。让我们使用我们新创建的项目%PROJECT%作为我们的默认项目：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -45,6 +51,7 @@ oc project %PROJECT%
 ----
 
 You should an output similar to the following:
+您应该得到类似于以下内容的输出：
 
 [.console-output]
 [source,bash,subs="+attributes,macros+"]
@@ -52,5 +59,4 @@ You should an output similar to the following:
 Now using project "%PROJECT%" on server "https://api.%CLUSTER_SUBDOMAIN%:6443"
 ----
 
-We will be using a mix of command line tooling and the web console for the labs.
-Get ready!
+我们将在实验室中混合使用命令行工具和 Web 控制台。做好准备！
