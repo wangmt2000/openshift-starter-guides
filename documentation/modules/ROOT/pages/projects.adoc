@@ -13,6 +13,12 @@ to *Create Project*.
 
 From the form, insert the name of your project *%PROJECT%* and click to *Create*.
 
+创建一个名为Workshop的项目。从左侧菜单中，单击Projects，然后从右上角单击Create Project。
+
+从表单中，插入项目工作室的名称，然后单击“创建”。
+
+
+
 image::prerequisites_create_project.png[Create Project]
 
 If you had multiple projects, the first thing you would want to do is to switch
