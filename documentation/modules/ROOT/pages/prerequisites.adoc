@@ -1,8 +1,7 @@
-= Prerequisites
+= 系统需求
 :navtitle: Prerequisites
 
-In order to run the lab in your cluster, you need to meet the requirements discussed below.
-
+为了在您的集群中运行实验室，您需要满足下面的要求。
 [cols="2*^,2*.",options="header,+attributes"]
 |===
 |**Component**|**Version**
@@ -11,4 +10,4 @@ In order to run the lab in your cluster, you need to meet the requirements discu
 | `4.8`
 |===
 
-In the following modules you will find out other prerequisites when needed.
+在后续的模块中，您将在需要时了解其他系统需求。
