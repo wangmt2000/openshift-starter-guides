@@ -701,8 +701,19 @@
 <div class="paragraph">
 <p>您在 OpenShift 上部署容器映像只需要这几个步骤。这应该适用于任何遵循最佳实践的容器镜像，例如定义一个 EXPOSE 端口，不需要专门作为root 用户或其他用户名运行，以及在启动容器时执行非退出命令。</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>翻译附注：由于openshift在安全、功能等方面在k8s基础上做了很多修改及增强，所以强烈建议参考红帽openshift官方文档，《学习容器最佳实践》部分https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/images/creating-images#images-create-guidelines_create-images（您需要红帽订阅或免费申请红帽开发者账号）</p>
+<p>翻译附注：由于openshift在安全、功能等方面在k8s基础上做了很多修改及增强，所以强烈建议参考红帽openshift官方文档，《学习容器最佳实践》章节，（您可能需要红帽订阅或免费申请红帽开发者账号）https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/images/creating-images#images-create-guidelines_create-images</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -741,10 +752,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="examining_the_pod"><a class="anchor" href="#examining_the_pod"></a>Exercise: Examining the Pod</h2>
+<h2 id="examining_the_pod"><a class="anchor" href="#examining_the_pod"></a>练习：查看 Pod信息</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you click on the <code>parksmap</code> entry in the Topology view, you will see some information about that deployment config. The <strong>Resources</strong> tab may be displayed by default. If so, click on the <strong>Details</strong> tab.</p>
+<p>如果单击parksmap拓扑视图中的条目，您将看到有关该部署配置的一些信息。在资源选项卡可能被默认显示。如果是这样，请单击“详细信息”选项卡。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -752,7 +763,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>On that panel, you will see that there is a single <strong>Pod</strong> that was created by your actions.</p>
+<p>在该面板上，您将看到有一个由您的操作创建的Pod。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -766,13 +777,13 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You&#8217;ll notice in this view an info box suggesting to add Health checks for our app. We will discuss it in details later, so for the moment you can just close this info box by clicking on the top-right X icon.
+您会在此视图中注意到一个信息框，建议为我们的应用添加健康检查。我们将在稍后详细讨论它，因此目前您只需单击右上角的 X 图标即可关闭此信息框。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>You can also get a list of all the <strong>Pods</strong> created within your <strong>Project</strong>, by navigating to <strong>Workloads &#8594; Pods</strong> in the <strong>Administrator perspective</strong> of the web console.</p>
+<p>您还可以通过导航到Web控制台的管理员视图下的工作负载→Pods来获取项目中创建的所有Pods的列表。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -780,11 +791,10 @@ You&#8217;ll notice in this view an info box suggesting to add Health checks for
 </div>
 </div>
 <div class="paragraph">
-<p>This <strong>Pod</strong> contains a single container, which
-happens to be the <code>parksmap</code> application - a simple Spring Boot/Java application.</p>
+<p>此Pod包含一个容器，parksmap应用程序——一个简单的Spring Boot/Java应用程序。</p>
 </div>
 <div class="paragraph">
-<p>You can also examine <strong>Pods</strong> from the command line:</p>
+<p>您还可以从命令行检查Pod：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -792,7 +802,7 @@ happens to be the <code>parksmap</code> application - a simple Spring Boot/Java 
 </div>
 </div>
 <div class="paragraph">
-<p>You should see output that looks similar to:</p>
+<p>您应该会看到类似于以下内容的输出：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -801,14 +811,10 @@ parksmap-65c4f8b676-k5gkk    1/1     Running     0          20s</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The above output lists all of the <strong>Pods</strong> in the current <strong>Project</strong>, including the
-<strong>Pod</strong> name, state, restarts, and uptime.</p>
+<p>上述输出列出了当前项目中的所有Pod，包括Pod名称、状态、重新启动和正常运行时间。</p>
 </div>
 <div class="paragraph">
-<p>Once you have a <strong>Pod</strong>'s name, you can
-get more information about the <strong>Pod</strong> using the <code>oc get</code> command.  To make the
-output readable, I suggest changing the output type to <strong>YAML</strong> using the
-following syntax:</p>
+<p>获得Pod名称后，您可以使用oc get命令获取有关Pod的更多信息。为了使输出可读，我建议使用以下语法将输出类型更改为YAML：</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -817,7 +823,7 @@ following syntax:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Make sure you use the correct <strong>Pod</strong> name from your output.
+确保您使用了刚刚屏幕输出中的正确Pod名称。
 </td>
 </tr>
 </table>
@@ -828,8 +834,7 @@ Make sure you use the correct <strong>Pod</strong> name from your output.
 </div>
 </div>
 <div class="paragraph">
-<p>You should see something like the following output (which has been truncated due
-to space considerations of this workshop manual):</p>
+<p>您应该会看到类似于以下输出的内容（由于本实验手册的篇幅原因已被截断）：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -871,9 +876,7 @@ metadata:
 </div>
 </div>
 <div class="paragraph">
-<p>The web interface also shows a lot of the same information on the <strong>Pod</strong> details
-page. If you click on the name of the <strong>Pod</strong>, you will
-find the details page. You can also get there by clicking on the <code>parksmap</code> deployment config on the <strong>Topology</strong> page, selecting <strong>Resources</strong>, and then clicking the <strong>Pod</strong> name.</p>
+<p>Web 界面还在Pod详细信息页面上显示了许多相同的信息。如果您点击Pod的名称，您将找到详细信息页面。您还可以通过单击拓扑 Topology 页面上的parksmap部署配置，选择 资源 Resources，然后单击Pod名称来到达那里。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -881,7 +884,7 @@ find the details page. You can also get there by clicking on the <code>parksmap<
 </div>
 </div>
 <div class="paragraph">
-<p>From here you can see configuration, metrics, environment variables, logs, events and get a Terminal shell on the running pod.</p>
+<p>从这里您可以看到配置、指标、环境变量、日志、事件，并可以在正在运行的 pod 上获取终端 shell。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -894,14 +897,10 @@ find the details page. You can also get there by clicking on the <code>parksmap<
 </div>
 </div>
 <div class="paragraph">
-<p>Getting the <code>parksmap</code> image running may take a little while to complete. Each
-OpenShift node that is asked to run the image has to pull (download) it, if the
-node does not already have it cached locally. You can check on the status of the
-image download and deployment in the <strong>Pod</strong> details page, or from the command
-line with the <code>oc get pods</code> command that you used before.</p>
+<p>获取parksmap 镜像运行，可能需要一段时间才能完成。如果节点尚未在本地缓存它，则要求运行该映像的每个 OpenShift 节点都必须拉取（下载）它。您可以在Pod详细信息页面中查看映像下载和部署的状态，也可以使用之前使用的命令oc get pods从命令行查看。</p>
 </div>
 <div class="paragraph">
-<p>The default view in the <strong>Developer</strong> console is <strong>Graph View</strong>. You can switch between <strong>Graph</strong> and <strong>List</strong> views by using the toggle in the top right of the console.</p>
+<p>Developer控制台中的默认视图是Graph View。您可以使用控制台右上角的切换按钮在图表和列表视图之间切换。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -916,14 +915,13 @@ line with the <code>oc get pods</code> command that you used before.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="customizing_image_lifecycle_behavior"><a class="anchor" href="#customizing_image_lifecycle_behavior"></a>Background: Customizing the Image Lifecycle Behavior</h2>
+<h2 id="customizing_image_lifecycle_behavior"><a class="anchor" href="#customizing_image_lifecycle_behavior"></a>背景：自定义图像生命周期行为</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Whenever OpenShift asks the node&#8217;s CRI (Container Runtime Interface) runtime (Docker daemon or CRI-O) to run an image, the runtime will check to make sure it has the right "version" of the image to run.
-If it doesn&#8217;t, it will pull it from the specified registry.</p>
+<p>每当 OpenShift 要求节点的 CRI（容器运行时接口）运行时（Docker 守护程序或 CRI-O）运行映像时，运行时都会检查以确保它具有要运行的正确“版本”映像。如果没有，它将从指定的镜像仓库中提取它。</p>
 </div>
 <div class="paragraph">
-<p>There are a number of ways to customize this behavior. They are documented in
+<p>有多种方法可以自定义此行为。它们记录在 指定映像 以及 映像拉取策略中。
 <a href="https://docs.openshift.com/container-platform/4.8/applications/application_life_cycle_management/creating-applications-using-cli.html#applications-create-using-cli-image_creating-applications-using-cli">specifying an image</a>
 as well as
 <a href="https://docs.openshift.com/container-platform/4.8/openshift_images/managing_images/image-pull-policy.html">image pull policy</a>.</p>
