@@ -1,12 +1,12 @@
 = Parksmap App
 :navtitle: Parksmap App
 
-In this lab, we're going to deploy the web component of the ParksMap application which is also called `parksmap` and uses OpenShift's service discovery mechanism to discover the backend services deployed and shows their data on the map.
+在本实验中，我们将部署 ParksMap 应用程序的 Web 组件，该应用程序也称为parksmap，并使用 OpenShift 的服务发现机制来发现部署的后端服务并在地图上显示其数据。
 
 image::roadshow-app-architecture-parksmap-1.png[Application architecture,800,align="center"]
 
 [#deploy_your_first_image]
-== Exercise: Deploying your First Image
+== Exercise: Deploying your First Image练习
 
 Let's start by doing the simplest thing possible - get a plain old
 Docker-formatted image to run on OpenShift. This is incredibly simple to do.
