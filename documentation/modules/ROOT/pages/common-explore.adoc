@@ -11,39 +11,45 @@ Sandbox::
 
 https://developers.redhat.com/developer-sandbox[Developer Sandbox for Red Hat OpenShift,window='_blank'] 适用于 Red Hat OpenShift 的开发人员沙箱是一个免费的 Kubernetes 云环境，位于共享的多租户 OpenShift 集群中，该集群预配置了一组开发人员工具。开发者沙盒有效期为 30 天，到期后可更新。
 
-要创建您的帐户，请访问 https://developers.redhat.com/developer-sandbox 点击红色按钮，上面写着**Get Started in the Sandbox**，如下图所示。
+要创建您的帐户，请访问 https://developers.redhat.com/developer-sandbox ,点击红色按钮，上面写着**Get Started in the Sandbox**，如下图所示。
 
 image::devsandbox-signup.png[Developer Sandbox Sign-up Page]
 
 Use your existing Red Hat account or create a new one, then follow the instructions on the screen. You should then be redirected to the Developer Sandbox page again, but this time, you should see a button labelled **Start using your sandbox**. 
 
+使用您现有的Red Hat帐户或创建一个新帐户，然后按照屏幕上的说明操作。然后，您应该再次重定向到开发者沙盒页面，但这一次，您应该看到一个标记为**Start using your sandbox**的按钮。
+
 image::devsandbox-start.png[Developer Sandbox Start Page]
 
 Clicking on it opens up the OpenShift login screen where you can log in using the **DevSandbox** button, as seen below.
+
+单击它将打开OpenShift登录屏幕，您可以在其中使用**DevSandbox**按钮登录，如下所示。
 
 image::devsandbox-login.png[Log in the Developer Sandbox]
 
 Clicking this button opens up your new OpenShift cluster console.
 
+单击此按钮将打开新的OpenShift群集控制台。
+
 image::devsandbox-topology-view.png[Topology View]
 
-.Quotas and Limits
+.配额和限制
 ****
-Your private OpenShift environment on Developer Sandbox includes quotas and limits of:
+开发者沙箱上的私有OpenShift环境包含:
 
 * 7 GB RAM
 * 15GB storage
 
-which is enough to run this workshop.
+这足以运行本次实验
 
-There are two fixed projects (namespaces):
+有两个固定项目 (namespaces):
 
 * `<your_username>-dev`
 * `<your_username>-stage`
 
-In this shared environment, it's **NOT** possible to create a new project as in xref:projects#create_your_first_project[Create your First Project,role='params-link',window='_blank']. This environment doesn't support Pipelines Operator, so you can skip the xref:prerequisites.adoc#openshift_pipelines[OpenShift Pipelines,role='params-link',window='_blank'] prerequisite.
+在此共享环境中, 1、您**不能**创建新项目 此环境不支持Pipelines Operator,所以您需要跳过 the xref:prerequisites.adoc#openshift_pipelines[OpenShift Pipelines,role='params-link',window='_blank'] .
 
-Please work in the `<your_username>-dev` project.
+请在`<your_username>-dev` project下操作.
 ****
 
 To continue working with the Lab, please do the following:
