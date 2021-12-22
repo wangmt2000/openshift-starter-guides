@@ -43,10 +43,10 @@ image::devsandbox-topology-view.png[Topology View]
 
 在此共享环境中, 1、您**不能**创建新项目，请跳过创建您的第一个项目章节；2此环境不支持Pipelines Operator,所以您需要跳过 the xref:prerequisites.adoc#openshift_pipelines[OpenShift Pipelines,role='params-link',window='_blank'] 章节.
 
-NOTE：翻译标注 developer sandbox还有其他限制，如最多创建10个service，每隔12小时，pod会被停止。翻译标注
-
 请在`<your_username>-dev` project下操作.
 ****
+
+NOTE：翻译标注 developer sandbox还有其他限制，如最多创建10个service，每隔12小时，pod会被停止。翻译标注
 
 要继续使用实验手册实验，请执行以下操作：
 
