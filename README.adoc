@@ -4,7 +4,7 @@
 原版实验环境支持IBM、Developer Sandbox for Red Hat OpenShift、CodeReady Containers等环境，本实验改为只支持Developer Sandbox for Red Hat OpenShift。
 由于国内访问的github的网络原因。读者可以自行clone并部署本手册。
 
-------------------------------------------------------------------------
+
 
 本次研讨会旨在从开发人员的角度向您介绍如何使用OpenShift。
 
@@ -37,7 +37,6 @@ image::topology.gif[Workshop Topology]
 
 #以下文档全部指向github上原版实验文档
 
-------------------------------------
 
 ## Documentation
 
