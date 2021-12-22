@@ -46,7 +46,10 @@ image::devsandbox-topology-view.png[Topology View]
 请在`<your_username>-dev` project下操作.
 ****
 
-NOTE：翻译标注 developer sandbox还有其他限制，如最多创建10个service，每隔12小时，pod会被停止。翻译标注
+[翻译标注]
+====翻译标注
+developer sandbox还有其他限制，如最多创建10个service，每隔12小时，pod会被停止。
+====
 
 要继续使用实验手册实验，请执行以下操作：
 
