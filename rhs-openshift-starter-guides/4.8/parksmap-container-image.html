@@ -699,11 +699,10 @@
 </div>
 </div>
 <div class="paragraph">
-<p>These few steps are the only ones you need to run to get a
-container image deployed on OpenShift. This should work with any
-container image that follows best practices, such as defining an EXPOSE
-port, not needing to run specifically as the <strong>root user</strong> or other user name, and a single non-exiting CMD to execute on start.
-您在 OpenShift 上部署容器映像只需要这几个步骤。这应该适用于任何遵循最佳实践的容器镜像，例如定义一个 EXPOSE 端口，不需要专门作为root 用户或其他用户名运行，以及在启动时执行的单个非退出 CMD。</p>
+<p>您在 OpenShift 上部署容器映像只需要这几个步骤。这应该适用于任何遵循最佳实践的容器镜像，例如定义一个 EXPOSE 端口，不需要专门作为root 用户或其他用户名运行，以及在启动容器时执行非退出命令。</p>
+</div>
+<div class="paragraph">
+<p>翻译附注：由于openshift在安全、功能等方面在k8s基础上做了很多修改及增强，所以强烈建议参考红帽openshift官方文档，《学习容器最佳实践》部分https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/images/creating-images#images-create-guidelines_create-images（您需要红帽订阅或免费申请红帽开发者账号）</p>
 </div>
 <div class="admonitionblock note">
 <table>
