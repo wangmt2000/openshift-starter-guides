@@ -5,7 +5,7 @@ Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户�
 
 在本实验中，我们将使用一些不同的命令来确保环境中的事物按预期工作。如果您不理解https://github.com/redhat-scholars/openshift-starter-guides所有术语，请不要担心，因为我们将在后面的实验中详细介绍。
 
-使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节
+**使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节**
 [#create_your_first_project]
 == 创建您的第一个项目
 Create a project named *%PROJECT%*. From left-side menu, click to *Projects*, then from top-right click
@@ -13,35 +13,26 @@ to *Create Project*.
 
 From the form, insert the name of your project *%PROJECT%* and click to *Create*.
 
-创建一个名为Workshop的项目。从左侧菜单中，单击Projects，然后从右上角单击Create Project。
+创建一个名为*%PROJECT%*的项目。从左侧菜单中，单击 “项目” Projects ，然后从右上角单击 “创建项目” Create Project。
 
-从表单中，插入项目工作室的名称，然后单击“创建”。
-
-
+从表单中，输入项目的名称，然后单击“创建”。
 
 image::prerequisites_create_project.png[Create Project]
-
-If you had multiple projects, the first thing you would want to do is to switch
-to the *%PROJECT%* project to make sure you're on the correct project from now on.
 
 如果您有多个项目，您要做的第一件事就是切换到*%PROJECT%*项目，以确保从现在开始您的项目是正确的。
 
 image::explore-webconsole2.png[Explore Project]
 
-At the top of the left navigation menu, you can toggle between the *Administrator* perspective and the *Developer* perspective.
 在左侧导航菜单的顶部，您可以在管理员视角和开发者视角之间切换。
 
 image::explore-perspective-toggle.png[Toggle Between Perspectives]
 
-Select *Developer* to switch to the Developer perspective. Once the Developer perspective loads, you should be in the *+Add* view.
 选择Developer以切换到 Developer 透视图。一旦 Developer 视角加载，您应该在+Add视图中。
 
 image::explore-add-application.png[Add New Applications]
 
-Right now, there are no applications or components to view, but once you begin working on the lab, you'll be able to visualize and interact with the components in your application in the *Topology* view.
 目前，没有应用程序或组件可查看，但是一旦您开始在实验室中工作，您将能够在拓扑视图中可视化应用程序中的组件并与之交互。
 
-You can also create and manage project from the CLI as well. Let's use our newly created project %PROJECT% as our default one:
 您还可以从 CLI 创建和管理项目。让我们使用我们新创建的项目%PROJECT%作为我们的默认项目：
 
 [.console-input]
@@ -50,7 +41,6 @@ You can also create and manage project from the CLI as well. Let's use our newly
 oc project %PROJECT%
 ----
 
-You should an output similar to the following:
 您应该得到类似于以下内容的输出：
 
 [.console-output]
@@ -59,4 +49,4 @@ You should an output similar to the following:
 Now using project "%PROJECT%" on server "https://api.%CLUSTER_SUBDOMAIN%:6443"
 ----
 
-我们将在实验室中混合使用命令行工具和 Web 控制台。做好准备！
+我们下面将在实验室中混合使用命令行工具和 Web 控制台。做好准备！
