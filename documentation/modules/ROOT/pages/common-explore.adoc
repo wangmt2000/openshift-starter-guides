@@ -15,19 +15,13 @@ https://developers.redhat.com/developer-sandbox[Developer Sandbox for Red Hat Op
 
 image::devsandbox-signup.png[Developer Sandbox Sign-up Page]
 
-Use your existing Red Hat account or create a new one, then follow the instructions on the screen. You should then be redirected to the Developer Sandbox page again, but this time, you should see a button labelled **Start using your sandbox**. 
-
 使用您现有的Red Hat帐户或创建一个新帐户，然后按照屏幕上的说明操作。然后，您应该再次重定向到开发者沙盒页面，但这一次，您应该看到一个标记为**Start using your sandbox**的按钮。
 
 image::devsandbox-start.png[Developer Sandbox Start Page]
 
-Clicking on it opens up the OpenShift login screen where you can log in using the **DevSandbox** button, as seen below.
-
 单击它将打开OpenShift登录屏幕，您可以在其中使用**DevSandbox**按钮登录，如下所示。
 
 image::devsandbox-login.png[Log in the Developer Sandbox]
-
-Clicking this button opens up your new OpenShift cluster console.
 
 单击此按钮将打开新的OpenShift群集控制台。
 
@@ -52,9 +46,9 @@ image::devsandbox-topology-view.png[Topology View]
 请在`<your_username>-dev` project下操作.
 ****
 
-To continue working with the Lab, please do the following:
+要继续使用实验手册实验，请执行以下操作：
 
-1 - Copy your cluster subdomain as shown in the image above, part **1** e.g. `apps.sandbox-m2.ll9k.p1.openshiftapps.com`. This is used to generate automatically all URLs during the workshop.
+1 - 如上图所示，复制您的集群子域，第1部分，例如apps.sandbox-m2.ll9k.p1.openshiftapps.com. 这用于在实验手册中自动生成所有 URL。
 
 image::devsandbox-topology.png[Topology Detail]
 
