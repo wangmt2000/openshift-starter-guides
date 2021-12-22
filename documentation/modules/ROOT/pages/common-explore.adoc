@@ -4,8 +4,7 @@
 [#the_web_console]
 == The Web Console
 
-OpenShift ships with a web-based console that will allow users to
-perform various tasks via a browser.
+OpenShift 附带一个基于 Web 的控制台，允许用户通过浏览器执行各种任务
 
 [tabs, subs="attributes+,+macros"]
 ====
