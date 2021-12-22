@@ -13,4 +13,7 @@ link:https://www.redhat.com/en/topics/containers/whats-a-linux-container-vb[Cont
 
 本实验附有link:https://dn.dev/openshift-workshop[dn.dev/openshift-workshop,window='_blank']提供的幻灯片。
 
-NOTE:幻灯片需要访问google doc :(
+[NOTE]
+====
+幻灯片需要访问google doc :(
+====
