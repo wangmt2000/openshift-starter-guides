@@ -529,7 +529,7 @@
     <a class="version is-current" href="nationalparks-java-pipeline.html">4.6</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/redhat-scholars/openshift-starter-guides/edit/ocp-4.6/documentation/modules/ROOT/pages/nationalparks-java-pipeline.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/wangmt2000/openshift-starter-guides/edit/ocp-4.6/documentation/modules/ROOT/pages/nationalparks-java-pipeline.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
@@ -702,10 +702,17 @@ nationalparks-pipeline   8s</code></pre>
 <div class="paragraph">
 <p>Now let&#8217;s review our Tekton Pipeline:</p>
 </div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc describe pipeline nationalparks-pipeline</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see something similar to this:</p>
+</div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
-apiVersion: tekton.dev/v1beta1
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: nationalparks-pipeline
