@@ -573,179 +573,13 @@
 <div class="paragraph">
 <p>OpenShift 附带一个基于 Web 的控制台，允许用户通过浏览器执行各种任务</p>
 </div>
-<div class="tabset is-loading">
-<div class="ulist tabs">
-<ul>
-<li>
-<p><a id="tabset1_roks"></a>ROKS</p>
-</li>
-<li>
-<p><a id="tabset1_rosa"></a>ROSA</p>
-</li>
-<li>
-<p><a id="tabset1_aro"></a>ARO</p>
-</li>
-<li>
-<p><a id="tabset1_sandbox"></a>Sandbox</p>
-</li>
-<li>
-<p><a id="tabset1_others"></a>Others</p>
-</li>
-</ul>
-</div>
-<div class="content">
-<div class="tab-pane" aria-labelledby="tabset1_roks">
-<div class="paragraph">
-<p>Login to IBM Cloud, copy this link and open in your browser:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code>%LOGIN%</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Enter following credentials:</p>
-</div>
-<div class="paragraph">
-<p><strong>Username</strong>:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code>%USERNAME%</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Password</strong>:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code>%PASSWORD%</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Click <strong>Sign In</strong>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/roks-login1.png" alt="ROKS Login">
-</div>
-</div>
-<div class="paragraph">
-<p>After you successfully logged in, from right side pane, click <strong>OpenShift web console</strong> to access your OpenShift Cluster Dashboard:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/roks-login4.png" alt="ROKS Open-shift web console">
-</div>
-</div>
-</div>
-<div class="tab-pane" aria-labelledby="tabset1_rosa">
-<div class="paragraph">
-<p>Access your cluster from <a href="https://console-openshift-console.%CLUSTER_SUBDOMAIN%" class="params-link" target="_blank" rel="noopener">OpenShift Web Console</a>.</p>
-</div>
-<div class="paragraph">
-<p>Login to your ROSA cluster using one of the available <a href="https://docs.openshift.com/rosa/rosa_getting_started/rosa-config-identity-providers.html" target="_blank" rel="noopener">Identity Provider</a>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/explore-rosa-login.png" alt="ROSA Login">
-</div>
-</div>
-<div class="paragraph">
-<p>On the Identity Provider login screen, enter the your credentials:</p>
-</div>
-<div class="paragraph">
-<p><strong>Username</strong>:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code>%USERNAME%</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Password</strong>:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code>%PASSWORD%</code></pre>
-</div>
-</div>
-</div>
-<div class="tab-pane" aria-labelledby="tabset1_aro">
-<div class="paragraph">
-<p>Access your cluster from <a href="https://console-openshift-console.%CLUSTER_SUBDOMAIN%" class="params-link" target="_blank" rel="noopener">OpenShift Web Console</a>.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Cluster administrator</div>
-<div class="paragraph">
-<p>If you are the administrator of your ARO cluster (<code>kubeadmin</code>), you can login with your credentials if you already have them.</p>
-</div>
-<div class="paragraph">
-<p>If don&#8217;t have them yet, as an admin for the cluster in <a href="https://portal.azure.com" target="_blank" rel="noopener">Azure Portal</a>, you can also retrieve credentials with the <a href="https://docs.microsoft.com/en-us/cli/azure/" target="_blank" rel="noopener">az CLI</a>.</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export RESOURCEGROUP=&lt;Resource_group_name&gt;
-export CLUSTER=&lt;Cluster_name&gt;
-
-az aro list-credentials \
-  --name $CLUSTER \
-  --resource-group $RESOURCEGROUP</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You should get something similar with the following output containing your cluster admin credentials:</p>
-</div>
-<div class="listingblock console-output">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
-  "kubeadminPassword": "&lt;generated password&gt;",
-  "kubeadminUsername": "kubeadmin"
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>If available, you can also login to your ARO cluster using one of the <a href="https://docs.openshift.com/container-platform/4.7/authentication/understanding-identity-provider.html" target="_blank" rel="noopener">Identity Providers</a> such as Azure Active Directory.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Azure Active Directory</div>
-<div class="paragraph">
-<p>If you configured <a href="https://docs.microsoft.com/en-us/azure/openshift/configure-azure-ad-ui" target="_blank" rel="noopener">Azure Active Directory (AAD)</a>, select this identity provider to login using Azure authentication.</p>
-</div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/explore-aro-login.png" alt="ARO Login">
-</div>
-</div>
-<div class="paragraph">
-<p>Enter the your credentials:</p>
-</div>
-<div class="paragraph">
-<p><strong>Username</strong>:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code>%USERNAME%</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Password</strong>:</p>
-</div>
-<div class="listingblock copypaste">
-<div class="content">
-<pre class="highlightjs highlight"><code>%PASSWORD%</code></pre>
-</div>
-</div>
-</div>
-<div class="tab-pane" aria-labelledby="tabset1_sandbox">
-<div class="paragraph">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Sandbox</dt>
+<dd>
 <p><a href="https://developers.redhat.com/developer-sandbox" target="_blank" rel="noopener">Developer Sandbox for Red Hat OpenShift</a> is a free Kubernetes cloud environment in a shared, multi-tenant OpenShift cluster that is pre-configured with a set of developer tools. The Developer Sandbox is active for 30 days and renewable once it expires.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
 <p>To create your account, register to <a href="https://developers.redhat.com/developer-sandbox" target="_blank" rel="noopener">Developer Sandbox for Red Hat OpenShift</a>. From there, click on the red button that says <strong>Get Started in the Sandbox</strong> as shown in the following image.</p>
@@ -863,8 +697,15 @@ az aro list-credentials \
 <img src="_images/devsandbox-forms_ok.png" alt="Lab Guide OK">
 </div>
 </div>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Others</dt>
+</dl>
 </div>
-<div class="tab-pane" aria-labelledby="tabset1_others">
+</div>
+</div>
 <div class="paragraph">
 <p>To get a feel for how the web console works, click on this <a href="https://console-openshift-console.%CLUSTER_SUBDOMAIN%" class="params-link" target="_blank" rel="noopener">Web Console</a> link.</p>
 </div>
@@ -884,10 +725,9 @@ az aro list-credentials \
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code>%PASSWORD%</code></pre>
-</div>
-</div>
-</div>
+<pre class="highlightjs highlight"><code>%PASSWORD%
+--
+====</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -959,18 +799,18 @@ Kubernetes Version: v1.21.0+bd9e442</code></pre>
 <div class="ulist tabs">
 <ul>
 <li>
-<p><a id="tabset2_mac-osx"></a>Mac OSX</p>
+<p><a id="tabset1_mac-osx"></a>Mac OSX</p>
 </li>
 <li>
-<p><a id="tabset2_windows"></a>Windows</p>
+<p><a id="tabset1_windows"></a>Windows</p>
 </li>
 <li>
-<p><a id="tabset2_linux"></a>Linux</p>
+<p><a id="tabset1_linux"></a>Linux</p>
 </li>
 </ul>
 </div>
 <div class="content">
-<div class="tab-pane" aria-labelledby="tabset2_mac-osx">
+<div class="tab-pane" aria-labelledby="tabset1_mac-osx">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1103,7 +943,7 @@ out by printing the version of the <code>oc</code> command:</p>
 still cannot get the <code>oc</code> command to work, contact your lab instructor for assistence.</p>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset2_windows">
+<div class="tab-pane" aria-labelledby="tabset1_windows">
 <div class="paragraph">
 <p>From top right menu bar, click to the little white question mark icon, then click to <strong>Command Line Tools</strong>:</p>
 </div>
@@ -1153,7 +993,7 @@ out by printing the version of the <code>oc</code> command:</p>
 still cannot get the <code>oc</code> command to work, contact your lab instructor for assistence.</p>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset2_linux">
+<div class="tab-pane" aria-labelledby="tabset1_linux">
 <div class="paragraph">
 <p>From top right menu bar, click to the little white question mark icon, then click to <strong>Command Line Tools</strong>:</p>
 </div>
@@ -1279,18 +1119,18 @@ some additional environment variables for the oc command line to work.  Select t
 <div class="ulist tabs">
 <ul>
 <li>
-<p><a id="tabset3_mac-os-x"></a>Mac OS X</p>
+<p><a id="tabset2_mac-os-x"></a>Mac OS X</p>
 </li>
 <li>
-<p><a id="tabset3_windows"></a>Windows</p>
+<p><a id="tabset2_windows"></a>Windows</p>
 </li>
 <li>
-<p><a id="tabset3_linux"></a>Linux</p>
+<p><a id="tabset2_linux"></a>Linux</p>
 </li>
 </ul>
 </div>
 <div class="content">
-<div class="tab-pane" aria-labelledby="tabset3_mac-os-x">
+<div class="tab-pane" aria-labelledby="tabset2_mac-os-x">
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -1310,7 +1150,7 @@ export HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
 </div>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset3_windows">
+<div class="tab-pane" aria-labelledby="tabset2_windows">
 <div class="paragraph">
 <p>Follow previous section&#8217;s instructions on how to set an Environment Variable on Windows. The variables you&#8217;ll need
 to set are:</p>
@@ -1334,7 +1174,7 @@ HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
 </div>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset3_linux">
+<div class="tab-pane" aria-labelledby="tabset2_linux">
 <div class="admonitionblock caution">
 <table>
 <tr>
