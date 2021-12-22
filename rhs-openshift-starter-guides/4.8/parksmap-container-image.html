@@ -589,7 +589,7 @@
 <p>返回到 <a href="https://console-openshift-console.%CLUSTER_SUBDOMAIN%/k8s/cluster/projects" class="params-link" target="_blank" rel="noopener">Web Console</a>.</p>
 </div>
 <div class="paragraph">
-<p>如果您不再处于开发人员视角，请立即返回。</p>
+<p>如果您不再处于开发人员视图，请立即返回。</p>
 </div>
 <div class="paragraph">
 <p>从左侧菜单中，单击+添加。您将看到一个屏幕，您可以在其中使用多个选项将应用程序部署到 OpenShift。点击*容器镜像*  <strong>Container Image</strong> 打开一个对话框，您可以在其中指定要部署的映像的信息。</p>
@@ -711,7 +711,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Providing appropriate labels is desired when deploying complex applications for organization purposes. OpenShift uses a label <strong>app</strong> to define and group components together in the Overview page. OpenShift will create this label with some default if the user doesn&#8217;t provide it explicitly.
+出于组织目的部署复杂应用程序时，需要使用适当的标签标记使用的资源。OpenShift 使用标签应用程序在概览页面中定义和分组组件资源。如果用户未明确提供，OpenShift 将使用一些默认值创建此标签。
 </td>
 </tr>
 </table>
@@ -719,30 +719,24 @@ Providing appropriate labels is desired when deploying complex applications for 
 </div>
 </div>
 <div class="sect1">
-<h2 id="containers_and_pods"><a class="anchor" href="#containers_and_pods"></a>Background: Containers and Pods</h2>
+<h2 id="containers_and_pods"><a class="anchor" href="#containers_and_pods"></a>背景: 容器和pods Containers and Pods</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before we start digging in, we need to understand how containers and <strong>Pods</strong> are
-related. We will not be covering the background on these technologies in this lab but if you have questions please inform the instructor. Instead, we will dive right in and start using them.</p>
+<p>在开始深入研究之前，我们需要了解容器和Pod之间的关系。我们不会在本实验室中介绍这些技术的背景，但如果您有任何疑问，请告知讲师。下面我们将深入研究并开始使用它们。</p>
 </div>
 <div class="paragraph">
-<p>In OpenShift, the smallest deployable unit is a <strong>Pod</strong>. A <strong>Pod</strong> is a group of one or more OCI containers deployed together and guaranteed to be on the same host.
-From the official OpenShift documentation:</p>
+<p>在 OpenShift （k8s)中，最小的可部署单元是Pod， *Pod*是一组部署在一起并保证位于同一主机上的一个或多个OCI容器。
+来自官方 OpenShift 文档：</p>
 </div>
 <div class="quoteblock">
 <blockquote>
 <em>
-Each <strong>Pod</strong> has its own IP address, therefore owning its entire port space, and
-containers within pods can share storage. <strong>Pods</strong> can be "tagged" with one or
-more labels, which are then used to select and manage groups of <strong>pods</strong> in a
-single operation.
+每个Pod都有自己的 IP 地址，因此拥有自己的整个端口空间，Pod 内的容器可以共享存储。Pod可以用一个或多个标签“标记”，然后用于在单个操作中选择和管理Pod组。
 </em>
 </blockquote>
 </div>
 <div class="paragraph">
-<p><strong>Pods</strong> can contain multiple OCI containers. The general idea is for a <strong>Pod</strong> to
-contain a "main process" and any auxiliary services you want to run along with that process. Examples of containers you might put in a <strong>Pod</strong> are, an Apache HTTPD
-server, a log analyzer, and a file service to help manage uploaded files.</p>
+<p>Pod可以包含多个 OCI 容器。总体思路是让Pod包含一个“主进程”以及您希望与该进程一起运行的任何辅助服务。例如您可以在Pod中放置的容器包括Apache HTTPD 服务器、日志分析器和帮助管理上传文件的文件服务。</p>
 </div>
 </div>
 </div>
