@@ -576,7 +576,7 @@
 <p>在本实验中，我们将使用一些不同的命令来确保环境中的事物按预期工作。如果您不理解https://github.com/redhat-scholars/openshift-starter-guides所有术语，请不要担心，因为我们将在后面的实验中详细介绍。</p>
 </div>
 <div class="paragraph">
-<p>使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节</p>
+<p><strong>使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节</strong></p>
 </div>
 </div>
 </div>
@@ -591,19 +591,15 @@ to <strong>Create Project</strong>.</p>
 <p>From the form, insert the name of your project <strong>%PROJECT%</strong> and click to <strong>Create</strong>.</p>
 </div>
 <div class="paragraph">
-<p>创建一个名为Workshop的项目。从左侧菜单中，单击Projects，然后从右上角单击Create Project。</p>
+<p>创建一个名为*%PROJECT%*的项目。从左侧菜单中，单击 “项目” Projects ，然后从右上角单击 “创建项目” Create Project。</p>
 </div>
 <div class="paragraph">
-<p>从表单中，插入项目工作室的名称，然后单击“创建”。</p>
+<p>从表单中，输入项目的名称，然后单击“创建”。</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="_images/prerequisites_create_project.png" alt="Create Project">
 </div>
-</div>
-<div class="paragraph">
-<p>If you had multiple projects, the first thing you would want to do is to switch
-to the <strong>%PROJECT%</strong> project to make sure you&#8217;re on the correct project from now on.</p>
 </div>
 <div class="paragraph">
 <p>如果您有多个项目，您要做的第一件事就是切换到*%PROJECT%*项目，以确保从现在开始您的项目是正确的。</p>
@@ -614,8 +610,7 @@ to the <strong>%PROJECT%</strong> project to make sure you&#8217;re on the corre
 </div>
 </div>
 <div class="paragraph">
-<p>At the top of the left navigation menu, you can toggle between the <strong>Administrator</strong> perspective and the <strong>Developer</strong> perspective.
-在左侧导航菜单的顶部，您可以在管理员视角和开发者视角之间切换。</p>
+<p>在左侧导航菜单的顶部，您可以在管理员视角和开发者视角之间切换。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -623,8 +618,7 @@ to the <strong>%PROJECT%</strong> project to make sure you&#8217;re on the corre
 </div>
 </div>
 <div class="paragraph">
-<p>Select <strong>Developer</strong> to switch to the Developer perspective. Once the Developer perspective loads, you should be in the <strong>+Add</strong> view.
-选择Developer以切换到 Developer 透视图。一旦 Developer 视角加载，您应该在+Add视图中。</p>
+<p>选择Developer以切换到 Developer 透视图。一旦 Developer 视角加载，您应该在+Add视图中。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -632,12 +626,10 @@ to the <strong>%PROJECT%</strong> project to make sure you&#8217;re on the corre
 </div>
 </div>
 <div class="paragraph">
-<p>Right now, there are no applications or components to view, but once you begin working on the lab, you&#8217;ll be able to visualize and interact with the components in your application in the <strong>Topology</strong> view.
-目前，没有应用程序或组件可查看，但是一旦您开始在实验室中工作，您将能够在拓扑视图中可视化应用程序中的组件并与之交互。</p>
+<p>目前，没有应用程序或组件可查看，但是一旦您开始在实验室中工作，您将能够在拓扑视图中可视化应用程序中的组件并与之交互。</p>
 </div>
 <div class="paragraph">
-<p>You can also create and manage project from the CLI as well. Let&#8217;s use our newly created project %PROJECT% as our default one:
-您还可以从 CLI 创建和管理项目。让我们使用我们新创建的项目%PROJECT%作为我们的默认项目：</p>
+<p>您还可以从 CLI 创建和管理项目。让我们使用我们新创建的项目%PROJECT%作为我们的默认项目：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -645,8 +637,7 @@ to the <strong>%PROJECT%</strong> project to make sure you&#8217;re on the corre
 </div>
 </div>
 <div class="paragraph">
-<p>You should an output similar to the following:
-您应该得到类似于以下内容的输出：</p>
+<p>您应该得到类似于以下内容的输出：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -654,7 +645,7 @@ to the <strong>%PROJECT%</strong> project to make sure you&#8217;re on the corre
 </div>
 </div>
 <div class="paragraph">
-<p>我们将在实验室中混合使用命令行工具和 Web 控制台。做好准备！</p>
+<p>我们下面将在实验室中混合使用命令行工具和 Web 控制台。做好准备！</p>
 </div>
 </div>
 </div>
