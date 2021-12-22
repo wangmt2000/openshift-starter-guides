@@ -58,15 +58,16 @@ image::devsandbox-form1.png[Add Cluster Subdomain]
 
 按Enter键提交.
 
-2 - 复制**您的**开发人员沙箱的项目名称，如上图所示，第2部分，**例如**nvinto-dev. 这也用于在实验手册中生成 URL 和说明。
+2 - 复制**您的**开发人员沙箱的项目名称，如上图所示，第2部分，**例如**nvinto-dev. 这部分也是用于在实验手册中生成 URL 和说明。
 
 image::devsandbox-form2.png[Add Project Name]
 
 Go to the top menu of this Lab guide, and paste the copied project name into the second textfield, where there is **Enter Project Name**.
+转到本实验室指南的顶部菜单，并将复制的项目名称粘贴到第二个文本字段中，其中有**Enter Project Name**字样
 
-Press **Enter** to Submit.
+按Enter键提交.
 
-Your Lab Guide is now customized with your Developer Sandbox environment hostname and settings:
+您的实验手册现已使用您的 Developer Sandbox 环境主机名和设置进行自定义：
 
 image::devsandbox-forms_ok.png[Lab Guide OK]
 
