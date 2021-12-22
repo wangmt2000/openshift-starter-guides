@@ -71,27 +71,13 @@ Go to the top menu of this Lab guide, and paste the copied project name into the
 
 image::devsandbox-forms_ok.png[Lab Guide OK]
 
---
-Others::
-+
---
-To get a feel for how the web console works, click on this https://console-openshift-console.%CLUSTER_SUBDOMAIN%[Web Console,role='params-link',window='_blank'] link.
-
-On the login screen, enter the following credentials:
-
-*Username*:
-[source,role="copypaste"]
-%USERNAME%
-
-*Password*:
-[source,role="copypaste"]
-%PASSWORD%
---
 ====
 
-In general, the first time you access the web console, you will most likely be in the Administrator perspective. In case you are also the Cluster Administrator, you will be presented with an overview of the whole Cluster status:
+通常，第一次访问 Web 控制台时，您很可能处于管理员视角。如果您也是集群管理员，您将看到整个集群状态的概览：
 
 image::prerequisites_overview.png[Web Console Overview]
+
+本次实验环境Developer Sandbox for Red Hat OpenShift 4.9 已经自带cli工具。后面内容跳过。
 
 [#command_line_interface]
 == Command Line Interface
