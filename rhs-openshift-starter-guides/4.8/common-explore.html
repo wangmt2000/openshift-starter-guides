@@ -654,8 +654,11 @@
 </div>
 </div>
 <div class="paragraph">
-<p>NOTE：翻译标注 developer sandbox还有其他限制，如最多创建10个service，每隔12小时，pod会被停止。翻译标注</p>
+<p>====翻译标注
+developer sandbox还有其他限制，如最多创建10个service，每隔12小时，pod会被停止。</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>要继续使用实验手册实验，请执行以下操作：</p>
 </div>
@@ -711,11 +714,9 @@
 <div class="paragraph">
 <p>本次实验环境Developer Sandbox for Red Hat OpenShift 4.9 已经自带cli工具。在沙盒界面最顶端右侧，点击cli工具按钮，将会加载cli工具。本章下面内容跳过。</p>
 </div>
+<div id="command_line_interface" class="paragraph">
+<p>== Command Line Interface</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command_line_interface"><a class="anchor" href="#command_line_interface"></a>Command Line Interface</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>OpenShift ships with a feature rich web console as well as command line tools
 to provide users with a nice interface to work with applications deployed to the
@@ -763,27 +764,19 @@ Kubernetes Version: v1.21.0+bd9e442</code></pre>
 </table>
 </div>
 <div class="paragraph">
-<p>If you see output like the above you can skip to <a href="#connect_to_the_cluster_with_cli">Connect to the OpenShift Cluster from CLI</a>.</p>
+<p>If you see output like the above you can skip to <a href="#Connect to the OpenShift Cluster from CLI">Connect to the OpenShift Cluster from CLI</a>.</p>
 </div>
 <div class="paragraph">
 <p>However, if the <code>oc</code> command doesn&#8217;t exist or you have an older version of the OpenShift CLI (e.g. &lt; <code>4.4.x</code>), select the tab appropriate to your OS and follow the instructions to install or update the OpenShift CLI.</p>
 </div>
-<div class="tabset is-loading">
-<div class="ulist tabs">
-<ul>
-<li>
-<p><a id="tabset1_mac-osx"></a>Mac OSX</p>
-</li>
-<li>
-<p><a id="tabset1_windows"></a>Windows</p>
-</li>
-<li>
-<p><a id="tabset1_linux"></a>Linux</p>
-</li>
-</ul>
 </div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Mac OSX</dt>
+<dd>
+<div class="openblock">
 <div class="content">
-<div class="tab-pane" aria-labelledby="tabset1_mac-osx">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -916,7 +909,12 @@ out by printing the version of the <code>oc</code> command:</p>
 still cannot get the <code>oc</code> command to work, contact your lab instructor for assistence.</p>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset1_windows">
+</div>
+</dd>
+<dt class="hdlist1">Windows</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="paragraph">
 <p>From top right menu bar, click to the little white question mark icon, then click to <strong>Command Line Tools</strong>:</p>
 </div>
@@ -966,7 +964,12 @@ out by printing the version of the <code>oc</code> command:</p>
 still cannot get the <code>oc</code> command to work, contact your lab instructor for assistence.</p>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset1_linux">
+</div>
+</dd>
+<dt class="hdlist1">Linux</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="paragraph">
 <p>From top right menu bar, click to the little white question mark icon, then click to <strong>Command Line Tools</strong>:</p>
 </div>
@@ -1048,9 +1051,14 @@ still cannot get the <code>oc</code> command to work, contact your lab instructo
 </div>
 </div>
 </div>
+</dd>
+</dl>
 </div>
-<div class="sect2">
-<h3 id="connect_to_the_cluster_with_cli"><a class="anchor" href="#connect_to_the_cluster_with_cli"></a>Connect to the OpenShift Cluster from CLI</h3>
+<div class="exampleblock">
+<div class="content">
+<div id="connect_to_the_cluster_with_cli" class="paragraph">
+<p>=== Connect to the OpenShift Cluster from CLI</p>
+</div>
 <div class="paragraph">
 <p>Once your <code>oc</code> client is setup on your Workstation, you can connect to cluster and start working also with OpenShift CLI.</p>
 </div>
@@ -1082,28 +1090,19 @@ You have access to 68 projects, the list has been suppressed. You can list all p
 Using project "default".</code></pre>
 </div>
 </div>
-<div class="sect3">
-<h4 id="working_with_proxies"><a class="anchor" href="#working_with_proxies"></a>Working with proxies</h4>
-<div class="paragraph">
-<p>It might happen that you&#8217;re behind a corporate proxy to access the internet. In this case, you&#8217;ll need to set
+<div id="working_with_proxies" class="paragraph">
+<p>==== Working with proxies
+It might happen that you&#8217;re behind a corporate proxy to access the internet. In this case, you&#8217;ll need to set
 some additional environment variables for the oc command line to work.  Select the tab appropriate to your OS below.</p>
 </div>
-<div class="tabset is-loading">
-<div class="ulist tabs">
-<ul>
-<li>
-<p><a id="tabset2_mac-os-x"></a>Mac OS X</p>
-</li>
-<li>
-<p><a id="tabset2_windows"></a>Windows</p>
-</li>
-<li>
-<p><a id="tabset2_linux"></a>Linux</p>
-</li>
-</ul>
 </div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Mac OS X</dt>
+<dd>
+<div class="openblock">
 <div class="content">
-<div class="tab-pane" aria-labelledby="tabset2_mac-os-x">
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -1123,7 +1122,12 @@ export HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
 </div>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset2_windows">
+</div>
+</dd>
+<dt class="hdlist1">Windows</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="paragraph">
 <p>Follow previous section&#8217;s instructions on how to set an Environment Variable on Windows. The variables you&#8217;ll need
 to set are:</p>
@@ -1147,7 +1151,12 @@ HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
 </div>
 </div>
 </div>
-<div class="tab-pane" aria-labelledby="tabset2_linux">
+</div>
+</dd>
+<dt class="hdlist1">Linux</dt>
+<dd>
+<div class="openblock">
+<div class="content">
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -1168,14 +1177,14 @@ export HTTPS_PROXY=http://proxy-server.mycorp.com:3128/</code></pre>
 </div>
 </div>
 </div>
+</dd>
+</dl>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+<div class="exampleblock">
+<div class="content">
+
+</div>
+</div>
 <div class="paragraph">
 <p>If the proxy is secured, make sure to use the following URL pattern, replacing the contents with the
 appropriate values:</p>
@@ -1186,10 +1195,9 @@ appropriate values:</p>
 <div class="paragraph">
 <p><em>Special Characters</em>: If your password contains special characters, you must replace them with ASCII codes, for example the at sign @ must be replaced by the %40 code, e.g. p@ssword = p%40ssword.</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
+<div class="exampleblock">
+<div class="content">
+
 </div>
 </div>
 </div>
