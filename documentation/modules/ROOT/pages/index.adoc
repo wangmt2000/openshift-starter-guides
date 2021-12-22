@@ -11,4 +11,4 @@ link:https://www.redhat.com/en/topics/containers/whats-a-linux-container-vb[Cont
 
 对于希望启动项目的开发人员, link:https://openshift.com/[OpenShift,window='_blank'] 提供简化的工作流程和经过验证的集成实现高效的应用程序开发。
 
-本实验附有link:https://dn.dev/openshift-workshop[dn.dev/openshift-workshop,window='_blank']提供的幻灯片 位于google doc :(
+本实验附有link:https://dn.dev/openshift-workshop[dn.dev/openshift-workshop,window='_blank']提供的幻灯片     位于google doc :(
