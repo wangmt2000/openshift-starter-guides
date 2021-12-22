@@ -1,4 +1,5 @@
-# OpenShift Starter Guides for Developers 面向开发人员的 OpenShift 入门指南 
+# OpenShift Starter Guides for Developers 面向开发人员的 OpenShift 入门指南
+Developer Sandbox for Red Hat OpenShift
 image::https://github.com/redhat-scholars/openshift-starter-guides/workflows/docs/badge.svg[docs]
 
 ## Overview
