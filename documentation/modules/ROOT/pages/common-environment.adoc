@@ -4,6 +4,8 @@
 image::common-environment-ocp-architecture.png[OpenShift Architecture]
 
 
+
+
 workshop在运行在公共云上的 OpenShift 环境中进行。环境由以下系统组成：
 * Master 节点
 * Worker节点或“应用程序”节点
