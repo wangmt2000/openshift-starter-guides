@@ -1,13 +1,13 @@
 = Parksmap Architecture
 :navtitle: Parksmap Architecture
 
-This lab introduces you to the architecture of the ParksMap application used throughout this workshop, to get a better understanding of the things you'll be doing from a developer perspective. ParksMap is a polyglot geo-spatial data visualization application built using the microservices architecture and is composed of a set of services which are developed using different programming languages and frameworks.
+本实验将向您介绍整个研讨会中使用的 ParksMap 应用程序的体系结构，以便从开发人员的角度更好地了解您将要做的事情。ParksMap 是一个使用微服务架构构建的多语言地理空间数据可视化应用程序，由一组使用不同编程语言和框架开发的服务组成。
 
 image::roadshow-app-architecture.png[Application architecture,800,align="center"]
 
-The main service is a web application which has a server-side component in charge of aggregating the geo-spatial APIs provided by multiple independent backend services and a client-side component in JavaScript that is responsible for visualizing the geo-spatial data on the map. The client-side component which runs in your browser communicates with the server-side via WebSockets protocol in order to update the map in real-time.
+主服务是一个 Web 应用程序，它有一个服务器端组件负责聚合多个独立后端服务提供的地理空间 API，还有一个 JavaScript 客户端组件负责在地图上可视化地理空间数据. 在浏览器中运行的客户端组件通过 WebSockets 协议与服务器端通信，以便实时更新地图。
 
-There will be a set of independent backend services deployed that will provide different mapping and geo-spatial information. The set of available backend services that provide geo-spatial information are:
+我们将部署一组独立的后端服务，提供不同的地图和地理空间信息。提供地理空间信息的一组可用后端服务包括：
 
 * WorldWide National Parks
 * Major League Baseball Stadiums in North America
