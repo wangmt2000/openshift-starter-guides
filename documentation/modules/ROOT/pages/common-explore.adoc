@@ -62,7 +62,6 @@ image::devsandbox-form1.png[Add Cluster Subdomain]
 
 image::devsandbox-form2.png[Add Project Name]
 
-Go to the top menu of this Lab guide, and paste the copied project name into the second textfield, where there is **Enter Project Name**.
 转到本实验室指南的顶部菜单，并将复制的项目名称粘贴到第二个文本字段中，其中有**Enter Project Name**字样
 
 按Enter键提交.
@@ -75,7 +74,7 @@ image::devsandbox-forms_ok.png[Lab Guide OK]
 
 image::prerequisites_overview.png[Web Console Overview]
 
-本次实验环境Developer Sandbox for Red Hat OpenShift 4.9 已经自带cli工具。后面内容跳过。
+本次实验环境Developer Sandbox for Red Hat OpenShift 4.9 已经自带cli工具。在沙盒界面最顶端右侧，点击cli工具按钮，将会加载cli工具。后面内容跳过。
 
 [#command_line_interface]
 == Command Line Interface
