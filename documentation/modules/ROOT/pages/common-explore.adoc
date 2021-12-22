@@ -47,7 +47,7 @@ image::devsandbox-topology-view.png[Topology View]
 * `<your_username>-dev`
 * `<your_username>-stage`
 
-在此共享环境中, 1、您**不能**创建新项目 此环境不支持Pipelines Operator,所以您需要跳过 the xref:prerequisites.adoc#openshift_pipelines[OpenShift Pipelines,role='params-link',window='_blank'] .
+在此共享环境中, 1、您**不能**创建新项目，请跳过创建您的第一个项目章节；2此环境不支持Pipelines Operator,所以您需要跳过 the xref:prerequisites.adoc#openshift_pipelines[OpenShift Pipelines,role='params-link',window='_blank'] 章节.
 
 请在`<your_username>-dev` project下操作.
 ****
