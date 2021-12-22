@@ -6,37 +6,34 @@
 image::roadshow-app-architecture-parksmap-1.png[Application architecture,800,align="center"]
 
 [#deploy_your_first_image]
-== Exercise: Deploying your First Image练习
+== 练习: 部署您的第一个镜像 Deploying your First Image
 
-Let's start by doing the simplest thing possible - get a plain old
-Docker-formatted image to run on OpenShift. This is incredibly simple to do.
-With OpenShift it can be done directly from the web console.
+让我们从做最简单的事情开始 - 获取一个Docker 格式的图像以在 OpenShift 上运行。这非常简单。使用 OpenShift，它可以直接从 Web 控制台完成。
 
-Return to the https://console-openshift-console.%CLUSTER_SUBDOMAIN%/k8s/cluster/projects[Web Console, role='params-link', window='_blank'].
+返回到 https://console-openshift-console.%CLUSTER_SUBDOMAIN%/k8s/cluster/projects[Web Console, role='params-link', window='_blank'].
 
-If you're no longer on the Developer perspective, return there now. 
+如果您不再处于开发人员视角，请立即返回。
 
-From the left menu, click *+Add*. You will see a screen where you have multiple options to deploy application to OpenShift. Click *Container Image* to open a dialog that will allow you to specify the information for the image you want to deploy.
+从左侧菜单中，单击+添加。您将看到一个屏幕，您可以在其中使用多个选项将应用程序部署到 OpenShift。点击*容器镜像*  *Container Image* 打开一个对话框，您可以在其中指定要部署的映像的信息。
 
 image::parksmap-devconsole-container-image.png[Add from Container Image]
 
-In the *Image Name* field, copy/paste the following into the box:
-
+在镜像名称字段中，将以下内容复制/粘贴到框中：
 
 [source,role=copypaste,subs="+macros,+attributes"]
 ----
 {parksmap-image}:{parksmap-version}
 ----
 
-OpenShift will then go out to the container registry specified and interrogate the image.
+然后OpenShift将转到指定的容器注册表并查询图像。
 
-Your screen will end up looking something like this:
+您的屏幕最终将看起来像这样：
 
 image::parksmap-image.png[Explore Project]
 
-In *Runtime Icon* you can select the icon to use in OpenShift Topology View for the app. You can leave the default OpenShift icon, or since this Frontend is made with Spring Boot, you can pick *spring-boot*.
+在运行时图标*Runtime Icon*中，您可以选择要在应用程序的 OpenShift 拓扑视图中使用的图标。你可以保留默认的 OpenShift 图标，或者因为这个前端是用 Spring Boot 制作的，你可以选择spring-boot。
 
-Make sure to have the correct values in:
+确保在以下位置变量数值正确：
 
 *Application Name* :
 [source,role=copypaste]
@@ -50,29 +47,29 @@ workshop
 parksmap
 ----
 
-Ensure *Deployment* is selected from *Resource* section.
+确保从资源*Resource*部分选择部署*Deployment* 。
 
-NOTE: We will discuss in details about *Deployment* and *DeploymentConfig* in next chapters.
+NOTE: 我们将在下一章详细讨论Deployment和DeploymentConfig。
 
-*Un-check* the checkbox next to *Create a route to the application*. For learning purposes, we will create a *Route* for the application later in the workshop.
+取消选中Create a route to the application旁边的复选框。出于学习目的，我们将在实验的稍后部分为应用程序创建一个路由。
 
-At the bottom of the page, click *Labels* in the Advanced Options section and add some labels to better identify this deployment later. Labels will help us identify and filter components in the web console and in the command line.
+在页面的底部，点击标签在高级选项部分，并添加一些标签*Labels*以后更好地识别此部署。标签将帮助我们在 Web 控制台和命令行中识别和过滤组件。
 
-We will add 3 labels. After you enter the name=value pair for each label, press kbd:[Return] (or kbd:[Enter] depending on your keyboard) before typing the next. The first label that we'll enter  is the name to be given to the application.
+我们将添加 3 个标签 为每个标签输入名称=值对后，在键入下一个标签前, 按 kbd:[Return] (或 kbd:[Enter] 取决于您的键盘) 以输入下一个标签。我们将输入的第一个标签是应用程序的名称：
 
 [source,role=copypaste]
 ----
 app=workshop
 ----
 
-Next the name of this deployment.
+接下来是此部署deployment的名称。
 
 [source,role=copypaste]
 ----
 component=parksmap
 ----
 
-And finally, the role this component plays in the overall application.
+最后，标记这个组件在整个应用程序中扮演的角色
 
 [source,role=copypaste]
 ----
@@ -82,7 +79,7 @@ role=frontend
 
 image::parksmap-image-options.png[Deploy image]
 
-Next, click the blue *Create* button. You will be directed to the *Topology* page, where you should see the visualization for the `parksmap` deployment config in the `workshop` application.
+接下来，单击蓝色的创建按钮。您将被定向到拓扑页面，您应该在其中看到应用程序中parksmap部署配置的可视化workshop。
 
 image::parksmap-dc-topology.png[Topology View with Parksmap]
 
@@ -90,6 +87,7 @@ These few steps are the only ones you need to run to get a
 container image deployed on OpenShift. This should work with any
 container image that follows best practices, such as defining an EXPOSE
 port, not needing to run specifically as the *root user* or other user name, and a single non-exiting CMD to execute on start.
+您在 OpenShift 上部署容器映像只需要这几个步骤。这应该适用于任何遵循最佳实践的容器镜像，例如定义一个 EXPOSE 端口，不需要专门作为root 用户或其他用户名运行，以及在启动时执行的单个非退出 CMD。
 
 NOTE: Providing appropriate labels is desired when deploying complex applications for organization purposes. OpenShift uses a label *app* to define and group components together in the Overview page. OpenShift will create this label with some default if the user doesn't provide it explicitly.
 
