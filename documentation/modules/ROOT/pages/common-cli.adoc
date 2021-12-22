@@ -1,4 +1,4 @@
-= Command Line Interface 命令行工具 （本次实验环境基于Developer Sandbox for Red Hat OpenShift4.9自带cli工具）
+= Command Line Interface 命令行工具 （本次实验环境基于Developer Sandbox for Red Hat OpenShift4.9自带cli工具，本章节操作环节跳过，只做参考）
 :navtitle: Command Line Interface
 
 OpenShift ships with a feature rich web console as well as command line tools
