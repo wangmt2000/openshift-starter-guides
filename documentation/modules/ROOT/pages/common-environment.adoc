@@ -1,6 +1,4 @@
-= OpenShift实验环境概述:
-
-navtitle: OpenShift Architecture
+= OpenShift实验环境概述:navtitle: OpenShift Architecture
 
 image::common-environment-ocp-architecture.png[OpenShift Architecture]
 
