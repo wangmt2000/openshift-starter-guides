@@ -48,7 +48,7 @@ image::devsandbox-topology-view.png[Topology View]
 
 要继续使用实验手册实验，请执行以下操作：
 
-1 - 如上图所示，复制您的集群子域，第1部分，例如apps.sandbox-m2.ll9k.p1.openshiftapps.com. 这用于在实验手册中自动生成所有 URL。
+1 - 如上图所示，复制**您的**集群子域，第1部分，**例如**apps.sandbox-m2.ll9k.p1.openshiftapps.com. 这用于在实验手册中自动生成所有 URL。
 
 image::devsandbox-topology.png[Topology Detail]
 
@@ -56,9 +56,9 @@ image::devsandbox-topology.png[Topology Detail]
 
 image::devsandbox-form1.png[Add Cluster Subdomain]
 
-Press **Enter** to Submit.
+按Enter键提交.
 
-2 - Copy the project name of your Developer Sandbox as shown in the image above, part **2** e.g. `user-dev`. This is also used to generate automatically all URLs and instructions during the workshop.
+2 - 复制**您的**开发人员沙箱的项目名称，如上图所示，第2部分，**例如**nvinto-dev. 这也用于在实验手册中生成 URL 和说明。
 
 image::devsandbox-form2.png[Add Project Name]
 
