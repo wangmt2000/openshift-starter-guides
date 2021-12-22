@@ -1,11 +1,10 @@
 # OpenShift Starter Guides for Developers 面向开发人员的 OpenShift 入门指南
-### 原版实验环境支持IBM、Developer Sandbox for Red Hat OpenShift、CodeReady Containers等环境，本实验改为只支持Developer Sandbox for Red Hat OpenShift
-另外CodeReady Containers运行实验的话，系统
-至少8核32G内存。
+### 
+原版实验环境支持IBM、Developer Sandbox for Red Hat OpenShift、CodeReady Containers等环境，本实验改为只支持Developer Sandbox for Red Hat OpenShift
+另外CodeReady Containers运行实验的话，系统至少8核24G内存才比较流畅。
 
 
 
-image::https://github.com/redhat-scholars/openshift-starter-guides/workflows/docs/badge.svg[docs]
 
 ## Overview
 
