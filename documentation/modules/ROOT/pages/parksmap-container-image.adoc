@@ -85,7 +85,10 @@ image::parksmap-dc-topology.png[Topology View with Parksmap]
 
 您在 OpenShift 上部署容器映像只需要这几个步骤。这应该适用于任何遵循最佳实践的容器镜像，例如定义一个 EXPOSE 端口，不需要专门作为root 用户或其他用户名运行，以及在启动容器时执行非退出命令。
 
-翻译附注：由于openshift在安全、功能等方面在k8s基础上做了很多修改及增强，所以强烈建议参考红帽openshift官方文档，《学习容器最佳实践》部分https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/images/creating-images#images-create-guidelines_create-images（您需要红帽订阅或免费申请红帽开发者账号）
+[NOTE]
+====
+翻译附注：由于openshift在安全、功能等方面在k8s基础上做了很多修改及增强，所以强烈建议参考红帽openshift官方文档，《学习容器最佳实践》章节，（您可能需要红帽订阅或免费申请红帽开发者账号）https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/images/creating-images#images-create-guidelines_create-images
+====
 
 
 
@@ -107,26 +110,25 @@ __
 Pod可以包含多个 OCI 容器。总体思路是让Pod包含一个“主进程”以及您希望与该进程一起运行的任何辅助服务。例如您可以在Pod中放置的容器包括Apache HTTPD 服务器、日志分析器和帮助管理上传文件的文件服务。
 
 [#examining_the_pod]
-== Exercise: Examining the Pod
+== 练习：查看 Pod信息
 
-If you click on the `parksmap` entry in the Topology view, you will see some information about that deployment config. The *Resources* tab may be displayed by default. If so, click on the *Details* tab. 
+如果单击parksmap拓扑视图中的条目，您将看到有关该部署配置的一些信息。在资源选项卡可能被默认显示。如果是这样，请单击“详细信息”选项卡。
 
 image::switchtoresources.png[Details Tab image]
 
-On that panel, you will see that there is a single *Pod* that was created by your actions.
+在该面板上，您将看到有一个由您的操作创建的Pod。
 
 image::parksmap-overview.png[Pod overview]
 
-NOTE: You'll notice in this view an info box suggesting to add Health checks for our app. We will discuss it in details later, so for the moment you can just close this info box by clicking on the top-right X icon.
+NOTE: 您会在此视图中注意到一个信息框，建议为我们的应用添加健康检查。我们将在稍后详细讨论它，因此目前您只需单击右上角的 X 图标即可关闭此信息框。
 
-You can also get a list of all the *Pods* created within your *Project*, by navigating to *Workloads -> Pods* in the *Administrator perspective* of the web console.
+您还可以通过导航到Web控制台的管理员视图下的工作负载→Pods来获取项目中创建的所有Pods的列表。
 
 image::parksmap-podlist.png[Pod list]
 
-This *Pod* contains a single container, which
-happens to be the `parksmap` application - a simple Spring Boot/Java application.
+此Pod包含一个容器，parksmap应用程序——一个简单的Spring Boot/Java应用程序。
 
-You can also examine *Pods* from the command line:
+您还可以从命令行检查Pod：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -134,7 +136,7 @@ You can also examine *Pods* from the command line:
 oc get pods
 ----
 
-You should see output that looks similar to:
+您应该会看到类似于以下内容的输出：
 
 [.console-output]
 [source,bash]
@@ -143,15 +145,11 @@ NAME                READY   STATUS      RESTARTS   AGE
 parksmap-65c4f8b676-k5gkk    1/1     Running     0          20s
 ----
 
-The above output lists all of the *Pods* in the current *Project*, including the
-*Pod* name, state, restarts, and uptime.
+上述输出列出了当前项目中的所有Pod，包括Pod名称、状态、重新启动和正常运行时间。
 
-Once you have a *Pod*'s name, you can
-get more information about the *Pod* using the `oc get` command.  To make the
-output readable, I suggest changing the output type to *YAML* using the
-following syntax:
+获得Pod名称后，您可以使用oc get命令获取有关Pod的更多信息。为了使输出可读，我建议使用以下语法将输出类型更改为YAML：
 
-NOTE: Make sure you use the correct *Pod* name from your output.
+NOTE: 确保您使用了刚刚屏幕输出中的正确Pod名称。
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -159,8 +157,7 @@ NOTE: Make sure you use the correct *Pod* name from your output.
 oc get pod parksmap-1-gxbgq -o yaml
 ----
 
-You should see something like the following output (which has been truncated due
-to space considerations of this workshop manual):
+您应该会看到类似于以下输出的内容（由于本实验手册的篇幅原因已被截断）：
 
 [source,text]
 ----
@@ -201,37 +198,31 @@ metadata:
 ...............
 ----
 
-The web interface also shows a lot of the same information on the *Pod* details
-page. If you click on the name of the *Pod*, you will
-find the details page. You can also get there by clicking on the `parksmap` deployment config on the *Topology* page, selecting *Resources*, and then clicking the *Pod* name.
+Web 界面还在Pod详细信息页面上显示了许多相同的信息。如果您点击Pod的名称，您将找到详细信息页面。您还可以通过单击拓扑 Topology 页面上的parksmap部署配置，选择 资源 Resources，然后单击Pod名称来到达那里。
 
 image::parksmap-dc-resources.png[Parksmap Resources]
 
-From here you can see configuration, metrics, environment variables, logs, events and get a Terminal shell on the running pod.
+从这里您可以看到配置、指标、环境变量、日志、事件，并可以在正在运行的 pod 上获取终端 shell。
 
 image::parksmap-pod.png[Pod Details]
 
 image::parksmap-pod-events.png[Pod Events]
 
-Getting the `parksmap` image running may take a little while to complete. Each
-OpenShift node that is asked to run the image has to pull (download) it, if the
-node does not already have it cached locally. You can check on the status of the
-image download and deployment in the *Pod* details page, or from the command
-line with the `oc get pods` command that you used before.
+获取parksmap 镜像运行，可能需要一段时间才能完成。如果节点尚未在本地缓存它，则要求运行该映像的每个 OpenShift 节点都必须拉取（下载）它。您可以在Pod详细信息页面中查看映像下载和部署的状态，也可以使用之前使用的命令oc get pods从命令行查看。
 
-The default view in the *Developer* console is *Graph View*. You can switch between *Graph* and *List* views by using the toggle in the top right of the console.
+Developer控制台中的默认视图是Graph View。您可以使用控制台右上角的切换按钮在图表和列表视图之间切换。
 
 image::nationalparks-listview.png[List View Toggle]
 
 image::nationalparks-graphview.png[Topology View Toggle]
 
 [#customizing_image_lifecycle_behavior]
-== Background: Customizing the Image Lifecycle Behavior
+== 背景：自定义图像生命周期行为
 
-Whenever OpenShift asks the node's CRI (Container Runtime Interface) runtime (Docker daemon or CRI-O) to run an image, the runtime will check to make sure it has the right "version" of the image to run.
-If it doesn't, it will pull it from the specified registry.
+每当 OpenShift 要求节点的 CRI（容器运行时接口）运行时（Docker 守护程序或 CRI-O）运行映像时，运行时都会检查以确保它具有要运行的正确“版本”映像。如果没有，它将从指定的镜像仓库中提取它。
 
-There are a number of ways to customize this behavior. They are documented in
+
+有多种方法可以自定义此行为。它们记录在 指定映像 以及 映像拉取策略中。
 {openshift-docs-url}/applications/application_life_cycle_management/creating-applications-using-cli.html#applications-create-using-cli-image_creating-applications-using-cli[specifying an image]
 as well as
 {openshift-docs-url}/openshift_images/managing_images/image-pull-policy.html[image pull policy].
