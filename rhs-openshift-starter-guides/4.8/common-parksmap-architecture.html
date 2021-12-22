@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Parksmap Architecture :: OpenShift Starter Guides</title>
+    <title>Parksmap 程序的系统架构 :: OpenShift Starter Guides</title>
     <link rel="canonical" href="http://redhat-scholars.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.8/common-parksmap-architecture.html">
     <link rel="prev" href="projects.html">
     <link rel="next" href="parksmap-container-image.html">
@@ -566,7 +566,7 @@
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Parksmap Architecture</h1>
+<h1 class="page">Parksmap 程序的系统架构</h1>
 <div class="paragraph">
 <p>本实验将向您介绍整个研讨会中使用的 ParksMap 应用程序的体系结构，以便从开发人员的角度更好地了解您将要做的事情。ParksMap 是一个使用微服务架构构建的多语言地理空间数据可视化应用程序，由一组使用不同编程语言和框架开发的服务组成。</p>
 </div>
@@ -584,18 +584,18 @@
 <div class="ulist">
 <ul>
 <li>
-<p>WorldWide National Parks</p>
+<p>WorldWide National Parks （全球国家公园）</p>
 </li>
 <li>
-<p>Major League Baseball Stadiums in North America</p>
+<p>Major League Baseball Stadiums in North America （北美大联盟棒球场）</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The original source code for this application is located <a href="https://github.com/openshift-roadshow/">here</a>.</p>
+<p>此应用程序的原始源代码位于 <a href="https://github.com/openshift-roadshow/">这里</a>.</p>
 </div>
 <div class="paragraph">
-<p>The server-side component of the ParksMap web application acts as a communication gateway to all the available backends. These backends will be dynamically discovered by using service discovery mechanisms provided by OpenShift which will be discussed in more details in the following labs.</p>
+<p>ParksMap Web 应用程序的服务器端组件充当所有可用后端的通信网关。这些后端将使用 OpenShift 提供的服务发现机制动态发现，将在以下实验中进行更详细的讨论。</p>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="projects.html" class="query-params-link">Projects</a></span>
