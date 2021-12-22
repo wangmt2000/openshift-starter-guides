@@ -9,7 +9,7 @@ OpenShift 附带一个基于 Web 的控制台，允许用户通过浏览器执�
 
 Sandbox::
 
-https://developers.redhat.com/developer-sandbox[Developer Sandbox for Red Hat OpenShift,window='_blank'] is a free Kubernetes cloud environment in a shared, multi-tenant OpenShift cluster that is pre-configured with a set of developer tools. The Developer Sandbox is active for 30 days and renewable once it expires. 
+https://developers.redhat.com/developer-sandbox[Developer Sandbox for Red Hat OpenShift,window='_blank'] 适用于 Red Hat OpenShift 的开发人员沙箱是一个免费的 Kubernetes 云环境，位于共享的多租户 OpenShift 集群中，该集群预配置了一组开发人员工具。开发者沙盒有效期为 30 天，到期后可更新。
 
 To create your account, register to https://developers.redhat.com/developer-sandbox[Developer Sandbox for Red Hat OpenShift,window='_blank']. From there, click on the red button that says **Get Started in the Sandbox** as shown in the following image.
 
