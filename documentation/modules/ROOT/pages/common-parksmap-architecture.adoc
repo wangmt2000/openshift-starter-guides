@@ -14,4 +14,4 @@ image::roadshow-app-architecture.png[Application architecture,800,align="center"
 
 此应用程序的原始源代码位于 link:https://github.com/openshift-roadshow/[这里].
 
-ParksMap Web 应用程序的服务器端组件充当所有可用后端的通信网关。这些后端将使用 OpenShift 提供的服务发现机制动态发现，将在以下实验中进行更详细的讨论。
+ParksMap Web 应用程序的服务器端组件充当所有可用后端的通信网关。这些后端将使用 OpenShift 提供的服务发现机制动态发现，将在下面实验中进行更详细的讨论。
