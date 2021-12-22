@@ -1,39 +1,8 @@
 # OpenShift Starter Guides for Developers 面向开发人员的 OpenShift 入门指南
 ### 
 
-原版实验环境支持IBM、Developer Sandbox for Red Hat OpenShift、CodeReady Containers等环境，本实验改为只支持Developer Sandbox for Red Hat OpenShift
+原版实验环境支持IBM、Developer Sandbox for Red Hat OpenShift、CodeReady Containers等环境，本实验改为只支持Developer Sandbox for Red Hat OpenShift。
 另外CodeReady Containers运行实验的话，系统至少8核24G内存才比较流畅。
-
-
-
-
-## Overview
-
-|===
-|| 
-
-|Audience Experience Level
-|Beginner
-
-|Average Time to Complete	
-|90 minutes
-|===
-
-
-This workshop is intended to give you a hands on introduction to using https://openshift.com[OpenShift] from the perspective of a Developer. 
-
-https://www.redhat.com/en/topics/containers/whats-a-linux-container-vb[Containers] are a standardized way to package apps with all of their dependencies to simplify deployment and speed delivery. Unlike virtual machines, containers do not bundle to the operating system. Only the application code, run time, libraries, and settings are packaged inside of containers. Thus, containers are more lightweight, portable, and efficient as compared to virtual machines.
-
-For developers looking to kickstart their projets, OpenShift enables efficient application development through streamlined workflows and validated integrations.
-
-You can run this Lab on any OpenShift cluster, either Managed and Self-Managed, just git it a https://www.redhat.com/en/technologies/cloud-computing/openshift/try-it[try,window=_blank]!
-
-* OCP
-* Developer Sandbox
-* CRC
-* ARO
-* ROKS
-* ROSA
 
 本次研讨会旨在从开发人员的角度向您介绍如何使用OpenShift。
 
