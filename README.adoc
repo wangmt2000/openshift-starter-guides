@@ -35,7 +35,7 @@ image::topology.gif[Workshop Topology]
 
 
 
-#以下文档全部指向github上原版实验文档
+#以下链接全部指向github上原版实验文档
 
 
 ## Documentation
