@@ -71,8 +71,6 @@ Go to the top menu of this Lab guide, and paste the copied project name into the
 
 image::devsandbox-forms_ok.png[Lab Guide OK]
 
-====
-
 通常，第一次访问 Web 控制台时，您很可能处于管理员视角。如果您也是集群管理员，您将看到整个集群状态的概览：
 
 image::prerequisites_overview.png[Web Console Overview]
