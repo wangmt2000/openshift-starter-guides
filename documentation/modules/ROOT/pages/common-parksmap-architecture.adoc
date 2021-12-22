@@ -1,4 +1,4 @@
-= Parksmap Architecture
+= Parksmap 程序的系统架构
 :navtitle: Parksmap Architecture
 
 本实验将向您介绍整个研讨会中使用的 ParksMap 应用程序的体系结构，以便从开发人员的角度更好地了解您将要做的事情。ParksMap 是一个使用微服务架构构建的多语言地理空间数据可视化应用程序，由一组使用不同编程语言和框架开发的服务组成。
@@ -9,9 +9,9 @@ image::roadshow-app-architecture.png[Application architecture,800,align="center"
 
 我们将部署一组独立的后端服务，提供不同的地图和地理空间信息。提供地理空间信息的一组可用后端服务包括：
 
-* WorldWide National Parks
-* Major League Baseball Stadiums in North America
+* WorldWide National Parks （全球国家公园）
+* Major League Baseball Stadiums in North America （北美大联盟棒球场）
 
-The original source code for this application is located link:https://github.com/openshift-roadshow/[here].
+此应用程序的原始源代码位于 link:https://github.com/openshift-roadshow/[这里].
 
-The server-side component of the ParksMap web application acts as a communication gateway to all the available backends. These backends will be dynamically discovered by using service discovery mechanisms provided by OpenShift which will be discussed in more details in the following labs.
+ParksMap Web 应用程序的服务器端组件充当所有可用后端的通信网关。这些后端将使用 OpenShift 提供的服务发现机制动态发现，将在以下实验中进行更详细的讨论。
