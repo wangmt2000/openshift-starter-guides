@@ -52,7 +52,7 @@ image::devsandbox-topology-view.png[Topology View]
 
 image::devsandbox-topology.png[Topology Detail]
 
-Go to the top menu of this Lab guide, and paste the copied hostname into the first textfield, where there is **Enter Cluster Subdomain**.
+转到本实验室指南的顶部菜单，并将复制的主机名粘贴到第一个文本字段中，其中有**Enter Cluster Subdomain**字样。
 
 image::devsandbox-form1.png[Add Cluster Subdomain]
 
