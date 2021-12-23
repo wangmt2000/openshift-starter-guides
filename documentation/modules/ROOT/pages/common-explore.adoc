@@ -86,6 +86,11 @@ image::prerequisites_overview.png[Web Console Overview]
 [#command_line_interface]
 == Command Line Interface
 
+[NOTE]
+====
+配置CLI工具请参考link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/cli_tools/cli-tools-overview[官方文档]
+====
+
 OpenShift ships with a feature rich web console as well as command line tools
 to provide users with a nice interface to work with applications deployed to the
 platform.  The OpenShift tools are a single executable written in the Go
