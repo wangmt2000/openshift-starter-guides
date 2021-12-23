@@ -921,7 +921,7 @@ metadata:
 <p>每当 OpenShift 要求节点的 CRI（容器运行时接口）运行时（Docker 守护程序或 CRI-O）运行映像时，运行时都会检查以确保它具有要运行的正确“版本”映像。如果没有，它将从指定的镜像仓库中提取它。</p>
 </div>
 <div class="paragraph">
-<p>有多种方法可以自定义此行为。它们记录在
+<p>有多种方法可以自定义此行为。相关文档在
 <a href="https://docs.openshift.com/container-platform/4.8/applications/application_life_cycle_management/creating-applications-using-cli.html#applications-create-using-cli-image_creating-applications-using-cli">指定镜像</a>
 和
 <a href="https://docs.openshift.com/container-platform/4.8/openshift_images/managing_images/image-pull-policy.html">镜像拉取策略</a>.</p>
@@ -929,38 +929,23 @@ metadata:
 </div>
 </div>
 <div class="sect1">
-<h2 id="services"><a class="anchor" href="#services"></a>Background: Services</h2>
+<h2 id="services"><a class="anchor" href="#services"></a>背景: 服务 Services</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Services</strong> provide a convenient abstraction layer inside OpenShift to find a
-group of similar <strong>Pods</strong>. They also act as an internal proxy/load balancer between
-those <strong>Pods</strong> and anything else that needs to access them from inside the
-OpenShift environment. For example, if you needed more <code>parksmap</code> instances to
-handle the load, you could spin up more <strong>Pods</strong>. OpenShift automatically maps
-them as endpoints to the <strong>Service</strong>, and the incoming requests would not notice
-anything different except that the <strong>Service</strong> was now doing a better job handling
-the requests.</p>
+<p>服务在 OpenShift 内部提供了一个方便的抽象层来查找一组相似的Pod。它们还充当这些Pod与需要从 OpenShift 环境内部访问它们的任何其他内容之间的内部代理/负载平衡器。例如，如果您需要更多parksmap实例来处理负载，则可以启动更多Pod。OpenShift 自动将它们作为端点映射到Service，传入的请求不会注意到任何不同，除了Service现在在处理请求方面做得更好。</p>
 </div>
 <div class="paragraph">
-<p>When you asked OpenShift to run the image, it automatically created a <strong>Service</strong>
-for you. Remember that services are an internal construct. They are not
-available to the "outside world", or anything that is outside the OpenShift
-environment. That&#8217;s okay, as you will learn later.</p>
+<p>当您要求 OpenShift 运行映像时，它会自动 为您创建一个服务。请记住，服务是一种内部构造。它们不可用于“外部世界”或 OpenShift 环境之外的任何内容。没关系，稍后您将了解。</p>
 </div>
 <div class="paragraph">
-<p>The way that a <strong>Service</strong> maps to a set of <strong>Pods</strong> is via a system of <strong>Labels</strong> and
-<strong>Selectors</strong>. <strong>Services</strong> are assigned a fixed IP address and many ports and
-protocols can be mapped.</p>
+<p>服务映射一组POD是通过标签*Labels*和选择器*Selectors*。服务被分配了一个固定的 IP 地址，并且可以映射许多端口和协议。</p>
 </div>
 <div class="paragraph">
-<p>There is a lot more information about
-<a href="https://docs.openshift.com/container-platform/4.8/architecture/understanding-development.html#understanding-kubernetes-pods">Services</a>,
-including the YAML format to make one by hand, in the official documentation.</p>
+<p>更多的关于服务的信息，包括手动通过YAML格式创建服务，请参考官方文档
+<a href="https://docs.openshift.com/container-platform/4.8/architecture/understanding-development.html#understanding-kubernetes-pods">Services</a>,</p>
 </div>
 <div class="paragraph">
-<p>Now that we understand the basics of what a <strong>Service</strong> is, let&#8217;s take a look at
-the <strong>Service</strong> that was created for the image that we just deployed. In order to
-view the <strong>Services</strong> defined in your <strong>Project</strong>, enter in the following command:</p>
+<p>现在我们了解了Service的基础知识，让我们看一下为我们刚刚部署的映像创建的Service。要查看在您的项目中定义的服务，请输入以下命令：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -968,7 +953,7 @@ view the <strong>Services</strong> defined in your <strong>Project</strong>, ent
 </div>
 </div>
 <div class="paragraph">
-<p>You should see output similar to the following:</p>
+<p>您应该会看到类似于以下内容的输出：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -977,13 +962,10 @@ parksmap   ClusterIP   172.30.22.209  &lt;none&gt;        8080/TCP   3h</code></
 </div>
 </div>
 <div class="paragraph">
-<p>In the above output, we can see that we have a <strong>Service</strong> named <code>parksmap</code> with an
-IP/Port combination of 172.30.22.209/8080TCP. Your IP address may be different, as
-each <strong>Service</strong> receives a unique IP address upon creation. <strong>Service</strong> IPs are
-fixed and never change for the life of the <strong>Service</strong>.</p>
+<p>在上面的输出，我们可以看到，我们有一个服务命名parksmap与172.30.22.209/8080TCP的IP /端口组合。您的 IP 地址可能不同，因为每项服务在创建时都会收到一个唯一的 IP 地址。服务IP 是固定的，在服务的生命周期内永远不会改变。</p>
 </div>
 <div class="paragraph">
-<p>In the Developer perspective from the <strong>Topology</strong> view, service information is available by clicking the <code>parksmap</code> deployment config, then <strong>Resources</strong>, and then you should see the <code>parksmap</code> entry in the <strong>Services</strong> section.</p>
+<p>在来自Topology视图的 Developer 透视图中，通过单击parksmap部署配置，然后单击Resources可以获得服务信息，然后您应该会看到Services部分中的parksmap条目。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -991,8 +973,7 @@ fixed and never change for the life of the <strong>Service</strong>.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also get more detailed information about a <strong>Service</strong> by using the
-following command to display the data in YAML:</p>
+<p>您还可以通过使用以下命令在 YAML 中显示数据来获取有关服务service的更多详细信息：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -1000,7 +981,7 @@ following command to display the data in YAML:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see output similar to the following:</p>
+<p>您应该会看到类似于以下内容的输出：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -1039,10 +1020,10 @@ status:
 </div>
 </div>
 <div class="paragraph">
-<p>Take note of the <code>selector</code> stanza. Remember it.</p>
+<p>请注意YAML中的`selector` 标签选择器， 记住它</p>
 </div>
 <div class="paragraph">
-<p>Alternatively, you can use the web console to view information about the <strong>Service</strong> by clicking on it from the previous screen.</p>
+<p>或者，您可以使用 Web 控制台通过单击上一屏幕中的服务来查看有关服务的信息。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1050,9 +1031,7 @@ status:
 </div>
 </div>
 <div class="paragraph">
-<p>It is also of interest to view the YAML of the <strong>Pod</strong> to understand how OpenShift
-wires components together. For example, run the following command to get the
-name of your <code>parksmap</code> <strong>Pod</strong>:</p>
+<p>查看Pod的 YAML以了解 OpenShift 如何将组件连接在一起也很有趣。例如，运行以下命令以获取parksmap Pod的名称：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -1060,7 +1039,7 @@ name of your <code>parksmap</code> <strong>Pod</strong>:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see output similar to the following:</p>
+<p>您应该会看到类似于以下内容的输出：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -1069,7 +1048,7 @@ parksmap-65c4f8b676-k5gkk   1/1     Running   0          5m12s</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now you can view the detailed data for your <strong>Pod</strong> with the following command:</p>
+<p>现在您可以使用以下命令查看Pod的详细数据：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -1077,7 +1056,7 @@ parksmap-65c4f8b676-k5gkk   1/1     Running   0          5m12s</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Under the <code>metadata</code> section you should see the following:</p>
+<p>在metadata部分下，您应该看到以下内容：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -1089,10 +1068,10 @@ parksmap-65c4f8b676-k5gkk   1/1     Running   0          5m12s</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>The <strong>Service</strong> has <code>selector</code> stanza that refers to <code>deploymentconfig=parksmap</code>.</p>
+<p>服务使用标签选择器 selector引用`deploymentconfig=parksmap`.</p>
 </li>
 <li>
-<p>The <strong>Pod</strong> has multiple <strong>Labels</strong>:</p>
+<p>POD有多个标签:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1107,9 +1086,7 @@ parksmap-65c4f8b676-k5gkk   1/1     Running   0          5m12s</code></pre>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Labels</strong> are just key/value pairs. Any <strong>Pod</strong> in this <strong>Project</strong> that has a <strong>Label</strong> that
-matches the <strong>Selector</strong> will be associated with the <strong>Service</strong>. To see this in
-action, issue the following command:</p>
+<p>标签是键/值对。此项目中具有与Selector匹配的Label 的任何Pod都将与Service相关联。要查看此操作，请键入以下命令：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -1117,7 +1094,7 @@ action, issue the following command:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see something like the following output:</p>
+<p>您应该会看到类似于以下输出的内容：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -1141,10 +1118,7 @@ Events:            &lt;none&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You may be wondering why only one endpoint is listed. That is because there is
-only one <strong>Pod</strong> currently running.  In the next lab, we will learn how to scale
-an application, at which point you will be able to see multiple endpoints
-associated with the <strong>Service</strong>.</p>
+<p>您可能想知道为什么只列出了一个Endpoints。这是因为当前只有一个Pod正在运行。在下一个实验中，我们将学习如何扩展应用程序，此时您将能够看到与Service关联的多个端点。</p>
 </div>
 </div>
 </div>
