@@ -7,7 +7,7 @@ Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户�
 
 [NOTE]
 ====
-在其他k8s发行版中，项目又被称做namespace。**使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节，我们将使用系统自动创建的项目来进行实验**，和其他k8s发行版不同，红帽在openshift上默认启用了安全上下文。dockerhub上root身份运行的容器镜像在openshift上将会直接报错。关于项目部分请参考link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/_projects#creating-a-project-using-the-web-console_projects[官方文档]。
+在其他k8s发行版中，项目又被称做namespace。**使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节，我们将使用系统自动创建的项目来进行实验**，和其他k8s发行版不同，红帽在openshift上默认启用了安全上下文。dockerhub上root身份运行的容器镜像在openshift上将会直接报错。如果您需要更深入的了解项目部分请参考link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/_projects#creating-a-project-using-the-web-console_projects[官方文档]。
 ====
 
 [#create_your_first_project]
