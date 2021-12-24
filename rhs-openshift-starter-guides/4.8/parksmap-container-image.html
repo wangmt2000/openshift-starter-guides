@@ -1121,6 +1121,33 @@ Events:            &lt;none&gt;</code></pre>
 <div class="paragraph">
 <p>您可能想知道为什么只列出了一个Endpoints。这是因为当前只有一个Pod正在运行。在下一个实验中，我们将学习如何扩展应用程序，此时您将能够看到与Service关联的多个端点。</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>ClusterIP
+集群内部的一个虚拟 IP，这个 IP 会绑定到一堆服务的 Group Pod 上面，这也是默认的服务方式。它的缺点是这种方式只能在 Node 内部也就是集群内部使用。</p>
+</div>
+<div class="paragraph">
+<p>NodePort
+供集群外部调用。将 Service 承载在 Node 的静态端口上，端口号和 Service 一一对应，那么集群外的用户就可以通过 &lt;NodeIP&gt;:&lt;NodePort&gt; 的方式调用到 Service。</p>
+</div>
+<div class="paragraph">
+<p>LoadBalancer
+给云厂商的扩展接口。像阿里云、亚马逊这样的云厂商都是有成熟的 LB 机制的，这些机制可能是由一个很大的集群实现的，为了不浪费这种能力，云厂商可通过这个接口进行扩展。它首先会自动创建 NodePort 和 ClusterIP 这两种机制，云厂商可以选择直接将 LB 挂到这两种机制上，或者两种都不用，直接把 Pod 的 RIP 挂到云厂商的 ELB 的后端也是可以的。</p>
+</div>
+<div class="paragraph">
+<p>ExternalName
+摈弃内部机制，依赖外部设施，比如某个用户特别强，他觉得我们提供的都没什么用，就是要自己实现，此时一个 Service 会和一个域名一一对应起来，整个负载均衡的工作都是外部实现的。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <nav class="pagination">
