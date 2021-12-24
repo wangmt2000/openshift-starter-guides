@@ -1,13 +1,11 @@
 = 系统需求
 :navtitle: Prerequisites
 
-为了在您的集群中运行实验室，您需要满足下面的要求。（您使用Developer Sandbox环境的话，系统已经是4.9，如果您使用CRC，目前最新版是4.8）
-[cols="2*^,2*.",options="header,+attributes"]
-|===
-|**Component**|**Version**
+为了运行实验，您需要满足下面的要求。
 
-| https://www.openshift.com/try[OpenShift]
-| `4.8`
-|===
+注册或拥有红帽开发者账号
 
-在后续的模块中，您将在需要时了解其他系统需求。
+一个手机号用于激活Developer Sandbox环境
+
+如果您使用CRC，需要CPU至少8核，内存24G以上，CRC版本至少是4.8
+
