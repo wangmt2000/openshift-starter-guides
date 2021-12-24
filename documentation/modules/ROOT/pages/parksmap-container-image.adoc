@@ -218,7 +218,7 @@ image::nationalparks-listview.png[List View Toggle]
 image::nationalparks-graphview.png[Topology View Toggle]
 
 [#customizing_image_lifecycle_behavior]
-== 背景：自定义图像生命周期行为
+== 背景：自定义镜像生命周期行为
 
 每当 OpenShift 要求节点的 CRI（容器运行时接口）运行时（Docker 守护程序或 CRI-O）运行映像时，运行时都会检查以确保它具有要运行的正确“版本”映像。如果没有，它将从指定的镜像仓库中提取它。
 
@@ -231,14 +231,20 @@ image::nationalparks-graphview.png[Topology View Toggle]
 [#services]
 == 背景: 服务 Services
 
-服务在 OpenShift 内部提供了一个方便的抽象层来查找一组相似的Pod。它们还充当这些Pod与需要从 OpenShift 环境内部访问它们的任何其他内容之间的内部代理/负载平衡器。例如，如果您需要更多parksmap实例来处理负载，则可以启动更多Pod。OpenShift 自动将它们作为端点映射到Service，传入的请求不会注意到任何不同，除了Service现在在处理请求方面做得更好。
+服务在 OpenShift 内部提供了一个方便的抽象层来查找一组相似的Pod。它们还充当这些Pod与需要从 OpenShift 环境内部访问它们的任何其他内容之间的内部代理/负载平衡器。例如，如果您需要更多parksmap实例来处理负载，则可以启动更多Pod。OpenShift 自动将它们作为端点映射到Service，传入的请求不会注意到任何不同.
 
 当您要求 OpenShift 运行映像时，它会自动 为您创建一个服务。请记住，服务是一种内部构造。它们不可用于“外部世界”或 OpenShift 环境之外的任何内容。没关系，稍后您将了解。
 
 服务映射一组POD是通过标签*Labels*和选择器*Selectors*。服务被分配了一个固定的 IP 地址，并且可以映射许多端口和协议。
 
 更多的关于服务的信息，包括手动通过YAML格式创建服务，请参考官方文档
-{openshift-docs-url}/architecture/understanding-development.html#understanding-kubernetes-pods[Services],
+{openshift-docs-url}/architecture/understanding-development.html#understanding-kubernetes-pods[Services]
+
+[NOTE]
+====
+在 K8s 集群里面会通过 pod 去部署应用，与传统的应用部署不同，传统应用部署在给定的机器上面去部署，我们知道怎么去调用别的机器的 IP 地址。但是在 K8s 集群里面应用是通过 pod 去部署的， 而 pod 生命周期是短暂的。在 pod 的生命周期过程中，比如它创建或销毁，它的 IP 地址都会发生变化，这样就不能使用传统的部署方式，不能指定 IP 去访问指定的应用。
+
+
 
 现在我们了解了Service的基础知识，让我们看一下为我们刚刚部署的映像创建的Service。要查看在您的项目中定义的服务，请输入以下命令：
 
@@ -404,3 +410,9 @@ LoadBalancer
 ExternalName
 摈弃内部机制，依赖外部设施，比如某个用户特别强，他觉得我们提供的都没什么用，就是要自己实现，此时一个 Service 会和一个域名一一对应起来，整个负载均衡的工作都是外部实现的。
 ====
+
+[NOTE]
+====
+在 K8s 里面，服务发现与负载均衡就是 K8s Service。K8s Service 向上提供了外部网络以及 pod 网络的访问，即外部网络可以通过 service 去访问，pod 网络也可以通过 K8s Service 去访问。当 pod 的生命周期有变化时，比如说其中一个 pod 销毁，service 就会自动从后端摘除这个 pod。这样实现了：就算 pod 的生命周期有变化，它访问的端点是不会发生变化的，集群内部可以通过service 的虚拟 IP，直接访问服务名（依靠 DNS 解析），通过环境变量访问三种方式访问services，link:https://edu.aliyun.com/lesson_1651_18362#_18362[扩展阅读]
+====
+
