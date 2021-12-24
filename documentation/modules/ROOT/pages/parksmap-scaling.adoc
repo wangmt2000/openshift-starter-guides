@@ -7,27 +7,21 @@
 虽然服务为 Pod 提供路由和负载平衡（这些 Pod 可能会存在或不存在），但 ReplicaSet （RS） 和 ReplicationController （RC） 用于指定并确保存在所需数量的 Pod（副本）
 例如，如果你总是希望你的应用程序服务器缩放到3个Pod（实例）, 一个 ReplicaSet是必须的，没有ReplicaSet的话，Pod被kill或者die，意外退出，openshift是不会自动重新启动Pod的。ReplicaSets和ReplicationController是 OpenShift“自我修复self heals”的基础， Deployments control，ReplicaSets、ReplicationController是由DeploymentConfigs控制的
 
-From the {openshift-docs-url}/applications/deployments/what-deployments-are.html[deployments documentation]，link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/_deployments#deployments-repliasets_what-deployments-are[中文在这里]
+来自openshift {openshift-docs-url}/applications/deployments/what-deployments-are.html[deployments 文档]，link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/_deployments#deployments-repliasets_what-deployments-are[中文在这里]
 
 [quote]
 __
-Similar to a replication controller, a ReplicaSet is a native Kubernetes API object that ensures a specified number of pod replicas are running at any given time. The difference between a replica set and a replication controller is that a replica set supports set-based selector requirements whereas a replication controller only supports equality-based selector requirements.
+与复制控制器类似, ReplicaSet 是一个原生 Kubernetes API 对象，可以确保在任意给定时间运行指定数量的 pod 副本。副本集与复制控制器之间的区别在于，副本集支持基于集合的选择器要求，而复制控制器只支持基于相等的选择器要求。
 __
 
-In Kubernetes, a *Deployment* (D) defines how something should be deployed. In almost all cases, you will end up using the *Pod*, *Service*,
-*ReplicaSet* and *Deployment* resources together. And, in
-almost all of those cases, OpenShift will create all of them for you.
+在 Kubernetes 中，部署*Deployment* (D) 定义了应该如何部署某些东西。在几乎所有情况下，您最终都会一起使用Pod、Service、 ReplicaSet和Deployment资源。而且，在几乎所有这些情况下，OpenShift 都会为您创建所有这些。
 
-There are some edge cases where you might want some *Pods* and an *RS* without a *D*
-or a *Service*, and others, so feel free to ask us about them after the labs.
+在某些边缘情况下，您可能需要一些Pod和一个没有Deployment或Service的ReplicaSet，您可以在实验结束后随时联系红帽咨询。
 
 [#exploring_deployment_related_objects]
-== Exercise: Exploring Deployment-related Objects
+== 练习：探索与部署相关的对象
 
-Now that we know the background of what a *ReplicaSet* and
-*Deployment* are, we can explore how they work and are related. Take a
-look at the *Deployment* (D) that was created for you when you told
-OpenShift to stand up the `parksmap` image:
+现在我们知道了ReplicaSet和 Deployment的背景知识，我们可以探索它们是如何工作的以及它们之间的关系。让我们看一下您让Openshift根据您的要求，使用parksmap镜像为您运行程序时，OpenShift为您创建的部署deployment --parksmap：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -42,10 +36,9 @@ NAME       READY   UP-TO-DATE   AVAILABLE   AGE
 parksmap   1/1     1            1           20m
 ----
 
-To get more details, we can look into the *ReplicaSet* (*RS*).
+要获得更多详细信息，我们可以查看 *ReplicaSet* (*RS*).
 
-Take a look at the *ReplicaSet* (RS) that was created for you when
-you told OpenShift to stand up the `parksmap` image:
+看一下我们之前部署`parksmap` 镜像时，Openshift创建的 *ReplicaSet* (RS) 
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -60,9 +53,7 @@ NAME                  DESIRED   CURRENT   READY   AGE
 parksmap-65c4f8b676   1         1         1       21m
 ----
 
-This lets us know that, right now, we expect one *Pod* to be deployed
-(`Desired`), and we have one *Pod* actually deployed (`Current`). By changing
-the desired number, we can tell OpenShift that we want more or less *Pods*.
+这让我们知道，现在我们期望部署一个Pod ( Desired)，而我们实际部署了一个Pod ( Current)。通过更改所需的数量，我们可以告诉 OpenShift 我们想要更多或更少的Pods。
 
 OpenShift's *HorizontalPodAutoscaler* effectively monitors the CPU usage of a
 set of instances and then manipulates the RCs accordingly.
