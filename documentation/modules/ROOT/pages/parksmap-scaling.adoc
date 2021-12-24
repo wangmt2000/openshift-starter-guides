@@ -7,7 +7,7 @@
 虽然服务为 Pod 提供路由和负载平衡（这些 Pod 可能会存在或不存在），但 ReplicaSet （RS） 和 ReplicationController （RC） 用于指定并确保存在所需数量的 Pod（副本）
 例如，如果你总是希望你的应用程序服务器缩放到3个Pod（实例）, 一个 ReplicaSet是必须的，没有ReplicaSet的话，Pod被kill或者die，意外退出，openshift是不会自动重新启动Pod的。ReplicaSets和ReplicationController是 OpenShift“自我修复self heals”的基础， Deployments control，ReplicaSets、ReplicationController是由DeploymentConfigs控制的
 
-From the {openshift-docs-url}/applications/deployments/what-deployments-are.html[deployments documentation]:
+From the {openshift-docs-url}/applications/deployments/what-deployments-are.html[deployments documentation]，link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/_deployments#deployments-repliasets_what-deployments-are[中文在这里]
 
 [quote]
 __
