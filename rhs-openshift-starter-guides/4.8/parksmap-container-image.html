@@ -1129,7 +1129,7 @@ Events:            &lt;none&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>您可能想知道为什么只列出了一个Endpoints。这是因为当前只有一个Pod正在运行。在下一个实验中，我们将学习如何扩展应用程序，此时您将能够看到与Service关联的多个端点。</p>
+<p>您可能想知道为什么只列出了一个Endpoints。这是因为当前只有一个Pod正在运行。在下一个实验中，我们将学习如何扩展应用程序，此时您将能够看到与Service关联的多个Endpoints。</p>
 </div>
 </td>
 </tr>
@@ -1145,12 +1145,11 @@ LoadBalancer
 ExternalName
 摈弃内部机制，依赖外部设施，比如某个用户特别强，他觉得我们提供的都没什么用，就是要自己实现，此时一个 Service 会和一个域名一一对应起来，整个负载均衡的工作都是外部实现的。</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>在 K8s 里面，服务发现与负载均衡就是 K8s Service。K8s Service 向上提供了外部网络以及 pod 网络的访问，即外部网络可以通过 service 去访问，pod 网络也可以通过 K8s Service 去访问。集群内部可以通过service 的虚拟 IP，直接访问服务名（依靠 DNS 解析），通过环境变量访问三种方式访问services，当 pod 的生命周期有变化时，比如说其中一个 pod 销毁，service 就会自动从后端摘除这个 pod。这样实现了：就算 pod 的生命周期有变化，它访问的端点是不会发生变化的。<a href="https://edu.aliyun.com/lesson_1651_18362#_18362">扩展阅读</a></p>
 </div>
-<div class="exampleblock">
-<div class="content">
-
 </div>
 </div>
 </div>
