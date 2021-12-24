@@ -4,7 +4,9 @@ ifndef::lab[]
 :lab-name: Java
 endif::[]
 
-== Developing {lab-name} Applications on OpenShift - Starter Lab  在 OpenShift 上开发 {lab-name} 应用程序 - 入门实验室
+== Developing {lab-name} Applications on OpenShift - Starter Lab
+
+在 OpenShift 上开发 {lab-name} 应用程序 - 入门实验室
 
 
 link:https://www.redhat.com/en/topics/containers/whats-a-linux-container-vb[Containers,window='_blank'] 是将应用程序及其所有依赖项打包以简化部署和加速交付的标准化方式。与虚拟机不同，容器不绑定到操作系统。只有应用程序代码、运行时、库和设置被打包在容器内。因此，与虚拟机相比，容器更轻量、更便携、更高效。
