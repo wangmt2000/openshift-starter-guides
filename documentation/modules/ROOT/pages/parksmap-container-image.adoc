@@ -87,7 +87,8 @@ image::parksmap-dc-topology.png[Topology View with Parksmap]
 
 [NOTE]
 ====
-翻译附注：由于openshift在安全、功能等方面在k8s基础上做了很多修改及增强，所以强烈建议参考红帽openshift官方文档，《学习容器最佳实践》章节，（您可能需要红帽订阅或免费申请红帽开发者账号）https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/images/creating-images#images-create-guidelines_create-images
+翻译附注：由于openshift在安全、功能等方面在k8s基础上做了很多修改及增强，所以强烈建议参考红帽openshift官方文档，
+link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/images/creating-images#images-create-guidelines_create-images[《学习容器最佳实践]章节，（您可能需要红帽订阅或免费申请红帽开发者账号）
 ====
 
 
