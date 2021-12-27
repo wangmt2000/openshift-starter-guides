@@ -1,8 +1,7 @@
 = Permissions
-:navtitle: Permissions
+:navtitle: 权限
 
-Almost every interaction with an OpenShift environment that you can think of
-requires going through the OpenShift's control plane API. All API interactions are both authenticated (AuthN - who are you?) and authorized (AuthZ - are you allowed to do what you are asking?).
+您能想到的与 OpenShift 环境的几乎每次交互都需要通过 OpenShift 的控制平面 API。所有 API 交互都经过身份验证（AuthN - 你是谁？）和授权（AuthZ - 你可以做你要求的事情吗？）。
 
 [NOTE]
 ====
@@ -11,32 +10,33 @@ requires going through the OpenShift's control plane API. All API interactions a
 什么是授权（authz）？ 授权决定了经过身份验证的用户可以看到和执行的操作。 想想当银行客户在线登录他们的帐户时会发生什么。 因为他们的身份已经过验证，他们可以看到自己的账户余额和交易历史——但他们无权查看其他人的。 相反，银行的经理可以被授权查看任何客户的财务数据。 同样，一个人可能是一家企业的合法员工，他们可能已经验证了自己的身份，但这并不意味着他们应该有权访问该企业的所有文件和数据。 例如，来自人力资源或会计部门以外的员工不应该能够看到每个人的薪酬。 用户的授权级别决定了他们有权做什么； 因此，授权操作的通用术语是“权限permissions”。 这个概念的另一个术语是“特权privileges”。
 ====
 
-In the log aggregation lab we saw that there was an
-error in reference to a *Service Account*.
+在上一个查看日志实验中，我们看到引用Service Account 时出现错误。
 
-As OpenShift is a declarative platform, some actions will be performed by the platform and not by the end user (when he or she issues a command). These actions are performed using a *Service Account* which is a special type of `user` that the platform will use internally.
+由于 OpenShift 是一个声明式平台，因此某些操作将由平台执行，而不是由最终用户（当他或她发出命令时）执行。这些操作是使用服务帐户执行的，服务帐户是user平台将在内部使用的一种特殊类型。这些操作是使用服务帐户执行的， Service Account是平台在内部使用的一种特殊类型的“用户”。
+
+OpenShift 会在每个项目中自动创建一些特殊的服务帐户。在默认的服务帐户是一个正在运行的吊舱的责任，OpenShift用途和注入此服务帐户为每一个被推出吊舱。通过更改该服务帐户的权限，我们可以做一些有趣的事情。
 
 OpenShift automatically creates a few special service accounts in every project.
 The **default** service account is the one taking the responsibility of running the pods, and OpenShift uses and injects this service account into
 every pod that is launched. By changing the permissions for that service
 account, we can do interesting things.
 
-You can view current permissions in the web console, go to the Topology view in the Developer Perspective, click the `parksmap` entry, go to the *Details* tab, and then click the *Namespace*. 
+您可以在 Web 控制台中查看当前权限，转到 Developer Perspective 中的 Topology 视图，单击parksmap条目，转到Details选项卡，然后单击Namespace。
 
 image::parksmap-permissions-namespace.png[Namespace]
 
-Then, select *Role Bindings* tab and filter by *Namespace Role Binding* so see all permissions for selected project.
+然后，选择角色绑定*Role Bindings* 选项卡并按命名空间角色绑定*Namespace Role Binding*进行过滤，以便查看所选项目的所有权限。
 
 image::parksmap-permissions-membership.png[Membership]
 
 [#grant_serviceaccount_view_permissions]
-== Exercise: Grant Service Account View Permissions
-The parksmap application wants to talk to the OpenShift API to learn about other
+== 练习：授予服务帐户查看权限
+该parksmap应用程序想要交谈的OpenShift API了解其他 吊舱，服务的范围内，和资源项目。你很快就会知道为什么！The parksmap application wants to talk to the OpenShift API to learn about other
 *Pods*, *Services*, and resources within the *Project*. You'll soon learn why!
 
-The parksmap application runs as a *Service Account* in our project on the cluster: namely the `default` *Service Account*.  It is to this *Service Account* that we can grant the necessary `view``access that will allow it to query the API to see what resources are within the *Project*. This also has the added benefit of addressing the cause of the error message we witnessed previously in the logs.
+parkmap 应用程序在集群上的项目中作为服务帐户运行：即default 服务帐户。正是对这个服务帐户，我们可以授予必要的“视图”访问权限，这将允许它查询 API 以查看项目中的资源。这还具有解决我们之前在日志中看到的错误消息的原因的额外好处。
 
-Choose an approach represented by the following tabs to update the `default` *Service Account* in the `%PROJECT%` project
+通过选择下列选项卡为代表的办法来更新default 服务帐户的%PROJECT%项目Choose an approach represented by the following tabs to update the `default` *Service Account* in the `%PROJECT%` project
 
 [tabs]
 ====
