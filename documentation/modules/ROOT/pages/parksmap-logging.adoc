@@ -1,47 +1,32 @@
 = Logging
-:navtitle: Logging
+:navtitle: 日志 Logging
 
-OpenShift provides some convenient mechanisms for viewing application logs.
-First and foremost is the ability to examine a *Pod*'s logs directly from the
-web console or via the command line.
+OpenShift 提供了一些方便的机制来查看应用程序日志。首先也是最重要的是能够直接从 Web 控制台或通过命令行检查Pod的日志。
 
 [#container_logs]
-== Background: Container Logs
+== 背景：容器日志
 
-OpenShift is constructed in such a way that it expects containers to log all
-information to `STDOUT`. In this way, both regular and error information is
-captured via standardized Docker mechanisms. When exploring the *Pod*'s logs
-directly, you are essentially going through the Docker daemon to access the
-container's logs, through OpenShift's API.
+OpenShift 的构建方式使其期望容器将所有信息记录到STDOUT. 这样，常规和错误信息都是通过标准化的 Docker 机制捕获的。直接查看Pod的日志时，您实际上是通过 Docker 守护程序通过 OpenShift 的 API 访问容器的日志。
 
 [NOTE]
 ====
-In some cases, applications may not have been designed to send all of their
-information to `STDOUT` and `STDERR`. In many cases, multiple local log files
-are used. While OpenShift cannot parse any information from these files, nothing
-prevents them from being created, either. In other cases, log information is
-sent to some external system. Here, too, OpenShift does not prohibit these
-behaviors. If you have an application that does not log to `STDOUT`, either because it
-already sends log information to some "external" system or because it writes
-various log information to various files, fear not.
+在某些情况下，应用程序可能并未设计为将其所有信息发送到STDOUT和STDERR。在许多情况下，会使用多个本地日志文件。虽然 OpenShift 无法解析这些文件中的任何信息，但也无法阻止它们的创建。在其他情况下，日志信息会发送到某个外部系统。在这里，OpenShift 也不禁止这些行为。如果您的应用程序没有登录到STDOUT，要么是因为它已经将日志信息发送到某个“外部”系统，要么是因为它将各种日志信息写入了各种文件，请不要担心
 ====
 
 [#examining_logs]
-== Exercise: Examining Logs
+== 练习：查看日志
 
-Since we already deployed our application, we can take some time to examine its
-logs. In the *Developer Perspective*, from Topology view, click the `parksmap` entry and then the *Resources* tab. You should see a *View Logs* link next to the *Pod* entry.
+由于我们已经部署了我们的应用程序，我们可以花一些时间来检查它的日志。在Developer Perspective 中，从 Topology 视图中，单击parksmap条目，然后单击Resources选项卡。您应该会在Pod条目旁边看到一个查看日志链接。
 
 image::parksmap-view-logs-link.png[View Logs for Pod]
 
-Click the *View Logs* link and you should see a nice view of the *Pod*'s logs:
+单击View Logs链接，您应该会看到Pod日志的视图：
 
 image::parksmap-logging-console-logs.png[Application Logs]
 
-WARNING: If you notice some errors in the log, that's okay. We'll remedy those in a little bit.
+WARNING: 如果您在日志中发现一些错误，那没关系。我们稍后会解决这些问题。
 
-You also have the option of viewing logs from the command line. Get the name of
-your *Pod*:
+您还可以选择从命令行查看日志。获取Pod的名称：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -56,7 +41,7 @@ NAME               READY     STATUS    RESTARTS   AGE
 parksmap-1-hx0kv   1/1       Running   0          5h
 ----
 
-And then use the `logs` command to view this *Pod*'s logs:
+然后使用logs命令查看这个Pod的日志：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -64,7 +49,7 @@ And then use the `logs` command to view this *Pod*'s logs:
 oc logs parksmap-1-hx0kv
 ----
 
-You will see all of the application logs scroll on your screen:
+您将在屏幕上看到所有应用程序日志滚动：
 
 [.console-output]
 [source,bash]
@@ -85,5 +70,5 @@ pleted in 16 ms
 2019-05-22 19:44:13.395  INFO 1 --- [nio-8080-exec-2] c.o.e.roadshow.rest.BackendsController   : Backends: getAll
 ----
 
-WARNING: If you scroll through the logs, you may notice an error that mentions a service account. What's that?  Never fear, we will cover that shortly.
+WARNING: 如果您滚动日志，您可能会注意到提及服务帐户的错误。那是什么？不要害怕，我们很快就会讲到。
 
