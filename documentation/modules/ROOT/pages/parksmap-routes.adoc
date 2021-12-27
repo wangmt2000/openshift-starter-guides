@@ -14,9 +14,10 @@ image::roadshow-app-architecture-parksmap-2.png[Application architecture,800,ali
 
 [NOTE]
 ====
-在k8s中，ingress使用更为普遍，红帽也在openshift中支持ingress。但是本教程不做讨论。
-link:https://kubernetes.io/zh/docs/concepts/services-networking/ingress/[参考文档]，
-link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/networking/nw-ingress-controller-configuration-parameters_configuring-ingress[红帽文档]
+Red Hat 是Kubernetes 社区的主要贡献者之一，并将Routes 背后的设计原则贡献给社区，这对 Ingress 设计产生了重大影响。红帽在Openshift中同时支持Ingress和Route。Ingress 和 Route 虽然相似，但在成熟度和功能上存在差异。如果您打算同时在多个 Kubernetes 发行版上部署您的应用程序，那么 Ingress 可能是一个不错的选择，但是本教程不做讨论。您可以通过以下文档，进一步了解。
+link:https://cloud.redhat.com/blog/kubernetes-ingress-vs-openshift-route[Kubernetes Ingress 与 OpenShift 路由]
+link:https://kubernetes.io/zh/docs/concepts/services-networking/ingress/[Kubernetes参考文档]，
+link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/networking/nw-ingress-controller-configuration-parameters_configuring-ingress[红帽ingress文档]
 ====
 
 [#creating_a_route]
