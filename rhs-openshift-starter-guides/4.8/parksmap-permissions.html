@@ -570,8 +570,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Almost every interaction with an OpenShift environment that you can think of
-requires going through the OpenShift&#8217;s control plane API. All API interactions are both authenticated (AuthN - who are you?) and authorized (AuthZ - are you allowed to do what you are asking?).</p>
+<p>您能想到的与 OpenShift 环境的几乎每次交互都需要通过 OpenShift 的控制平面 API。所有 API 交互都经过身份验证（AuthN - 你是谁？）和授权（AuthZ - 你可以做你要求的事情吗？）。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -591,11 +590,13 @@ requires going through the OpenShift&#8217;s control plane API. All API interact
 </table>
 </div>
 <div class="paragraph">
-<p>In the log aggregation lab we saw that there was an
-error in reference to a <strong>Service Account</strong>.</p>
+<p>在上一个查看日志实验中，我们看到引用Service Account 时出现错误。</p>
 </div>
 <div class="paragraph">
-<p>As OpenShift is a declarative platform, some actions will be performed by the platform and not by the end user (when he or she issues a command). These actions are performed using a <strong>Service Account</strong> which is a special type of <code>user</code> that the platform will use internally.</p>
+<p>由于 OpenShift 是一个声明式平台，因此某些操作将由平台执行，而不是由最终用户（当他或她发出命令时）执行。这些操作是使用服务帐户执行的，服务帐户是user平台将在内部使用的一种特殊类型。这些操作是使用服务帐户执行的， Service Account是平台在内部使用的一种特殊类型的“用户”。</p>
+</div>
+<div class="paragraph">
+<p>OpenShift 会在每个项目中自动创建一些特殊的服务帐户。在默认的服务帐户是一个正在运行的吊舱的责任，OpenShift用途和注入此服务帐户为每一个被推出吊舱。通过更改该服务帐户的权限，我们可以做一些有趣的事情。</p>
 </div>
 <div class="paragraph">
 <p>OpenShift automatically creates a few special service accounts in every project.
@@ -604,7 +605,7 @@ every pod that is launched. By changing the permissions for that service
 account, we can do interesting things.</p>
 </div>
 <div class="paragraph">
-<p>You can view current permissions in the web console, go to the Topology view in the Developer Perspective, click the <code>parksmap</code> entry, go to the <strong>Details</strong> tab, and then click the <strong>Namespace</strong>.</p>
+<p>您可以在 Web 控制台中查看当前权限，转到 Developer Perspective 中的 Topology 视图，单击parksmap条目，转到Details选项卡，然后单击Namespace。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -612,7 +613,7 @@ account, we can do interesting things.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Then, select <strong>Role Bindings</strong> tab and filter by <strong>Namespace Role Binding</strong> so see all permissions for selected project.</p>
+<p>然后，选择角色绑定*Role Bindings* 选项卡并按命名空间角色绑定*Namespace Role Binding*进行过滤，以便查看所选项目的所有权限。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -622,17 +623,17 @@ account, we can do interesting things.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="grant_serviceaccount_view_permissions"><a class="anchor" href="#grant_serviceaccount_view_permissions"></a>Exercise: Grant Service Account View Permissions</h2>
+<h2 id="grant_serviceaccount_view_permissions"><a class="anchor" href="#grant_serviceaccount_view_permissions"></a>练习：授予服务帐户查看权限</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The parksmap application wants to talk to the OpenShift API to learn about other
+<p>该parksmap应用程序想要交谈的OpenShift API了解其他 吊舱，服务的范围内，和资源项目。你很快就会知道为什么！The parksmap application wants to talk to the OpenShift API to learn about other
 <strong>Pods</strong>, <strong>Services</strong>, and resources within the <strong>Project</strong>. You&#8217;ll soon learn why!</p>
 </div>
 <div class="paragraph">
-<p>The parksmap application runs as a <strong>Service Account</strong> in our project on the cluster: namely the <code>default</code> <strong>Service Account</strong>.  It is to this <strong>Service Account</strong> that we can grant the necessary `view``access that will allow it to query the API to see what resources are within the <strong>Project</strong>. This also has the added benefit of addressing the cause of the error message we witnessed previously in the logs.</p>
+<p>parkmap 应用程序在集群上的项目中作为服务帐户运行：即default 服务帐户。正是对这个服务帐户，我们可以授予必要的“视图”访问权限，这将允许它查询 API 以查看项目中的资源。这还具有解决我们之前在日志中看到的错误消息的原因的额外好处。</p>
 </div>
 <div class="paragraph">
-<p>Choose an approach represented by the following tabs to update the <code>default</code> <strong>Service Account</strong> in the <code>%PROJECT%</code> project</p>
+<p>通过选择下列选项卡为代表的办法来更新default 服务帐户的%PROJECT%项目Choose an approach represented by the following tabs to update the <code>default</code> <strong>Service Account</strong> in the <code>%PROJECT%</code> project</p>
 </div>
 <div class="tabset is-loading">
 <div class="ulist tabs">
