@@ -170,13 +170,9 @@ image::parksmap-scaled.png[Scaled]
 [#application_self_healing]
 == Application "Self Healing"
 
-Because OpenShift's *RSs* are constantly monitoring to see that the desired number
-of *Pods* actually are running, you might also expect that OpenShift will "fix" the
-situation if it is ever not right. You would be correct!
+由于 OpenShift 的RS会不断监控以查看实际运行的Pod数量是否达到预期，因此您可能还期望 OpenShift 会在出现问题时“修复fix”这种情况，的确如此。
 
-Since we have two *Pods* running right now, let's see what happens if we
-"accidentally" kill one. Run the `oc get pods` command again, and choose a *Pod*
-name. Then, do the following:
+由于我们现在有两个Pod正在运行，让我们看看如果我们“意外”杀死一个会发生什么。oc get pods再次运行该命令，并选择一个Pod 名称。然后，执行以下操作：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -193,31 +189,21 @@ parksmap-65c4f8b676-bjz5g   1/1     Running   0          13s
 parksmap-65c4f8b676-fxcrq   1/1     Running   0          4m48s
 ----
 
-Did you notice anything? One container has been deleted, and there's a new container already being created. 
+你注意到什么了吗？一个容器已被删除，并且已经创建了一个新容器。
 
-Also, the names of the *Pods* are slightly changed.
-That's because OpenShift almost immediately detected that the current state (1
-*Pod*) didn't match the desired state (2 *Pods*), and it fixed it by scheduling
-another *Pod*.
+此外，Pod的名称也略有更改。这是因为 OpenShift 几乎立即检测到当前状态 (1 Pod ) 与所需状态 (2 Pods )不匹配，并通过调度另一个Pod来修复它。
 
-Additionally, OpenShift provides rudimentary capabilities around checking the
-liveness and/or readiness of application instances. If the basic checks are
-insufficient, OpenShift also allows you to run a command inside the container in
-order to perform the check. That command could be a complicated script that uses
-any installed language.
+此外，OpenShift 提供了有关检查应用程序实例的活跃度和/或准备情况的基本功能。如果基本检查不足，OpenShift 还允许您在容器内运行命令以执行检查。该命令可以是使用任何已安装语言的复杂脚本。
 
-Based on these health checks, if OpenShift decided that our `parksmap`
-application instance wasn't alive, it would kill the instance and then restart
-it, always ensuring that the desired number of replicas was in place.
+基于这些健康检查，如果 OpenShift 确定我们的parksmap 应用程序实例不活跃，它会杀死该实例然后重新启动它，始终确保所需数量的副本到位。
 
-More information on probing applications is available in the
-{openshift-docs-url}/applications/application-health.html[Application
-Health] section of the documentation and later in this guide.
+有关探测应用程序的更多信息，请参见文档的
+{openshift-docs-url}/applications/application-health.html[ 应用程序运行状态健康 Application
+Health] 小节以及本指南的后面部分
 
 [#scale_down]
-== Exercise: Scale Down
+== 练习：缩小 Scale Down
 
-Before we continue, go ahead and scale your application down to a single
-instance. Feel free to do this using whatever method you like.
+在我们继续之前，请继续将您的应用程序缩小到单个实例。随意使用您喜欢的任何方法来执行此操作。
 
-WARNING: Don't forget to scale down back to 1 instance your `parksmap` component as otherwise you might experience some weird behavior in later labs. This is due to how the application has been coded and not to OpenShift itself.
+WARNING: 不要忘记将parksmap组件缩小到 1 个实例，否则在以后的实验中您可能会遇到一些奇怪的行为。这是由于应用程序的编码方式而不是 OpenShift 本身。
