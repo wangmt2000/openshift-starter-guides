@@ -570,7 +570,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this lab, we&#8217;re going to make our application visible to the end users, so they can access it.</p>
+<p>在本实验中，我们将使最终用户可以看到我们的应用程序，以便他们可以访问它。.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -580,21 +580,29 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="routes"><a class="anchor" href="#routes"></a>Background: Routes</h2>
+<h2 id="routes"><a class="anchor" href="#routes"></a>背景：路由</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>While <strong>Services</strong> provide internal abstraction and load balancing within an
-OpenShift environment, sometimes clients (users, systems, devices, etc.)
-<strong>outside</strong> of OpenShift need to access an application. The way that external
-clients are able to access applications running in OpenShift is through the
-OpenShift routing layer. And the data object behind that is a <strong>Route</strong>.</p>
+<p>虽然服务 service在 OpenShift 环境中提供内部抽象和负载平衡，但有时OpenShift外部的客户端（用户、系统、设备等） 需要访问应用程序。外部客户端能够访问在 OpenShift 中运行的应用程序的方式是通过 OpenShift 路由层。后面的数据对象是Route。</p>
 </div>
 <div class="paragraph">
-<p>The default OpenShift router (HAProxy) uses the HTTP header of the incoming
-request to determine where to proxy the connection. You can optionally define
-security, such as TLS, for the <strong>Route</strong>. If you want your <strong>Services</strong>, and, by
-extension, your <strong>Pods</strong>, to be accessible from the outside world, you need to
-create a <strong>Route</strong>.</p>
+<p>默认的 OpenShift 路由器 (HAProxy) 使用传入请求的 HTTP 标头来确定代理连接的位置。您可以选择为Route定义安全性，例如 TLS 。如果您希望您的Services以及您的Pods可以从外部世界访问，您需要创建一个Route。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>在k8s中，ingress使用更为普遍，红帽也在openshift中支持ingress。但是本教程不做讨论。
+<a href="https://kubernetes.io/zh/docs/concepts/services-networking/ingress/">参考文档</a>，
+<a href="https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/networking/nw-ingress-controller-configuration-parameters_configuring-ingress">红帽文档</a></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
