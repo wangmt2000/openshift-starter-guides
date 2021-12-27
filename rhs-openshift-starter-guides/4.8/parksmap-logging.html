@@ -570,21 +570,15 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>OpenShift provides some convenient mechanisms for viewing application logs.
-First and foremost is the ability to examine a <strong>Pod</strong>'s logs directly from the
-web console or via the command line.</p>
+<p>OpenShift 提供了一些方便的机制来查看应用程序日志。首先也是最重要的是能够直接从 Web 控制台或通过命令行检查Pod的日志。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="container_logs"><a class="anchor" href="#container_logs"></a>Background: Container Logs</h2>
+<h2 id="container_logs"><a class="anchor" href="#container_logs"></a>背景：容器日志</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>OpenShift is constructed in such a way that it expects containers to log all
-information to <code>STDOUT</code>. In this way, both regular and error information is
-captured via standardized Docker mechanisms. When exploring the <strong>Pod</strong>'s logs
-directly, you are essentially going through the Docker daemon to access the
-container&#8217;s logs, through OpenShift&#8217;s API.</p>
+<p>OpenShift 的构建方式使其期望容器将所有信息记录到STDOUT. 这样，常规和错误信息都是通过标准化的 Docker 机制捕获的。直接查看Pod的日志时，您实际上是通过 Docker 守护程序通过 OpenShift 的 API 访问容器的日志。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -594,14 +588,7 @@ container&#8217;s logs, through OpenShift&#8217;s API.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>In some cases, applications may not have been designed to send all of their
-information to <code>STDOUT</code> and <code>STDERR</code>. In many cases, multiple local log files
-are used. While OpenShift cannot parse any information from these files, nothing
-prevents them from being created, either. In other cases, log information is
-sent to some external system. Here, too, OpenShift does not prohibit these
-behaviors. If you have an application that does not log to <code>STDOUT</code>, either because it
-already sends log information to some "external" system or because it writes
-various log information to various files, fear not.</p>
+<p>在某些情况下，应用程序可能并未设计为将其所有信息发送到STDOUT和STDERR。在许多情况下，会使用多个本地日志文件。虽然 OpenShift 无法解析这些文件中的任何信息，但也无法阻止它们的创建。在其他情况下，日志信息会发送到某个外部系统。在这里，OpenShift 也不禁止这些行为。如果您的应用程序没有登录到STDOUT，要么是因为它已经将日志信息发送到某个“外部”系统，要么是因为它将各种日志信息写入了各种文件，请不要担心</p>
 </div>
 </td>
 </tr>
@@ -610,11 +597,10 @@ various log information to various files, fear not.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="examining_logs"><a class="anchor" href="#examining_logs"></a>Exercise: Examining Logs</h2>
+<h2 id="examining_logs"><a class="anchor" href="#examining_logs"></a>练习：查看日志</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Since we already deployed our application, we can take some time to examine its
-logs. In the <strong>Developer Perspective</strong>, from Topology view, click the <code>parksmap</code> entry and then the <strong>Resources</strong> tab. You should see a <strong>View Logs</strong> link next to the <strong>Pod</strong> entry.</p>
+<p>由于我们已经部署了我们的应用程序，我们可以花一些时间来检查它的日志。在Developer Perspective 中，从 Topology 视图中，单击parksmap条目，然后单击Resources选项卡。您应该会在Pod条目旁边看到一个查看日志链接。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -622,7 +608,7 @@ logs. In the <strong>Developer Perspective</strong>, from Topology view, click t
 </div>
 </div>
 <div class="paragraph">
-<p>Click the <strong>View Logs</strong> link and you should see a nice view of the <strong>Pod</strong>'s logs:</p>
+<p>单击View Logs链接，您应该会看到Pod日志的视图：</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -636,14 +622,13 @@ logs. In the <strong>Developer Perspective</strong>, from Topology view, click t
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If you notice some errors in the log, that&#8217;s okay. We&#8217;ll remedy those in a little bit.
+如果您在日志中发现一些错误，那没关系。我们稍后会解决这些问题。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>You also have the option of viewing logs from the command line. Get the name of
-your <strong>Pod</strong>:</p>
+<p>您还可以选择从命令行查看日志。获取Pod的名称：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -657,7 +642,7 @@ parksmap-1-hx0kv   1/1       Running   0          5h</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>And then use the <code>logs</code> command to view this <strong>Pod</strong>'s logs:</p>
+<p>然后使用logs命令查看这个Pod的日志：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -665,7 +650,7 @@ parksmap-1-hx0kv   1/1       Running   0          5h</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You will see all of the application logs scroll on your screen:</p>
+<p>您将在屏幕上看到所有应用程序日志滚动：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -692,7 +677,7 @@ pleted in 16 ms
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If you scroll through the logs, you may notice an error that mentions a service account. What&#8217;s that?  Never fear, we will cover that shortly.
+如果您滚动日志，您可能会注意到提及服务帐户的错误。那是什么？不要害怕，我们很快就会讲到。
 </td>
 </tr>
 </table>
