@@ -573,6 +573,23 @@
 <p>Almost every interaction with an OpenShift environment that you can think of
 requires going through the OpenShift&#8217;s control plane API. All API interactions are both authenticated (AuthN - who are you?) and authorized (AuthZ - are you allowed to do what you are asking?).</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>什么是身份验证（authn）？ 身份验证意味着确保一个人或设备是他们声称的人（或什么人）。 领取活动门票的人可能会被要求出示身份证以验证身份； 类似地，应用程序或数据库可能希望通过检查用户的身份来确保用户的合法性。 身份验证确保数据不会暴露给错误的人。</p>
+</div>
+<div class="paragraph">
+<p>什么是授权（authz）？ 授权决定了经过身份验证的用户可以看到和执行的操作。 想想当银行客户在线登录他们的帐户时会发生什么。 因为他们的身份已经过验证，他们可以看到自己的账户余额和交易历史——但他们无权查看其他人的。 相反，银行的经理可以被授权查看任何客户的财务数据。 同样，一个人可能是一家企业的合法员工，他们可能已经验证了自己的身份，但这并不意味着他们应该有权访问该企业的所有文件和数据。 例如，来自人力资源或会计部门以外的员工不应该能够看到每个人的薪酬。 用户的授权级别决定了他们有权做什么； 因此，授权操作的通用术语是“权限permissions”。 这个概念的另一个术语是“特权privileges”。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>In the log aggregation lab we saw that there was an
 error in reference to a <strong>Service Account</strong>.</p>
