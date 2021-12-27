@@ -165,7 +165,7 @@ parksmap   10.128.2.90:8080,10.131.0.40:8080   45m
 
 image::parksmap-scaled.png[Scaled]
 
-总的来说，在service中伸缩pod是非常简单的。应用程序扩展可以非常快地发生，因为 OpenShift 只是启动现有图像的新实例，特别是如果该图像已经缓存在节点上
+总的来说，在service中伸缩pod是非常简单的。应用程序扩展可以非常快地发生，因为 OpenShift 只是启动现有镜像的新实例，特别是如果该图像已经缓存在节点上
 
 [#application_self_healing]
 == Application "Self Healing"
