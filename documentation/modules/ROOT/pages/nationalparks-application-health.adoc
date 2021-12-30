@@ -29,7 +29,7 @@ Readiness Probe::
 
 image::nationalparks-application-health-menu.png[Add Health Checks]
 
-Click to *Add Readiness Probe* and add in *Path* field: 单击以添加就绪探针并在路径字段中添加：
+单击以添加就绪探针Readiness Probe并在路径字段中添加：
 
 [source,role=copypaste]
 ----
