@@ -1,75 +1,57 @@
 = Application Healthchecks
-:navtitle: Application Healthchecks
+:navtitle: 应用健康检查
 
-== Background: Readiness and Liveness Probes
-As we have seen before in the UI via warnings, there is a concept of application
-health checks in OpenShift. These come in two flavors:
+== 背景：Readiness 和 Liveness 探针
+正如我们之前在 UI 中通过警告看到的那样，OpenShift 中有一个应用程序健康检查的概念。这些有两种方式：
 
-* Readiness probe
-* Liveness probe
+* 就绪探针 Readiness probe
+* 活性探针 Liveness probe
 
-From the
+从文档的
 {openshift-docs-url}/applications/application-health.html[Application
-Health] section of the documentation, we see the definitions:
+Health 应用程序运行状况] 一节中, 我们可以看到定义：
 
 [glossary]
 Liveness Probe::
-  A liveness probe checks if the container in which it is configured is still
-  running. If the liveness probe fails, the kubelet kills the container, which
-  will be subjected to its restart policy. Set a liveness check by configuring
-  the `template.spec.containers.livenessprobe` stanza of a pod configuration.
+  活性探针检查配置它的容器是否仍在运行。如果活性探测失败，kubelet 会杀死容器，容器将受到其重启策略的约束。通过配置template.spec.containers.livenessprobepod 配置的节来设置活性检查。
 Readiness Probe::
-  A readiness probe determines if a container is ready to service requests. If
-  the readiness probe fails a container, the endpoints controller ensures the
-  container has its IP address removed from the endpoints of all services. A
-  readiness probe can be used to signal to the endpoints controller that even
-  though a container is running, it should not receive any traffic from a proxy.
-  Set a readiness check by configuring the
-  `template.spec.containers.readinessprobe` stanza of a pod configuration.
+  就绪探针确定容器是否已准备好为请求提供服务。如果就绪探针使容器失败，端点控制器将确保容器的 IP 地址从所有服务的端点中删除。准备就绪探测器可用于向端点控制器发出信号，即使容器正在运行，它也不应该从代理接收任何流量。通过配置template.spec.containers.readinessprobepod 配置的节来设置就绪检查 。
 
-It sounds complicated, but it really isn't. We will use the web console to add
-these probes to our `nationalparks` application.
+听起来很复杂，但事实并非如此。我们将使用 Web 控制台将这些探测器添加到我们的nationalparks应用程序中。
 
 [#add_health_checks]
-== Exercise: Add Health Checks
-As we are going to be implementing a realistic CI/CD pipeline, we will be doing
-some testing of the "development" version of the application. However, in order
-to test the app, it must be ready. This is where OpenShift's application health
-features come in very handy.
+== 练习：添加健康检查
+由于我们将要实现一个真实的 CI/CD 管道，我们将对应用程序的“开发”版本进行一些测试。但是，为了测试应用程序，它必须准备好。这就是 OpenShift 的应用程序运行状况功能非常有用的地方。
 
-We are going to add both a readiness and liveness probe to the existing
-`nationalparks` deployment. This will ensure that OpenShift does not add any
-instances to the service until they pass the readiness checks, and will ensure
-that unhealthy instances are restarted (if they fail the liveness checks).
+我们将向现有nationalparks部署添加就绪和活跃度探测 。这将确保 OpenShift 在通过就绪检查之前不会向服务添加任何实例，并将确保不健康的实例重新启动（如果它们未通过活动检查）。
 
-From the *Topology* view, click `nationalparks`. On the side panel, click the *Actions* dropdown menu and the select *Add Health Checks*.
+在拓扑视图中，单击nationalparks。在侧面板上，单击Actions下拉菜单并选择Add Health Checks。
 
 image::nationalparks-application-health-menu.png[Add Health Checks]
 
-Click to *Add Readiness Probe* and add in *Path* field: 
+Click to *Add Readiness Probe* and add in *Path* field: 单击以添加就绪探针并在路径字段中添加：
 
 [source,role=copypaste]
 ----
 /ws/healthz/
 ----
 
-Leave all default settings like *Port* 8080 and *Type* HTTP GET. Click the little bottom-right confirmation gray tick to confirm:
+保留所有默认设置，如端口8080 和类型HTTP GET。点击右下角的灰色小勾进行确认：
 
 image::nationalparks-application-health-settings.png[Add Readiness and Liveness Probe]
 
-Repeat the same procedure for Liveness Probe, click to *Add Liveness Probe* and add in *Path* field: 
+对 Liveness Probe 重复相同的过程，单击Add Liveness Probe并在Path字段中添加：
 
 [source,role=copypaste]
 ----
 /ws/healthz/
 ----
 
-Leave all default settings like *Port* 8080 and *Type* HTTP GET. Click the little bottom-right confirmation gray tick to confirm.
+保留所有默认设置，如端口8080 和类型HTTP GET。单击右下角的灰色确认小勾进行确认。
 
-Finally confirm all new changes clicking to *Add*:
+最后确认所有新更改点击添加：
 
 image::nationalparks-application-health-add.png[Add Probes]
 
 
-You will notice that these changes caused a new deployment -- they counted as a
-configuration change.
+您会注意到这些更改导致了新的部署——它们被视为配置更改。
