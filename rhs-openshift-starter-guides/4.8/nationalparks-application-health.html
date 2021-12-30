@@ -568,71 +568,54 @@
 <article class="doc">
 <h1 class="page">Application Healthchecks</h1>
 <div class="sect1">
-<h2 id="_background_readiness_and_liveness_probes"><a class="anchor" href="#_background_readiness_and_liveness_probes"></a>Background: Readiness and Liveness Probes</h2>
+<h2 id="_背景readiness_和_liveness_探针"><a class="anchor" href="#_背景readiness_和_liveness_探针"></a>背景：Readiness 和 Liveness 探针</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As we have seen before in the UI via warnings, there is a concept of application
-health checks in OpenShift. These come in two flavors:</p>
+<p>正如我们之前在 UI 中通过警告看到的那样，OpenShift 中有一个应用程序健康检查的概念。这些有两种方式：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Readiness probe</p>
+<p>就绪探针 Readiness probe</p>
 </li>
 <li>
-<p>Liveness probe</p>
+<p>活性探针 Liveness probe</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>From the
+<p>从文档的
 <a href="https://docs.openshift.com/container-platform/4.8/applications/application-health.html">Application
-Health</a> section of the documentation, we see the definitions:</p>
+Health 应用程序运行状况</a> 一节中, 我们可以看到定义：</p>
 </div>
 <div class="dlist glossary">
 <dl>
 <dt>Liveness Probe</dt>
 <dd>
-<p>A liveness probe checks if the container in which it is configured is still
-running. If the liveness probe fails, the kubelet kills the container, which
-will be subjected to its restart policy. Set a liveness check by configuring
-the <code>template.spec.containers.livenessprobe</code> stanza of a pod configuration.</p>
+<p>活性探针检查配置它的容器是否仍在运行。如果活性探测失败，kubelet 会杀死容器，容器将受到其重启策略的约束。通过配置template.spec.containers.livenessprobepod 配置的节来设置活性检查。</p>
 </dd>
 <dt>Readiness Probe</dt>
 <dd>
-<p>A readiness probe determines if a container is ready to service requests. If
-the readiness probe fails a container, the endpoints controller ensures the
-container has its IP address removed from the endpoints of all services. A
-readiness probe can be used to signal to the endpoints controller that even
-though a container is running, it should not receive any traffic from a proxy.
-Set a readiness check by configuring the
-<code>template.spec.containers.readinessprobe</code> stanza of a pod configuration.</p>
+<p>就绪探针确定容器是否已准备好为请求提供服务。如果就绪探针使容器失败，端点控制器将确保容器的 IP 地址从所有服务的端点中删除。准备就绪探测器可用于向端点控制器发出信号，即使容器正在运行，它也不应该从代理接收任何流量。通过配置template.spec.containers.readinessprobepod 配置的节来设置就绪检查 。</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>It sounds complicated, but it really isn&#8217;t. We will use the web console to add
-these probes to our <code>nationalparks</code> application.</p>
+<p>听起来很复杂，但事实并非如此。我们将使用 Web 控制台将这些探测器添加到我们的nationalparks应用程序中。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="add_health_checks"><a class="anchor" href="#add_health_checks"></a>Exercise: Add Health Checks</h2>
+<h2 id="add_health_checks"><a class="anchor" href="#add_health_checks"></a>练习：添加健康检查</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As we are going to be implementing a realistic CI/CD pipeline, we will be doing
-some testing of the "development" version of the application. However, in order
-to test the app, it must be ready. This is where OpenShift&#8217;s application health
-features come in very handy.</p>
+<p>由于我们将要实现一个真实的 CI/CD 管道，我们将对应用程序的“开发”版本进行一些测试。但是，为了测试应用程序，它必须准备好。这就是 OpenShift 的应用程序运行状况功能非常有用的地方。</p>
 </div>
 <div class="paragraph">
-<p>We are going to add both a readiness and liveness probe to the existing
-<code>nationalparks</code> deployment. This will ensure that OpenShift does not add any
-instances to the service until they pass the readiness checks, and will ensure
-that unhealthy instances are restarted (if they fail the liveness checks).</p>
+<p>我们将向现有nationalparks部署添加就绪和活跃度探测 。这将确保 OpenShift 在通过就绪检查之前不会向服务添加任何实例，并将确保不健康的实例重新启动（如果它们未通过活动检查）。</p>
 </div>
 <div class="paragraph">
-<p>From the <strong>Topology</strong> view, click <code>nationalparks</code>. On the side panel, click the <strong>Actions</strong> dropdown menu and the select <strong>Add Health Checks</strong>.</p>
+<p>在拓扑视图中，单击nationalparks。在侧面板上，单击Actions下拉菜单并选择Add Health Checks。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -640,7 +623,7 @@ that unhealthy instances are restarted (if they fail the liveness checks).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Click to <strong>Add Readiness Probe</strong> and add in <strong>Path</strong> field:</p>
+<p>Click to <strong>Add Readiness Probe</strong> and add in <strong>Path</strong> field: 单击以添加就绪探针并在路径字段中添加：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -648,7 +631,7 @@ that unhealthy instances are restarted (if they fail the liveness checks).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Leave all default settings like <strong>Port</strong> 8080 and <strong>Type</strong> HTTP GET. Click the little bottom-right confirmation gray tick to confirm:</p>
+<p>保留所有默认设置，如端口8080 和类型HTTP GET。点击右下角的灰色小勾进行确认：</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -656,7 +639,7 @@ that unhealthy instances are restarted (if they fail the liveness checks).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Repeat the same procedure for Liveness Probe, click to <strong>Add Liveness Probe</strong> and add in <strong>Path</strong> field:</p>
+<p>对 Liveness Probe 重复相同的过程，单击Add Liveness Probe并在Path字段中添加：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -664,10 +647,10 @@ that unhealthy instances are restarted (if they fail the liveness checks).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Leave all default settings like <strong>Port</strong> 8080 and <strong>Type</strong> HTTP GET. Click the little bottom-right confirmation gray tick to confirm.</p>
+<p>保留所有默认设置，如端口8080 和类型HTTP GET。单击右下角的灰色确认小勾进行确认。</p>
 </div>
 <div class="paragraph">
-<p>Finally confirm all new changes clicking to <strong>Add</strong>:</p>
+<p>最后确认所有新更改点击添加：</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -675,8 +658,7 @@ that unhealthy instances are restarted (if they fail the liveness checks).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You will notice that these changes caused a new deployment&#8201;&#8212;&#8201;they counted as a
-configuration change.</p>
+<p>您会注意到这些更改导致了新的部署——它们被视为配置更改。</p>
 </div>
 </div>
 </div>
