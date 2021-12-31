@@ -22,17 +22,17 @@ Readiness Probe::
 [NOTE]
 ====
 link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.9/html/building_applications/application-health#application-health-about_application-health[上面文档的4.9中文版]摘抄在这里
+
 存活度健康检查
+
 存活度探测（liveness probe）决定容器是否仍然在运行。如果存活度探测因为死锁等情况而失败，kubelet 会终止容器。pod 会根据其重启策略响应。
 
 例如，在一个 restartPolicy 为 Always 或 OnFailure 的 pod 上的存活度探测会终止并重启容器。
 
-就绪度探测
 就绪度探测（readiness probe）决定容器是否准备好接受服务请求。如果容器就绪度探测失败，kubelet 会从可用服务端点列表中移除 pod。
 
 失败后，这个探测将继续检查 pod。如果 pod 可用，kubelet 会将 pod 添加到可用服务端点列表中。
 
-启动探测
 启动探测（startup probe）指示容器内的应用程序是否启动。其它所有探测在启动成功前被禁用。如果启动探测无法在指定时间内成功，kubelet 会终止容器，容器受 pod restartPolicy 影响。
 ====
 
