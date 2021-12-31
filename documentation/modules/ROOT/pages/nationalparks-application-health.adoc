@@ -9,7 +9,8 @@
 
 从文档的
 {openshift-docs-url}/applications/application-health.html[Application
-Health 应用程序运行状况] 一节中, 我们可以看到定义：
+Health 应用程序运行状况]
+link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.9/html/building_applications/application-health#application-health-about_application-health[（中文）]一节中, 我们可以看到定义：
 
 [glossary]
 Liveness Probe::
@@ -17,7 +18,7 @@ Liveness Probe::
 Readiness Probe::
   就绪探针确定容器是否已准备好为请求提供服务。如果就绪探针使容器失败，端点控制器将确保容器的 IP 地址从所有服务的端点中删除。准备就绪探测器可用于向端点控制器发出信号，即使容器正在运行，它也不应该从代理接收任何流量。通过配置template.spec.containers.readinessprobepod 配置的节来设置就绪检查 。
 
-听起来很复杂，但事实并非如此。我们将使用 Web 控制台将这些探测器添加到我们的nationalparks应用程序中。
+听起来很复杂，但是实际上操作比较简单。我们将使用 Web 控制台将这些探测器添加到我们的nationalparks应用程序中。
 
 [#add_health_checks]
 == 练习：添加健康检查
