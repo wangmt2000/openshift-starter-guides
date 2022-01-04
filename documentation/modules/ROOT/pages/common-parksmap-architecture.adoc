@@ -1,7 +1,7 @@
 = Parksmap 程序的系统架构
 :navtitle: Parksmap Architecture
 
-本实验将向您介绍整个研讨会中使用的 ParksMap 应用程序的体系结构，以便从开发人员的角度更好地了解您将要做的事情。ParksMap 是一个使用微服务架构构建的多语言地理空间数据可视化应用程序，由一组使用不同编程语言和框架开发的服务组成。
+本环节将向您介绍整个实验中使用的 ParksMap 应用程序的体系结构，以便从开发人员的角度更好地了解您将要做的事情。ParksMap 是一个使用微服务架构构建的多语言地理空间数据可视化应用程序，由一组使用不同编程语言和框架开发的服务组成。
 
 image::roadshow-app-architecture.png[Application architecture,800,align="center"]
 
