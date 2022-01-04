@@ -43,15 +43,15 @@ parkmap 应用程序在集群上的项目中作为服务帐户运行：即defaul
 OpenShift Console::
 +
 --
-. From the *Workloads -> Deployments* page, click on the *Namespace*, then *Role Bindings* and then the *Create Binding* button.
+. 从Workloads → Deployments页面，单击Namespace，然后单击Role Bindings，然后单击Create Binding按钮。
 +
 image::parksmap-permissions-membership-serviceaccount-list.png[Service account list]
 +
-. Select *view* for the Role Binding Name *%PROJECT%* for the Namespace, *view* for the Role Name, *Service Account* for the Subject, *%PROJECT%* for the Subject Namespace, and *default* for the Subject Name.
+. 选择视图为角色绑定名称`％PROJECT％`的命名空间，视图的角色名称，服务帐户为主题，`％PROJECT％`为主题命名空间，默认为主题名称。
 +
 image::parksmap-permissions-membership-serviceaccount-edit.png[Service account edit]
 +
-. Once you're finished editing permissions, click on the *Create* button.  You should then be able to see it on the `Role Bindings` list for the `%PROJECT%` project`
+. 完成编辑权限后，单击“创建”按钮。然后您应该能够Role Bindings在`%PROJECT%`项目列表中看到它`
 +
 image::parksmap-permissions-membership-serviceaccount-done.png[Service account changed]
 --
@@ -64,7 +64,7 @@ image::parksmap-permissions-membership-serviceaccount-done.png[Service account c
 oc project %PROJECT%
 ----
 
-Then use the `oc policy add-role-to-user` command to give the predefined `view` _role_ to the user:
+然后使用 oc policy add-role-to-user 命令将预定义的view 角色赋予用户：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
