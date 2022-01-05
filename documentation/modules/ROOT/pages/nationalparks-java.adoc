@@ -38,6 +38,11 @@ more information about it either in the
 or on https://github.com/openshift/source-to-image[GitHub]. The only key concept you need to
 remember about S2I is that it's magic.
 
+[NOTE]
+====
+S2I，对开发者屏蔽了应用构建、部署的细节，如选用哪种操作系统、编写适应镜像操作系统的处理脚本、优化镜像大小等等，并且会产出 OCI 容器镜像，可以运行在任何兼容 OCI 镜像标准的集群中。类似的构建工具还有buildpacks、甚至dockerfile等。更多的工具可以访问https://landscape.cncf.io
+====
+
 [#creating_java_application]
 == Exercise: Creating a Java application
 
