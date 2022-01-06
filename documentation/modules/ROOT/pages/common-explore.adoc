@@ -80,10 +80,10 @@ image::devsandbox-forms_ok.png[Lab Guide OK]
 
 image::prerequisites_overview.png[Web Console Overview]
 
-本次实验环境Developer Sandbox for Red Hat OpenShift 4.9 已经自带cli工具。在沙盒界面最顶端右侧，点击cli工具按钮，将会加载cli工具。本章下面内容跳过。
+本次实验环境Developer Sandbox for Red Hat OpenShift 4.9 已经自带cli工具。在沙盒界面最顶端右侧，点击cli工具按钮，将会加载cli工具。
 
 [#command_line_interface]
-== Command Line Interface
+== Command Line Interface 命令行工具
 
 [NOTE]
 ====
@@ -179,7 +179,7 @@ Windows::
 --
 include::partial$cli_instructions_common.adoc[]
 
-The CLI for Windows is provided as a zip archive. Download and unzip the archive with a ZIP program and move the oc binary to a directory on your PATH. To check your PATH, open the Command Prompt and run:
+适用于 Windows 的 CLI 以 zip 存档形式提供。使用 ZIP 程序下载并解压缩存档并将 oc 二进制文件移动到 PATH 上的目录。要检查您的 PATH，请打开命令提示符并运行：
 
 [.console-input]
 [source,shell,subs="+attributes,macros+"]
@@ -187,7 +187,7 @@ The CLI for Windows is provided as a zip archive. Download and unzip the archive
 path
 ----
 
-Checkout this blog post if you'd like to set it up with link:https://www.openshift.com/blog/installing-oc-tools-windows[Powershell,window='_blank']
+如果您想使用Powershell进行设置，请查看 link:https://www.openshift.com/blog/installing-oc-tools-windows[此博客文章,window='_blank']
 
 include::partial$cli_test_oc.adoc[]
 --
