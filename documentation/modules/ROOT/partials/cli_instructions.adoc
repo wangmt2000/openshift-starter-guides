@@ -1,16 +1,13 @@
-Once the file has been downloaded, you will need to extract the contents as it
-is a compressed archive. It is recommended that this file is saved to the following
-directory:
+下载文件后，您需要解压缩内容，因为它是压缩存档。建议将此文件保存到以下目录：
 
 [source,bash]
 ----
 ~/OpenShift
 ----
 
-Open up a terminal window and change to the directory where you downloaded the
-file.  Once you are in the directory, enter in the following command:
+打开终端窗口并切换到下载文件的目录。进入目录后，输入以下命令：
 
-CAUTION: The name of the oc packaged archive may vary. Adjust accordingly.
+CAUTION: oc 文件的名称可能会有所不同。请做相应调整。
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -18,9 +15,9 @@ CAUTION: The name of the oc packaged archive may vary. Adjust accordingly.
 tar zxvf oc-{os-lower}.tar.gz
 ----
 
-The tar.gz file name needs to be replaced by the entire name that was downloaded in the previous step.
+示例中的tar.gz 文件名需要替换为在上一步中下载的文件名。
 
-Now you can add the OpenShift CLI tools to your PATH.
+现在您可以将 OpenShift CLI 工具添加到您的 PATH。
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
