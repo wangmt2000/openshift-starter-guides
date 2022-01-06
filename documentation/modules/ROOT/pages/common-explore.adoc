@@ -48,7 +48,6 @@ image::devsandbox-topology-view.png[Topology View]
 
 [NOTE]
 ====
-翻译标注
 developer sandbox还有其他限制，如最多创建10个service，每隔12小时，pod会被停止。
 ====
 
@@ -239,6 +238,8 @@ You have access to the following projects and can switch between them with ' pro
 
 Using project "cowboy-china-dev".
 ----
+
+您现在已经可以通过cli 连接到实验环境了。
 
 [#working_with_proxies]
 ==== Working with proxies
