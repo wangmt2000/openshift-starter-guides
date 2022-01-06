@@ -41,7 +41,7 @@ image::devsandbox-topology-view.png[Topology View]
 * `<your_username>-dev`
 * `<your_username>-stage`
 
-在此共享环境中, 1、您**不能**创建新项目，请跳过创建您的第一个项目章节；2此环境不支持Pipelines Operator,所以您需要跳过 the xref:prerequisites.adoc#openshift_pipelines[OpenShift Pipelines,role='params-link',window='_blank'] 章节.
+在此共享环境中, 1、您**不能**创建新项目，请跳过创建您的第一个项目章节；2此环境不支持Pipelines Operator,所以您需要跳过 the xref:prerequisites.adoc#openshift_pipelines[OpenShift Pipelines,role='params-link',window='_blank'] 之后章节.
 
 请在`<your_username>-dev` project下操作.
 ****
@@ -90,17 +90,13 @@ image::prerequisites_overview.png[Web Console Overview]
 配置CLI工具请参考link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/cli_tools/cli-tools-overview[官方文档]
 ====
 
-OpenShift ships with a feature rich web console as well as command line tools
-to provide users with a nice interface to work with applications deployed to the
-platform.  The OpenShift tools are a single executable written in the Go
-programming language and is available for the following operating systems:
+OpenShift 附带一个功能丰富的 Web 控制台和命令行工具，为用户提供一个很好的界面来处理部署到平台的应用程序。OpenShift 工具是用 Go 编程语言编写的单个可执行文件，可用于以下操作系统：
 
 - Microsoft Windows
 - Mac OS X
 - Linux
 
-You might already have the OpenShift CLI available on your environment. You can verify
-it by running an `oc` command:
+您的环境中可能已经有了 OpenShift CLI。您可以通过运行以下oc命令来验证它：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -108,7 +104,7 @@ it by running an `oc` command:
 oc version
 ----
 
-You should see the following (or something similar):
+您应该会看到以下内容（或类似内容）：
 
 [.console-output]
 [source,bash]
@@ -119,9 +115,9 @@ Kubernetes Version: v1.21.0+bd9e442
 ----
 <.> NOTE: you will only see the `Server Version` and `Kubernetes Version` if you are currently connected to a Kubenetes or OpenShift cluster
 
-If you see output like the above you can skip to <<Connect to the OpenShift Cluster from CLI,Connect to the OpenShift Cluster from CLI>>.  
+如果您看到类似上面的输出，您可以跳到。 <<Connect to the OpenShift Cluster from CLI,从 CLI 连接到 OpenShift 集群>>.  
 
-However, if the `oc` command doesn't exist or you have an older version of the OpenShift CLI (e.g. < `4.4.x`), select the tab appropriate to your OS and follow the instructions to install or update the OpenShift CLI. 
+但是，如果该oc命令不存在或者您有旧版本的 OpenShift CLI（例如 < 4.4.x），请选择适合您的操作系统的选项卡并按照说明安装或更新 OpenShift CL
 
 [tabs]
 ====
@@ -218,7 +214,7 @@ image::prerequisites_copy_login_command.png[Copy Login Command]
 
 单击Display Token并复制Login with this token下的命令：
 
-Example:
+示例:
 
 [source,bash]
 ----
