@@ -209,31 +209,35 @@ include::partial$cli_test_oc.adoc[]
 ====
 
 [#connect_to_the_cluster_with_cli]
-=== Connect to the OpenShift Cluster from CLI
+=== 从 CLI 连接到 OpenShift 集群
 
-Once your `oc` client is setup on your Workstation, you can connect to cluster and start working also with OpenShift CLI.
+如果您安装了OC 客户端，您可以通过OC客户端连接到openshift sandbox实验环境
 
-From Web Console overview, go to top-right menu bar and click to the dropdown menu containing your username, then click *Copy Login Command*:
+从 Web 控制台概览中，转到右上角的菜单栏并单击包含您的用户名的下拉菜单，然后单击 复制登录命令
 
 image::prerequisites_copy_login_command.png[Copy Login Command]
 
-Click on *Display Token* and copy the command under *Login with this token*:
+单击Display Token并复制Login with this token下的命令：
 
 Example:
 
 [source,bash]
 ----
-oc login --token=some_token --server=https://c104-e.us-east.containers.cloud.ibm.com:32208
+oc login --token=sha256~zg0M-1denNkYZjU65IfuCq2gbS8kJ8n1fGhSXdalMx0 --server=https://api.sandbox.x8i5.p1.openshiftapps.com:6443
 ----
 
 [.console-output]
 [source,text]
 ----
-Logged into "https://c104-e.us-east.containers.cloud.ibm.com:32208" as "%USERNAME%" using the token provided.
+Logged into "https://api.sandbox.x8i5.p1.openshiftapps.com:6443" as "cowboy-china" using the token provided.
 
-You have access to 68 projects, the list has been suppressed. You can list all projects with 'oc projects'
+You have access to the following projects and can switch between them with ' project <projectname>':
 
-Using project "default".
+  * cowboy-china-dev
+  
+    cowboy-china-stage
+
+Using project "cowboy-china-dev".
 ----
 
 [#working_with_proxies]
