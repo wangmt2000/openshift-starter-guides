@@ -60,7 +60,7 @@ your *Project*.
 
 在workshop项目的开发者视图中，单击+Add然后单击Database。在数据库视图中，您可以单击Mongo以仅过滤 MongoDB。
 
-NOTE: Make sure to uncheck *Operator Backed* option from *Type* section
+NOTE: 确保不要在 类型 *Type* 部分选中 Operator 支持的 ( *Operator Backed*  )选项
 
 image::nationalparks-databases-catalog-databases.png[Data Stores]
 
