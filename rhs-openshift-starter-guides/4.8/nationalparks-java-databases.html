@@ -689,17 +689,10 @@ your <strong>Project</strong>.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Alternatively, you could type <code>mongodb</code> in the search box. Once you have drilled down to see MongoDB, find the <strong>MongoDB (Ephemeral)</strong> template and select it.  You will notice that there are multiple
-MongoDB templates available.  We do not need a database with persistent storage, so the ephemeral Mongo
-template is what you should choose.  Go ahead and select the ephemeral template and click the <strong>Instantiate Template</strong> button.</p>
+<p>或者，您可以mongodb在搜索框中键入。深入查看 MongoDB 后，找到MongoDB (Ephemeral)模板并选择它。您会注意到有多个 MongoDB 模板可用。我们不需要具有持久存储的数据库，因此您应该选择临时 Mongo 模板。继续并选择临时模板，然后单击实例化模板按钮。</p>
 </div>
 <div class="paragraph">
-<p>When we performed the application build, there was no template. Rather, we selected the
-builder image directly and OpenShift presented only the standard build workflow.
-Now we are using a template - a preconfigured set of resources that includes
-parameters that can be customized. In our case, the parameters we are concerned
-with are&#8201;&#8212;&#8201;user, password, database, and
-admin password.</p>
+<p>当我们执行应用程序构建时，没有模板。相反，我们直接选择了构建器映像，而 OpenShift 仅展示了标准构建工作流程。现在我们正在使用模板 - 一组预配置的资源，其中包括可以自定义的参数。在我们的例子中，我们关心的参数是——用户、密码、数据库和管理员密码。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -713,15 +706,13 @@ admin password.</p>
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-Make sure you name your database service name <strong>mongodb-nationalparks</strong>
+确保您将数据库服务命名为 <strong>mongodb-nationalparks</strong>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>You can see that some of the fields say <strong>"generated if empty"</strong>. This is a
-feature of <strong>Templates</strong> in OpenShift. For
-now, be sure to use the following values in their respective fields:</p>
+<p>您可以看到某些字段显示“如果为空则生成”。这是OpenShift中模板的一个功能。现在，请确保在各自的字段中使用以下值：</p>
 </div>
 <div class="paragraph">
 <p><strong>Database Service Name</strong>:</p>
@@ -770,16 +761,16 @@ now, be sure to use the following values in their respective fields:</p>
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-Make sure to have configured the <strong><code>MongoDB Database Name</code></strong> parameter with the appropriate value as by default it will already have a value of <code>sampledb</code>.
+确保已MongoDB Database Name使用适当的值配置参数，因为默认情况下它的值已经为sampledb.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Once you have entered in the above information, click on <strong>Create</strong> to go to the next step which will allow us to add a binding.</p>
+<p>输入上述信息后，单击“创建”进入下一步，这将允许我们添加绑定。</p>
 </div>
 <div class="paragraph">
-<p>From left-side menu, click to <strong>Secrets</strong>.</p>
+<p>从左侧菜单中，单击 <strong>Secrets</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -787,10 +778,10 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 </div>
 </div>
 <div class="paragraph">
-<p>Click the secret name listed that we will use for <strong>Parameters</strong>. The secret can be used in other components, such as the <code>nationalparks</code> backend, to authenticate to the database.</p>
+<p>单击我们将用于Parameters 的列出的机密名称。该机密可用于其他组件（例如nationalparks后端）以对数据库进行身份验证。</p>
 </div>
 <div class="paragraph">
-<p>Now that the connection and authentication information stored in a secret in our project, we need to add it to the <code>nationalparks</code> backend. Click the <strong>Add Secret to Workload</strong> button.</p>
+<p>现在连接和身份验证信息存储在我们项目中的 <strong>Secrets</strong>.中，我们需要将其添加到nationalparks后端。单击将 <strong>Secrets</strong> 添加到工作负载按钮。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -798,7 +789,7 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 </div>
 </div>
 <div class="paragraph">
-<p>Select the <code>nationalparks</code> workload and click <strong>Save</strong>.</p>
+<p>选择nationalparks工作负载并单击保存。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -806,7 +797,7 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 </div>
 </div>
 <div class="paragraph">
-<p>This change in configuration will trigger a new deployment of the <code>nationalparks</code> application with the environment variables properly injected.</p>
+<p>这种配置更改将触发nationalparks应用程序的新部署，并正确注入环境变量。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -816,7 +807,7 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Back in the <strong>Topology</strong> view, if your <code>mongodb-nationalparks</code> component is not already in the light gray area that denotes the <code>workshop</code> application, click and drag the component whilst holding down <kbd>Shift</kbd> to add it to the group with the other two components (as shown below)</p>
+<p>返回拓扑视图，如果您的mongodb-nationalparks组件不在表示workshop应用程序的浅灰色区域中，请在按住<kbd>Shift</kbd> 的同时单击并拖动组件以将其与其他两个组件一起添加到组中（如下所示）Back in the <strong>Topology</strong> view, if your <code>mongodb-nationalparks</code> component is not already in the light gray area that denotes the <code>workshop</code> application, click and drag the component whilst holding down <kbd>Shift</kbd> to add it to the group with the other two components (as shown below)</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -828,13 +819,13 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 </table>
 </div>
 <div class="paragraph">
-<p>Next, let&#8217;s fix the labels assigned to the <code>mongodb-nationalparks</code> deployment. Currently, we cannot set labels when using the database template from the catalog, so we will fix these labels manually.</p>
+<p>接下来，让我们修复分配给mongodb-nationalparks部署的标签。目前，我们无法在使用目录中的数据库模板时设置标签，因此我们将手动修复这些标签。</p>
 </div>
 <div class="paragraph">
-<p>Like before, we&#8217;ll add 3 labels:</p>
+<p>和以前一样，我们将添加 3 个标签：</p>
 </div>
 <div class="paragraph">
-<p>The name of the Application group:</p>
+<p>应用组名称：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -842,7 +833,7 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 </div>
 </div>
 <div class="paragraph">
-<p>Next the name of this deployment.</p>
+<p>接下来是此部署的名称。</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -850,7 +841,7 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 </div>
 </div>
 <div class="paragraph">
-<p>And finally, the role this component plays in the overall application.</p>
+<p>最后，这个组件在整个应用程序中扮演的角色。</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -858,7 +849,7 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 </div>
 </div>
 <div class="paragraph">
-<p>Execute the following command:</p>
+<p>执行以下命令：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -871,10 +862,7 @@ Make sure to have configured the <strong><code>MongoDB Database Name</code></str
 <h2 id="exploring_openshift_magic"><a class="anchor" href="#exploring_openshift_magic"></a>Exercise: Exploring OpenShift Magic</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As soon as we attached the Secret to the <strong>Deployment</strong>, some
-magic happened. OpenShift decided that this was a significant enough change to
-warrant updating the internal version number of the <strong>ReplicaSet</strong>. You
-can verify this by looking at the output of <code>oc get rs</code>:</p>
+<p>一旦我们将 Secret 附加到Deployment，一些神奇的事情就发生了。OpenShift 认为这是一个足够重要的更改，可以保证更新ReplicaSet的内部版本号。您可以通过查看以下输出来验证这一点oc get rs：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -887,9 +875,7 @@ parksmap-65c4f8b676        0         0         0       18m</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>We see that the DESIRED and CURRENT number of instances for the current deployment. The desired and current number of the other instances are 0.
-This means that OpenShift has gracefully torn down our "old" application and
-stood up a "new" instance.</p>
+<p>我们看到当前部署的 DESIRED 和 CURRENT 实例数。其他实例的期望和当前数量为 0。这意味着 OpenShift 优雅地拆除了我们的“旧”应用程序并建立了一个“新”实例。</p>
 </div>
 </div>
 </div>
@@ -897,8 +883,7 @@ stood up a "new" instance.</p>
 <h2 id="data_data_everywhere"><a class="anchor" href="#data_data_everywhere"></a>Exercise: Data, Data, Everywhere</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that we have a database deployed, we can again visit the <code>nationalparks</code> web
-service to query for data:</p>
+<p>现在我们已经部署了一个数据库，我们可以再次访问nationalparksWeb 服务来查询数据：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -906,7 +891,7 @@ service to query for data:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>And the result?</p>
+<p>结果呢？</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -916,10 +901,10 @@ service to query for data:</p>
 <div class="paragraph">
 <p>Where&#8217;s the data? Think about the process you went through. You deployed the
 application and then deployed the database. Nothing actually loaded anything
-<strong>INTO</strong> the database, though.</p>
+<strong>INTO</strong> the database, though.数据在哪里？想想你经历的过程。您部署了应用程序，然后部署了数据库。没有什么实际加载任何 INTO的数据库，但。</p>
 </div>
 <div class="paragraph">
-<p>The application provides an endpoint to do just that:</p>
+<p>该应用程序提供了一个端点来做到这一点：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -927,7 +912,7 @@ application and then deployed the database. Nothing actually loaded anything
 </div>
 </div>
 <div class="paragraph">
-<p>And the result?</p>
+<p>结果呢？</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -936,7 +921,7 @@ application and then deployed the database. Nothing actually loaded anything
 </div>
 <div class="paragraph">
 <p>If you then go back to <code>/ws/data/all</code> you will see tons of JSON data now.
-That&#8217;s great. Our parks map should finally work!</p>
+That&#8217;s great. Our parks map should finally work!如果你再回去，/ws/data/all你现在会看到大量的 JSON 数据。那太棒了。我们的公园地图应该终于有用了！</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -946,7 +931,7 @@ That&#8217;s great. Our parks map should finally work!</p>
 </td>
 <td class="content">
 There are some errors reported with browsers like Firefox 54 that don&#8217;t properly parse the resulting JSON. It&#8217;s
-a browser problem, and the application is working properly.
+a browser problem, and the application is working properly.Firefox 54 等浏览器报告了一些错误，无法正确解析生成的 JSON。这是浏览器问题，应用程序运行正常。
 </td>
 </tr>
 </table>
@@ -959,7 +944,7 @@ a browser problem, and the application is working properly.
 <div class="paragraph">
 <p>Hmm&#8230;&#8203; There&#8217;s just one thing. The main map <strong>STILL</strong> isn&#8217;t displaying the parks.
 That&#8217;s because the front end parks map only tries to talk to services that have
-the right <strong>Label</strong>.</p>
+the right <strong>Label</strong>.嗯&#8230;&#8203;&#8230;&#8203;只有一件事。主地图仍然没有显示公园。这是因为前端公园地图仅尝试与具有正确Label 的服务对话。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -974,7 +959,7 @@ working? When deploying applications to OpenShift, it is always best to use
 environment variables, secrets, or configMaps to define connections to dependent systems.  This allows
 for application portability across different environments.  The source file that
 performs the connection as well as creates the database schema can be viewed
-here:</p>
+here:您可能想知道数据库连接是如何神奇地开始工作的？将应用程序部署到 OpenShift 时，最好使用环境变量、机密或 configMap 来定义与相关系统的连接。这允许跨不同环境的应用程序可移植性。可以在此处查看执行连接以及创建数据库架构的源文件：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -984,7 +969,7 @@ here:</p>
 <div class="paragraph">
 <p>In short summary: By referring to bindings to connect to services
 (like databases), it can be trivial to promote applications throughout different
-lifecycle environments on OpenShift without having to modify application code.</p>
+lifecycle environments on OpenShift without having to modify application code.简而言之：通过引用连接到服务（如数据库）的绑定，在 OpenShift 上的不同生命周期环境中推广应用程序可能很简单，而无需修改应用程序代码。</p>
 </div>
 </td>
 </tr>
@@ -998,7 +983,7 @@ lifecycle environments on OpenShift without having to modify application code.</
 <div class="paragraph">
 <p>We explored how a <strong>Label</strong> is just a key=value pair earlier when looking at
 <strong>Services</strong> and <strong>Routes</strong> and <strong>Selectors</strong>. In general, a <strong>Label</strong> is simply an
-arbitrary key=value pair. It could be anything.</p>
+arbitrary key=value pair. It could be anything.我们在查看Services和Routes和Selectors时探索了标签如何只是一个键=值对 。一般来说，标签只是一个任意的键=值对。它可以是任何东西。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1019,11 +1004,11 @@ API and asking about the <strong>Routes</strong> and <strong>Services</strong> i
 <strong>Label</strong> that is <code>type=parksmap-backend</code>, the application knows to interrogate
 the endpoints to look for map data.
 You can see the code that does this
-<a href="https://github.com/openshift-roadshow/parksmap-web/blob/master/src/main/java/com/openshift/evg/roadshow/rest/RouteWatcher.java#L20">here</a>.</p>
+<a href="https://github.com/openshift-roadshow/parksmap-web/blob/master/src/main/java/com/openshift/evg/roadshow/rest/RouteWatcher.java#L20">here</a>.在公园地图的情况下，应用程序实际上是在查询 OpenShift API 并询问项目中的路线和服务。如果它们中的任何一个具有 Label，则type=parksmap-backend应用程序知道询问端点以查找地图数据。您可以在此处查看执行此操作的代码 。</p>
 </div>
 <div class="paragraph">
 <p>Fortunately, the command line provides a convenient way for us to manipulate
-labels. <code>describe</code> the <code>nationalparks</code> service:</p>
+labels. <code>describe</code> the <code>nationalparks</code> service:幸运的是，命令行为我们提供了一种方便的方式来操作标签。describe该nationalparks服务：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -1058,7 +1043,7 @@ Endpoints:              10.1.9.8:8080</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You see that it already has some labels. Now, use <code>oc label</code>:</p>
+<p>你会看到它已经有了一些标签。现在，使用oc label：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -1066,7 +1051,7 @@ Endpoints:              10.1.9.8:8080</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You will see something like:</p>
+<p>你会看到类似的东西：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -1074,7 +1059,7 @@ Endpoints:              10.1.9.8:8080</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you check your browser now:</p>
+<p>如果您现在检查浏览器：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -1087,7 +1072,7 @@ Endpoints:              10.1.9.8:8080</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You&#8217;ll notice that the parks suddenly are showing up. That&#8217;s really cool!</p>
+<p>你会注意到公园突然出现了。这太酷了！</p>
 </div>
 </div>
 </div>
