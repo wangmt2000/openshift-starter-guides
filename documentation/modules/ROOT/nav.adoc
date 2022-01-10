@@ -1,4 +1,4 @@
-* xref:common-workshop-summary.adoc[Workshop Summary]
+* xref:common-workshop-summary.adoc[实验总览]
 * xref:prerequisites.adoc[Prerequisites]
 * xref:common-environment.adoc[OpenShift 架构]
 * xref:common-explore.adoc[配置实验环境&探索 OpenShift]
