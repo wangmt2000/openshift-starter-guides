@@ -1,8 +1,9 @@
 = Connecting to a Database
 :navtitle: Connecting to a Database
 
-In this section we will deploy and connect a MongoDB database where the
-`nationalparks` application will store location information.
+在本节中，我们将部署和连接 MongoDB 数据库，nationalparks应用程序将在其中存储位置信息。
+
+最后，我们将nationalparks应用程序标记为地图可视化工具的后端，以便parksmap 组件可以使用 OpenShift 发现机制对其进行动态发现，并自动显示地图。
 
 Finally, we will mark the `nationalparks` application as a backend for the map
 visualization tool, so that it can be dynamically discovered by the `parksmap`
@@ -49,21 +50,15 @@ your *Project*.
 [#deploy_mongodb]
 == Exercise: Deploy MongoDB
 
-As you've seen so far, the web console makes it very easy to deploy things onto
-OpenShift. When we deploy the database, we pass in some values for configuration.
-These values are used to set the username, password, and name of
-the database.
+正如您目前所见，Web 控制台可以非常轻松地将内容部署到 OpenShift。当我们部署数据库时，我们传入一些值进行配置。这些值用于设置数据库的用户名、密码和名称。
 
-The database image is built in a way that it will automatically configure itself
-using the supplied information (assuming there is no data already present in the
-persistent storage!). The image will ensure that:
+数据库映像的构建方式将使用提供的信息自动配置自己（假设持久存储中没有数据！）。该镜像将确保：
 
-- A database exists with the specified name
-- A user exists with the specified name
-- The user can access the specified database with the specified password
+- 存在具有指定名称的数据库 A database exists with the specified name
+- 存在具有指定名称的用户   A user exists with the specified name
+- 用户可以使用指定的密码访问指定的数据库 The user can access the specified database with the specified password
 
-In the Developer Perspective in your `%PROJECT%` project,
-click *+Add* and then *Database*. In the Databases view, you can click *Mongo* to filter for just MongoDB.
+在workshop项目的开发者视图中，单击+Add然后单击Database。在数据库视图中，您可以单击Mongo以仅过滤 MongoDB。
 
 NOTE: Make sure to uncheck *Operator Backed* option from *Type* section
 
