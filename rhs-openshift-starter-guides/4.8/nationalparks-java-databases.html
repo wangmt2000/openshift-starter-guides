@@ -570,8 +570,10 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this section we will deploy and connect a MongoDB database where the
-<code>nationalparks</code> application will store location information.</p>
+<p>在本节中，我们将部署和连接 MongoDB 数据库，nationalparks应用程序将在其中存储位置信息。</p>
+</div>
+<div class="paragraph">
+<p>最后，我们将nationalparks应用程序标记为地图可视化工具的后端，以便parksmap 组件可以使用 OpenShift 发现机制对其进行动态发现，并自动显示地图。</p>
 </div>
 <div class="paragraph">
 <p>Finally, we will mark the <code>nationalparks</code> application as a backend for the map
@@ -648,32 +650,26 @@ your <strong>Project</strong>.</p>
 <h2 id="deploy_mongodb"><a class="anchor" href="#deploy_mongodb"></a>Exercise: Deploy MongoDB</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As you&#8217;ve seen so far, the web console makes it very easy to deploy things onto
-OpenShift. When we deploy the database, we pass in some values for configuration.
-These values are used to set the username, password, and name of
-the database.</p>
+<p>正如您目前所见，Web 控制台可以非常轻松地将内容部署到 OpenShift。当我们部署数据库时，我们传入一些值进行配置。这些值用于设置数据库的用户名、密码和名称。</p>
 </div>
 <div class="paragraph">
-<p>The database image is built in a way that it will automatically configure itself
-using the supplied information (assuming there is no data already present in the
-persistent storage!). The image will ensure that:</p>
+<p>数据库映像的构建方式将使用提供的信息自动配置自己（假设持久存储中没有数据！）。该镜像将确保：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A database exists with the specified name</p>
+<p>存在具有指定名称的数据库 A database exists with the specified name</p>
 </li>
 <li>
-<p>A user exists with the specified name</p>
+<p>存在具有指定名称的用户   A user exists with the specified name</p>
 </li>
 <li>
-<p>The user can access the specified database with the specified password</p>
+<p>用户可以使用指定的密码访问指定的数据库 The user can access the specified database with the specified password</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In the Developer Perspective in your <code>%PROJECT%</code> project,
-click <strong>+Add</strong> and then <strong>Database</strong>. In the Databases view, you can click <strong>Mongo</strong> to filter for just MongoDB.</p>
+<p>在workshop项目的开发者视图中，单击+Add然后单击Database。在数据库视图中，您可以单击Mongo以仅过滤 MongoDB。</p>
 </div>
 <div class="admonitionblock note">
 <table>
