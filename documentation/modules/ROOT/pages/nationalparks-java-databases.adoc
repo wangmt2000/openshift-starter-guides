@@ -194,9 +194,7 @@ https://nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%/ws/data/all
 []
 ----
 
-Where's the data? Think about the process you went through. You deployed the
-application and then deployed the database. Nothing actually loaded anything
-*INTO* the database, though.数据在哪里？想想你经历的过程。您部署了应用程序，然后部署了数据库。但没有什么实际加载任何数据导入数据库。
+数据在哪里？想想你经历的过程。您部署了应用程序，然后部署了数据库。但没有什么实际加载任何数据导入数据库。
 
 该应用程序提供了一个端点来做到这一点：
 
