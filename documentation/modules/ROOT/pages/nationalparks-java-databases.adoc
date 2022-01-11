@@ -244,12 +244,7 @@ http://www.github.com/openshift-roadshow/nationalparks/blob/master/src/main/java
 * `pet=dog`
 * `openshift=awesome`
 
-In the case of the parks map, the application is actually querying the OpenShift
-API and asking about the *Routes* and *Services* in the project. If any of them have a
-*Label* that is `type=parksmap-backend`, the application knows to interrogate
-the endpoints to look for map data.
-You can see the code that does this
-link:https://github.com/openshift-roadshow/parksmap-web/blob/master/src/main/java/com/openshift/evg/roadshow/rest/RouteWatcher.java#L20[here].在公园地图的情况下，应用程序实际上是在查询 OpenShift API 并询问项目中的路线和服务。如果它们中的任何一个具有 Label，则type=parksmap-backend应用程序知道询问端点以查找地图数据。您可以在此处查看执行此操作的代码 。
+在parks map这个项目中，应用程序实际上是在查询 OpenShift API 并询问项目中的 *Routes* 和 *Services* 。如果它们中的任何一个具有 `type=parksmap-backend`的 *Label* 应用程序知道询问 endpoints 以查找地图数据。您可以在link:https://github.com/openshift-roadshow/parksmap-web/blob/master/src/main/java/com/openshift/evg/roadshow/rest/RouteWatcher.java#L20[此处]查看执行此操作的代码 。
 
 幸运的是，命令行为我们提供了一种方便的方式来操作标签。`describe`  `nationalparks`  服务：
 
