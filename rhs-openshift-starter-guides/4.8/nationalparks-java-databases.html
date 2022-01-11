@@ -573,13 +573,7 @@
 <p>在本节中，我们将部署和连接 MongoDB 数据库，nationalparks应用程序将在其中存储位置信息。</p>
 </div>
 <div class="paragraph">
-<p>最后，我们将nationalparks应用程序标记为地图可视化工具的后端，以便parksmap 组件可以使用 OpenShift 发现机制对其进行动态发现，并自动显示地图。</p>
-</div>
-<div class="paragraph">
-<p>Finally, we will mark the <code>nationalparks</code> application as a backend for the map
-visualization tool, so that it can be dynamically discovered by the <code>parksmap</code>
-component using the OpenShift discovery mechanism and the map will be displayed
-automatically.</p>
+<p>最后，我们将 <code>nationalparks</code> 应用程序标记为地图可视化工具的后端，以便 `parksmap`组件可以使用 OpenShift 发现机制对其进行动态发现，并自动显示地图。</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -617,7 +611,7 @@ automatically.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="create_mongodb_template"><a class="anchor" href="#create_mongodb_template"></a>Exercise: Create a MongoDB Template</h2>
+<h2 id="create_mongodb_template"><a class="anchor" href="#create_mongodb_template"></a>Exercise: Create a MongoDB Template 因为我们使用了developer-sandbox，此节跳过</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -647,10 +641,10 @@ your <strong>Project</strong>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="deploy_mongodb"><a class="anchor" href="#deploy_mongodb"></a>Exercise: Deploy MongoDB</h2>
+<h2 id="deploy_mongodb"><a class="anchor" href="#deploy_mongodb"></a>练习: 部署 MongoDB</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>正如您目前所见，Web 控制台可以非常轻松地将内容部署到 OpenShift。当我们部署数据库时，我们传入一些值进行配置。这些值用于设置数据库的用户名、密码和名称。</p>
+<p>正如您目前所见，Web 控制台可以非常轻松地将应用部署到 OpenShift。当我们部署数据库时，我们传入一些值进行配置。这些值用于设置数据库的用户名、密码和名称。</p>
 </div>
 <div class="paragraph">
 <p>数据库映像的构建方式将使用提供的信息自动配置自己（假设持久存储中没有数据！）。该镜像将确保：</p>
@@ -658,13 +652,13 @@ your <strong>Project</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>存在具有指定名称的数据库 A database exists with the specified name</p>
+<p>存在具有指定名称的数据库</p>
 </li>
 <li>
-<p>存在具有指定名称的用户   A user exists with the specified name</p>
+<p>存在具有指定名称的用户</p>
 </li>
 <li>
-<p>用户可以使用指定的密码访问指定的数据库 The user can access the specified database with the specified password</p>
+<p>用户可以使用指定的密码访问指定的数据库</p>
 </li>
 </ul>
 </div>
@@ -761,7 +755,7 @@ your <strong>Project</strong>.</p>
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-确保已MongoDB Database Name使用适当的值配置参数，因为默认情况下它的值已经为sampledb.
+确保已MongoDB Database Name使用适当的值配置参数，因为它的默认值为sampledb.
 </td>
 </tr>
 </table>
@@ -807,7 +801,7 @@ your <strong>Project</strong>.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>返回拓扑视图，如果您的mongodb-nationalparks组件不在表示workshop应用程序的浅灰色区域中，请在按住<kbd>Shift</kbd> 的同时单击并拖动组件以将其与其他两个组件一起添加到组中（如下所示）Back in the <strong>Topology</strong> view, if your <code>mongodb-nationalparks</code> component is not already in the light gray area that denotes the <code>workshop</code> application, click and drag the component whilst holding down <kbd>Shift</kbd> to add it to the group with the other two components (as shown below)</p>
+<p>返回拓扑视图，如果您的 <code>mongodb-nationalparks</code> 组件不在表示workshop应用程序的浅灰色区域中，请在按住<kbd>Shift</kbd> 的同时单击并拖动组件以将其与其他两个组件一起添加到组中（如下所示）</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -819,7 +813,7 @@ your <strong>Project</strong>.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>接下来，让我们修复分配给mongodb-nationalparks部署的标签。目前，我们无法在使用目录中的数据库模板时设置标签，因此我们将手动修复这些标签。</p>
+<p>接下来，让我们修复分配给 <code>mongodb-nationalparks</code> 部署的标签。目前，我们无法在使用目录中的数据库模板时设置标签，因此我们将手动修复这些标签。</p>
 </div>
 <div class="paragraph">
 <p>和以前一样，我们将添加 3 个标签：</p>
@@ -880,7 +874,7 @@ parksmap-65c4f8b676        0         0         0       18m</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="data_data_everywhere"><a class="anchor" href="#data_data_everywhere"></a>Exercise: Data, Data, Everywhere</h2>
+<h2 id="data_data_everywhere"><a class="anchor" href="#data_data_everywhere"></a>练习: Data, Data, Everywhere</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>现在我们已经部署了一个数据库，我们可以再次访问nationalparksWeb 服务来查询数据：</p>
@@ -901,7 +895,7 @@ parksmap-65c4f8b676        0         0         0       18m</code></pre>
 <div class="paragraph">
 <p>Where&#8217;s the data? Think about the process you went through. You deployed the
 application and then deployed the database. Nothing actually loaded anything
-<strong>INTO</strong> the database, though.数据在哪里？想想你经历的过程。您部署了应用程序，然后部署了数据库。没有什么实际加载任何 INTO的数据库，但。</p>
+<strong>INTO</strong> the database, though.数据在哪里？想想你经历的过程。您部署了应用程序，然后部署了数据库。但没有什么实际加载任何数据导入数据库。</p>
 </div>
 <div class="paragraph">
 <p>该应用程序提供了一个端点来做到这一点：</p>
@@ -921,7 +915,7 @@ application and then deployed the database. Nothing actually loaded anything
 </div>
 <div class="paragraph">
 <p>If you then go back to <code>/ws/data/all</code> you will see tons of JSON data now.
-That&#8217;s great. Our parks map should finally work!如果你再回去，/ws/data/all你现在会看到大量的 JSON 数据。那太棒了。我们的公园地图应该终于有用了！</p>
+That&#8217;s great. Our parks map should finally work!如果你再回去， <code>/ws/data/all</code> 你现在会看到大量的 JSON 数据。那太棒了。我们的公园地图应该终于有用了！</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -930,8 +924,7 @@ That&#8217;s great. Our parks map should finally work!如果你再回去，/ws/d
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are some errors reported with browsers like Firefox 54 that don&#8217;t properly parse the resulting JSON. It&#8217;s
-a browser problem, and the application is working properly.Firefox 54 等浏览器报告了一些错误，无法正确解析生成的 JSON。这是浏览器问题，应用程序运行正常。
+Firefox 54 等浏览器报告了一些错误，无法正确解析生成的 JSON。这是浏览器问题，应用程序运行正常。
 </td>
 </tr>
 </table>
@@ -942,9 +935,7 @@ a browser problem, and the application is working properly.Firefox 54 等浏览�
 </div>
 </div>
 <div class="paragraph">
-<p>Hmm&#8230;&#8203; There&#8217;s just one thing. The main map <strong>STILL</strong> isn&#8217;t displaying the parks.
-That&#8217;s because the front end parks map only tries to talk to services that have
-the right <strong>Label</strong>.嗯&#8230;&#8203;&#8230;&#8203;只有一件事。主地图仍然没有显示公园。这是因为前端公园地图仅尝试与具有正确Label 的服务对话。</p>
+<p>嗯&#8230;&#8203;&#8230;&#8203;只有一件事。主地图仍然没有显示公园。这是因为前端公园地图仅尝试与具有正确 *Label*的服务对话。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -954,12 +945,7 @@ the right <strong>Label</strong>.嗯&#8230;&#8203;&#8230;&#8203;只有一件事�
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You are probably wondering how the database connection magically started
-working? When deploying applications to OpenShift, it is always best to use
-environment variables, secrets, or configMaps to define connections to dependent systems.  This allows
-for application portability across different environments.  The source file that
-performs the connection as well as creates the database schema can be viewed
-here:您可能想知道数据库连接是如何神奇地开始工作的？将应用程序部署到 OpenShift 时，最好使用环境变量、机密或 configMap 来定义与相关系统的连接。这允许跨不同环境的应用程序可移植性。可以在此处查看执行连接以及创建数据库架构的源文件：</p>
+<p>您可能想知道数据库连接是如何神奇地开始工作的？将应用程序部署到 OpenShift 时，最好使用环境变量variables、机密secrets或映射configMap 来定义与相关系统的连接。这允许跨不同环境的应用程序可移植性。可以在此处查看执行连接以及创建数据库架构的源文件：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -978,12 +964,12 @@ lifecycle environments on OpenShift without having to modify application code.�
 </div>
 </div>
 <div class="sect1">
-<h2 id="working_with_labels"><a class="anchor" href="#working_with_labels"></a>Exercise: Working With Labels</h2>
+<h2 id="working_with_labels"><a class="anchor" href="#working_with_labels"></a>练习: Working With Labels</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We explored how a <strong>Label</strong> is just a key=value pair earlier when looking at
 <strong>Services</strong> and <strong>Routes</strong> and <strong>Selectors</strong>. In general, a <strong>Label</strong> is simply an
-arbitrary key=value pair. It could be anything.我们在查看Services和Routes和Selectors时探索了标签如何只是一个键=值对 。一般来说，标签只是一个任意的键=值对。它可以是任何东西。</p>
+arbitrary key=value pair. It could be anything.在之前的关于Services和Routes和Selectors实验中，我们知道标签 <strong>Label</strong> 只是一个键值对 key=value pair。一般来说，标签 <strong>Label</strong> 只是一个任意的键值对。这个可以是任何东西。</p>
 </div>
 <div class="ulist">
 <ul>
