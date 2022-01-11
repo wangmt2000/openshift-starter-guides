@@ -3,12 +3,7 @@
 
 在本节中，我们将部署和连接 MongoDB 数据库，nationalparks应用程序将在其中存储位置信息。
 
-最后，我们将nationalparks应用程序标记为地图可视化工具的后端，以便parksmap 组件可以使用 OpenShift 发现机制对其进行动态发现，并自动显示地图。
-
-Finally, we will mark the `nationalparks` application as a backend for the map
-visualization tool, so that it can be dynamically discovered by the `parksmap`
-component using the OpenShift discovery mechanism and the map will be displayed
-automatically.
+最后，我们将 `nationalparks` 应用程序标记为地图可视化工具的后端，以便 `parksmap`组件可以使用 OpenShift 发现机制对其进行动态发现，并自动显示地图。
 
 image::roadshow-app-architecture-nationalparks-2.png[Application architecture,800,align="center"]
 
@@ -31,7 +26,7 @@ image::roadshow-app-architecture-nationalparks-2.png[Application architecture,80
 模板重要意义在于，他们可以通过提供一个可以用一条命令部署“配置参数”，加快应用开发的部署流程。不仅如此，它们还可以从外部 URL 加载到 OpenShift 中，这将允许您将模板保存在版本控制系统中。
 
 [#create_mongodb_template]
-== Exercise: Create a MongoDB Template
+== Exercise: Create a MongoDB Template 因为我们使用了developer-sandbox，此节跳过
 
 NOTE: If you are using https://developers.redhat.com/developer-sandbox[Developer Sandbox for Red Hat OpenShift,window='_blank'], you can *skip* this section and jump to the next one called *Exercise: Deploy MongoDB* because MongoDB Template it's already available on Developer Sandbox.
 
@@ -48,15 +43,15 @@ command is a *Template*. `create` simply makes the template available in
 your *Project*.
 
 [#deploy_mongodb]
-== Exercise: Deploy MongoDB
+== 练习: 部署 MongoDB
 
-正如您目前所见，Web 控制台可以非常轻松地将内容部署到 OpenShift。当我们部署数据库时，我们传入一些值进行配置。这些值用于设置数据库的用户名、密码和名称。
+正如您目前所见，Web 控制台可以非常轻松地将应用部署到 OpenShift。当我们部署数据库时，我们传入一些值进行配置。这些值用于设置数据库的用户名、密码和名称。
 
 数据库映像的构建方式将使用提供的信息自动配置自己（假设持久存储中没有数据！）。该镜像将确保：
 
-- 存在具有指定名称的数据库 A database exists with the specified name
-- 存在具有指定名称的用户   A user exists with the specified name
-- 用户可以使用指定的密码访问指定的数据库 The user can access the specified database with the specified password
+- 存在具有指定名称的数据库 
+- 存在具有指定名称的用户   
+- 用户可以使用指定的密码访问指定的数据库 
 
 在workshop项目的开发者视图中，单击+Add然后单击Database。在数据库视图中，您可以单击Mongo以仅过滤 MongoDB。
 
@@ -104,7 +99,7 @@ mongodb
 mongodb
 ----
 
-CAUTION: 确保已MongoDB Database Name使用适当的值配置参数，因为默认情况下它的值已经为sampledb.
+CAUTION: 确保已MongoDB Database Name使用适当的值配置参数，因为它的默认值为sampledb.
 
 输入上述信息后，单击“创建”进入下一步，这将允许我们添加绑定。
 
@@ -126,12 +121,12 @@ image::nationalparks-databases-binding-add-binding-to-nationalparks.png[Add bind
 
 [TIP]
 ====
-返回拓扑视图，如果您的mongodb-nationalparks组件不在表示workshop应用程序的浅灰色区域中，请在按住kbd:[Shift] 的同时单击并拖动组件以将其与其他两个组件一起添加到组中（如下所示）Back in the *Topology* view, if your `mongodb-nationalparks` component is not already in the light gray area that denotes the `workshop` application, click and drag the component whilst holding down kbd:[Shift] to add it to the group with the other two components (as shown below)
+返回拓扑视图，如果您的 `mongodb-nationalparks` 组件不在表示workshop应用程序的浅灰色区域中，请在按住kbd:[Shift] 的同时单击并拖动组件以将其与其他两个组件一起添加到组中（如下所示）
 
 image::nationalparks-databases-add-mongodb-to-workshop-app.png[Add mongodb to the workshop app]
 ====
 
-接下来，让我们修复分配给mongodb-nationalparks部署的标签。目前，我们无法在使用目录中的数据库模板时设置标签，因此我们将手动修复这些标签。
+接下来，让我们修复分配给 `mongodb-nationalparks` 部署的标签。目前，我们无法在使用目录中的数据库模板时设置标签，因此我们将手动修复这些标签。
 
 和以前一样，我们将添加 3 个标签：
 
@@ -182,7 +177,7 @@ parksmap-65c4f8b676        0         0         0       18m
 我们看到当前部署的 DESIRED 和 CURRENT 实例数。其他实例的期望和当前数量为 0。这意味着 OpenShift 优雅地拆除了我们的“旧”应用程序并建立了一个“新”实例。
 
 [#data_data_everywhere]
-== Exercise: Data, Data, Everywhere
+== 练习: Data, Data, Everywhere
 
 现在我们已经部署了一个数据库，我们可以再次访问nationalparksWeb 服务来查询数据：
 
@@ -201,7 +196,7 @@ https://nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%/ws/data/all
 
 Where's the data? Think about the process you went through. You deployed the
 application and then deployed the database. Nothing actually loaded anything
-*INTO* the database, though.数据在哪里？想想你经历的过程。您部署了应用程序，然后部署了数据库。没有什么实际加载任何 INTO的数据库，但。
+*INTO* the database, though.数据在哪里？想想你经历的过程。您部署了应用程序，然后部署了数据库。但没有什么实际加载任何数据导入数据库。
 
 该应用程序提供了一个端点来做到这一点：
 
@@ -219,28 +214,20 @@ Items inserted in database: 2893
 ----
 
 If you then go back to `/ws/data/all` you will see tons of JSON data now.
-That's great. Our parks map should finally work!如果你再回去，/ws/data/all你现在会看到大量的 JSON 数据。那太棒了。我们的公园地图应该终于有用了！
+That's great. Our parks map should finally work!如果你再回去， `/ws/data/all` 你现在会看到大量的 JSON 数据。那太棒了。我们的公园地图应该终于有用了！
 
-NOTE: There are some errors reported with browsers like Firefox 54 that don't properly parse the resulting JSON. It's
-a browser problem, and the application is working properly.Firefox 54 等浏览器报告了一些错误，无法正确解析生成的 JSON。这是浏览器问题，应用程序运行正常。
+NOTE: Firefox 54 等浏览器报告了一些错误，无法正确解析生成的 JSON。这是浏览器问题，应用程序运行正常。
 
 [source,role="copypaste",subs="+attributes"]
 ----
 https://parksmap-%PROJECT%.%CLUSTER_SUBDOMAIN%
 ----
 
-Hmm... There's just one thing. The main map **STILL** isn't displaying the parks.
-That's because the front end parks map only tries to talk to services that have
-the right *Label*.嗯......只有一件事。主地图仍然没有显示公园。这是因为前端公园地图仅尝试与具有正确Label 的服务对话。
+嗯......只有一件事。主地图仍然没有显示公园。这是因为前端公园地图仅尝试与具有正确 *Label*的服务对话。
 
 [NOTE]
 ====
-You are probably wondering how the database connection magically started
-working? When deploying applications to OpenShift, it is always best to use
-environment variables, secrets, or configMaps to define connections to dependent systems.  This allows
-for application portability across different environments.  The source file that
-performs the connection as well as creates the database schema can be viewed
-here:您可能想知道数据库连接是如何神奇地开始工作的？将应用程序部署到 OpenShift 时，最好使用环境变量、机密或 configMap 来定义与相关系统的连接。这允许跨不同环境的应用程序可移植性。可以在此处查看执行连接以及创建数据库架构的源文件：
+您可能想知道数据库连接是如何神奇地开始工作的？将应用程序部署到 OpenShift 时，最好使用环境变量variables、机密secrets或映射configMap 来定义与相关系统的连接。这允许跨不同环境的应用程序可移植性。可以在此处查看执行连接以及创建数据库架构的源文件：
 
 
 [source,role="copypaste"]
@@ -255,11 +242,11 @@ lifecycle environments on OpenShift without having to modify application code.�
 ====
 
 [#working_with_labels]
-== Exercise: Working With Labels
+== 练习: Working With Labels
 
 We explored how a *Label* is just a key=value pair earlier when looking at
 *Services* and *Routes* and *Selectors*. In general, a *Label* is simply an
-arbitrary key=value pair. It could be anything.我们在查看Services和Routes和Selectors时探索了标签如何只是一个键=值对 。一般来说，标签只是一个任意的键=值对。它可以是任何东西。
+arbitrary key=value pair. It could be anything.在之前的关于Services和Routes和Selectors实验中，我们知道标签 *Label* 只是一个键值对 key=value pair。一般来说，标签 *Label* 只是一个任意的键值对。这个可以是任何东西。
 
 * `pizza=pepperoni`
 * `pet=dog`
