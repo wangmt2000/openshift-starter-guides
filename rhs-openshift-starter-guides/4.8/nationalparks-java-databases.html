@@ -978,12 +978,7 @@ Firefox 54 等浏览器报告了一些错误，无法正确解析生成的 JSON�
 </ul>
 </div>
 <div class="paragraph">
-<p>In the case of the parks map, the application is actually querying the OpenShift
-API and asking about the <strong>Routes</strong> and <strong>Services</strong> in the project. If any of them have a
-<strong>Label</strong> that is <code>type=parksmap-backend</code>, the application knows to interrogate
-the endpoints to look for map data.
-You can see the code that does this
-<a href="https://github.com/openshift-roadshow/parksmap-web/blob/master/src/main/java/com/openshift/evg/roadshow/rest/RouteWatcher.java#L20">here</a>.在公园地图的情况下，应用程序实际上是在查询 OpenShift API 并询问项目中的路线和服务。如果它们中的任何一个具有 Label，则type=parksmap-backend应用程序知道询问端点以查找地图数据。您可以在此处查看执行此操作的代码 。</p>
+<p>在parks map这个项目中，应用程序实际上是在查询 OpenShift API 并询问项目中的 <strong>Routes</strong> 和 <strong>Services</strong> 。如果它们中的任何一个具有 `type=parksmap-backend`的 <strong>Label</strong> 应用程序知道询问 endpoints 以查找地图数据。您可以在<a href="https://github.com/openshift-roadshow/parksmap-web/blob/master/src/main/java/com/openshift/evg/roadshow/rest/RouteWatcher.java#L20">此处</a>查看执行此操作的代码 。</p>
 </div>
 <div class="paragraph">
 <p>幸运的是，命令行为我们提供了一种方便的方式来操作标签。<code>describe</code>  <code>nationalparks</code>  服务：</p>
