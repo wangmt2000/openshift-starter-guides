@@ -7,7 +7,7 @@
     <link rel="canonical" href="http://redhat-scholars.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.8/nationalparks-java.html">
     <link rel="prev" href="parksmap-rsh.html">
     <link rel="next" href="nationalparks-java-databases.html">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -528,7 +528,7 @@
     <li class="component is-current">
       <span class="title">OpenShift Starter Guides</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="index.html">4.8</a>
         </li>
         <li class="version">
@@ -593,7 +593,7 @@ open source project sponsored by Red Hat that has the following goal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>Source-to-image (S2I) is a tool for building reproducible container images. S2I
+<pre class="highlightjs highlight"><code class="language-none hljs">Source-to-image (S2I) is a tool for building reproducible container images. S2I
 produces ready-to-run images by injecting source code into a container image and
 assembling a new container image which incorporates the builder image and built
 source. The result is then ready to use with docker run. S2I supports
@@ -710,7 +710,7 @@ have your own git repository, let&#8217;s use it with a simple Java S2I image.</
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code>workshop</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">workshop</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -718,7 +718,7 @@ have your own git repository, let&#8217;s use it with a simple Java S2I image.</
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code>nationalparks</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">nationalparks</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -762,7 +762,7 @@ If present, leave Pipeline section empty here as we will implement it in the nex
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code>app=workshop</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">app=workshop</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -770,7 +770,7 @@ If present, leave Pipeline section empty here as we will implement it in the nex
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code>component=nationalparks</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">component=nationalparks</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -778,7 +778,7 @@ If present, leave Pipeline section empty here as we will implement it in the nex
 </div>
 <div class="listingblock copypaste">
 <div class="content">
-<pre class="highlightjs highlight"><code>role=backend</code></pre>
+<pre class="highlightjs highlight"><code class="language-none hljs">role=backend</code></pre>
 </div>
 </div>
 <div class="paragraph">
