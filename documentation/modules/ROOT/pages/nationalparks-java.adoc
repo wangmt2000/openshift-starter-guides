@@ -11,9 +11,11 @@ image::roadshow-app-architecture-nationalparks-1.png[Application architecture,80
 In a previous lab, we learned how to deploy a pre-existing image
 image. Now we will expand on that by learning how OpenShift builds
 container images using source code from an existing repository.  This is accomplished using the Source-to-Image project.
+在之前的实验中，我们学习了如何部署预先存在的镜像。现在，我们将通过学习 OpenShift 如何使用现有存储库中的源代码构建容器镜像来对此进行扩展。这是使用 Source-to-Image 项目完成的。
 
-https://github.com/openshift/source-to-image[Source-to-Image (S2I)] is a
-open source project sponsored by Red Hat that has the following goal:
+
+
+https://github.com/openshift/source-to-image[Source-to-Image (S2I)] 是一个由 Red Hat 赞助的开源项目，其目标如下：
 
 [source]
 ----
@@ -23,28 +25,32 @@ assembling a new container image which incorporates the builder image and built
 source. The result is then ready to use with docker run. S2I supports
 incremental builds which re-use previously downloaded dependencies, previously
 built artifacts, etc.
+源到图像（S2I）是一种用于构建可复制容器图像的工具。S2I通过将源代码注入容器映像和组装一个新的容器映像，其中包含生成器映像和构建来源然后，结果就可以与docker run一起使用了。S2I支持重复使用以前下载的依赖项的增量生成，以前人工制品等。
 ----
 
 OpenShift is S2I-enabled and can use S2I as one of its build mechanisms (in
 addition to building container images from Dockerfiles, and "custom" builds).
+OpenShift 支持 S2I，并且可以使用 S2I 作为其构建机制之一（除了从 Dockerfile 构建容器映像和“自定义”构建）。
 
 OpenShift runs the S2I process inside a special *Pod*, called a Build
 Pod, and thus builds are subject to quotas, limits, resource scheduling, and
 other aspects of OpenShift.
+OpenShift 在称为 Build Pod的特殊Pod 中运行 S2I 进程，因此构建受配额、限制、资源调度和 OpenShift 其他方面的约束。
 
 A full discussion of S2I is beyond the scope of this class, but you can find
 more information about it either in the
 {openshift-docs-url}/creating_images/s2i.html[OpenShift S2I documentation]
 or on https://github.com/openshift/source-to-image[GitHub]. The only key concept you need to
 remember about S2I is that it's magic.
+S2I 的完整讨论超出了本课程的范围，但您可以在OpenShift S2I 文档 或GitHub 上找到有关它的更多信息 。关于 S2I，您需要记住的唯一关键概念是它很神奇。
 
 [NOTE]
 ====
-S2I，对开发者屏蔽了应用构建、部署的细节，如选用哪种操作系统、编写适应镜像操作系统的处理脚本、优化镜像大小等等，并且会产出 OCI 容器镜像，可以运行在任何兼容 OCI 镜像标准的集群中。类似的构建工具还有buildpacks、甚至dockerfile等。更多的工具可以访问https://landscape.cncf.io
+通过使用S2I，对开发者屏蔽了应用构建、部署的细节，如选用哪种操作系统、编写适应镜像操作系统的处理脚本、优化镜像大小等等，并且会产出 OCI 容器镜像，可以运行在任何兼容 OCI 镜像标准的集群中。类似的构建工具还有buildpacks等、实践中，有不少单位依然使用dockerfile。更多的工具可以访问https://landscape.cncf.io
 ====
 
 [#creating_java_application]
-== Exercise: Creating a Java application
+== 练习: Creating a Java application
 
 The backend service that we will be deploying as part of this exercise is
 called `nationalparks`.  This is a Java Spring Boot application that performs 2D
@@ -52,53 +58,55 @@ geo-spatial queries against a MongoDB database to locate and return map
 coordinates of all National Parks in the world. That was just a fancy way of
 saying that we are going to deploy a webservice that returns a JSON list of
 places.
+作为本练习的一部分，我们将部署的后端服务称为nationalparks. 这是一个 Java Spring Boot 应用程序，它对 MongoDB 数据库执行 2D 地理空间查询，以定位和返回世界上所有国家公园的地图坐标。这只是一种奇特的说法，即我们将部署一个返回 JSON 地点列表的 Web 服务。
 
 [#add_to_project]
-=== Add to Project
+=== Add to Project添加到项目
 Because the `nationalparks` component is a backend to serve data that our
 existing frontend (parksmap) will consume, we are going to build it inside the existing
 project that we have been working with. To illustrate how you can interact with OpenShift via the CLI or the web console, we will deploy the nationalparks component using the web console.
+因为该nationalparks组件是为我们现有前端（parksmap）将使用的数据提供服务的后端，所以我们将在我们一直在使用的现有项目中构建它。为了说明如何通过 CLI 或 Web 控制台与 OpenShift 交互，我们将使用 Web 控制台部署 nationalparks 组件。
 
 [#using_application_code_on_git_server]
-=== Using Application Code on Git Server
+=== Using Application Code on Git Server在 Git 服务器上使用应用程序代码
 
 OpenShift can work with any accessible Git repository. This could be GitHub,
 GitLab, or any other server that speaks Git. You can even register webhooks in
 your Git server to initiate OpenShift builds triggered by any update to the
-application code!
+application code!OpenShift 可以使用任何可访问的 Git 存储库。这可以是 GitHub、GitLab 或任何其他使用 Git 的服务器。您甚至可以在您的 Git 服务器中注册 webhook 以启动由应用程序代码的任何更新触发的 OpenShift 构建！
 
 link:https://github.com/openshift-roadshow/nationalparks.git[NationalParks GitHub Repository]
 
-
 Later in the lab, we want you to make a code change and then rebuild your
-application. This is a fairly simple Spring framework Java application.
+application. This is a fairly simple Spring framework Java application.稍后在实验室中，我们希望您更改代码，然后重新构建您的应用程序。这是一个相当简单的 Spring 框架 Java 应用程序。
 
 [#build_code_on_openshift]
-=== Build the Code on OpenShift
+=== Build the Code on OpenShift在 OpenShift 上构建代码
 
 Similar to how we used *+Add* before with an existing image, we
 can do the same for specifying a source code repository. Since for this lab you
-have your own git repository, let's use it with a simple Java S2I image.
+have your own git repository, let's use it with a simple Java S2I image.与我们之前对现有图像使用+Add 的方式类似，我们可以对指定源代码存储库执行相同的操作。由于对于本实验，您有自己的 git 存储库，让我们将其与简单的 Java S2I 映像一起使用。
 
-In the Developer Perspective, click *+Add* in the left navigation, go to the *Git Repository* section and then choose *From Git* option.
+
+In the Developer Perspective, click *+Add* in the left navigation, go to the *Git Repository* section and then choose *From Git* option.在 Developer Perspective 中，单击左侧导航中的+Add，转到Git Repository部分，然后选择From Git选项。
 
 image::nationalparks-show-add-options.png[Add to Project]
 
-The *Import from Git* workflow will guide you through the process of deploying your app based on a few selections.
+The *Import from Git* workflow will guide you through the process of deploying your app based on a few selections.在从Git的导入工作流将引导您完成基于一些选择，在部署应用程序的过程。
 
-Enter the following for Git Repo URL:
+为 Git Repo URL 输入以下内容：
 
 [source,bash,role=copypaste]
 ----
 https://github.com/openshift-roadshow/nationalparks.git
 ----
 
-OpenShift will automatically guess the Git server type and the programming language used by the source code. Verify that *Java* has been selected as your Builder Image, and be sure to select version *openjdk-11-ubi8* to have OpenJDK 11.
+OpenShift will automatically guess the Git server type and the programming language used by the source code. Verify that *Java* has been selected as your Builder Image, and be sure to select version *openjdk-11-ubi8* to have OpenJDK 11.OpenShift 会自动猜测 Git 服务器类型和源代码使用的编程语言。验证是否已选择Java作为您的 Builder Image，并确保选择版本openjdk-11-ubi8以获得 OpenJDK 11。
 
 image::nationalparks-import-from-git-url-builder.png[Import from Git]
 
 
-Scroll down to the *General* section. Select:
+Scroll down to the *General* section. Select:向下滚动到常规部分。选择：
 
 *Application Name* :
 [source,role=copypaste]
@@ -112,46 +120,46 @@ workshop
 nationalparks
 ----
 
-In *Resources* section, select *Deployment*.
+In *Resources* section, select *Deployment*.在资源部分中，选择部署。
 
-NOTE: If present, leave Pipeline section empty here as we will implement it in the next modules
+NOTE: If present, leave Pipeline section empty here as we will implement it in the next modules如果存在，请在此处将 Pipeline 部分留空，因为我们将在下一个模块中实现它
 
-Under *Advanced Options*, ensure *Create a route to the application* is *checked* here.
+Under *Advanced Options*, ensure *Create a route to the application* is *checked* here.在高级选项，确保创建路线到应用程序被选中在这里。
 
-We are going to create another *Secure Route*, this time directly from this view.
+We are going to create another *Secure Route*, this time directly from this view.我们将直接从这个视图创建另一个安全路由。
 
-Click *Show advanced Routing options*. 
+Click *Show advanced Routing options*. 单击显示高级路由选项。
 
-Leave all default options, go under *Security* section.
+Leave all default options, go under *Security* section.保留所有默认选项，进入安全部分。
 
-Check *Secure Route* option.
+Check *Secure Route* option.检查安全路由选项。
 
-Under *TLS termination*, select *Edge*.
+Under *TLS termination*, select *Edge*.在TLS 终止下，选择Edge。
 
-Scroll down and expand the *Labels* section to add 3 labels.
+Scroll down and expand the *Labels* section to add 3 labels.向下滚动并展开标签部分以添加 3 个标签。
 
-The name of the Application group:
+The name of the Application group:应用组名称：
 
 [source,role=copypaste]
 ----
 app=workshop
 ----
 
-Next the name of this deployment.
+Next the name of this deployment.接下来是此部署的名称。
 
 [source,role=copypaste]
 ----
 component=nationalparks
 ----
 
-And finally, the role this component plays in the overall application.
+And finally, the role this component plays in the overall application.最后，这个组件在整个应用程序中扮演的角色。
 
 [source,role=copypaste]
 ----
 role=backend
 ----
 
-Click *Create* to submit.
+Click *Create* to submit.点击创建提交。
 
 image::nationalparks-configure-service1.png[Select Builder]
 
@@ -161,16 +169,16 @@ image::nationalparks-configure-service3.png[Secure Route]
 
 image::nationalparks-configure-service4.png[Label]
 
-To see the build logs, in Topology view, click the `nationalparks` entry, then click on *View Logs* in the *Builds* section of the *Resources* tab.
+To see the build logs, in Topology view, click the `nationalparks` entry, then click on *View Logs* in the *Builds* section of the *Resources* tab.要查看构建日志，请在拓扑视图中单击nationalparks条目，然后单击资源选项卡的构建部分中的查看日志。
 
 image::nationalparks-java-new-java-build.png[Nationalparks build]
 
 
 This is a Java-based application that uses Maven as the build and dependency system.  For this reason, the initial build
 will take a few minutes as Maven downloads all of the dependencies needed for
-the application. You can see all of this happening in real time!
+the application. You can see all of this happening in real time!这是一个基于 Java 的应用程序，它使用 Maven 作为构建和依赖系统。由于这个原因，初始构建将需要几分钟，因为 Maven 会下载应用程序所需的所有依赖项。您可以实时看到这一切的发生！
 
-From the command line, you can also see the *Builds*:
+From the command line, you can also see the *Builds*:从命令行，您还可以看到Builds：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -178,7 +186,7 @@ From the command line, you can also see the *Builds*:
 oc get builds
 ----
 
-You'll see output like:
+你会看到如下输出：
 
 [.console-output]
 [source,bash]
@@ -187,7 +195,7 @@ NAME              TYPE      FROM          STATUS     STARTED              DURATI
 nationalparks-1   Source    Git@b052ae6   Running    About a minute ago   1m2s
 ----
 
-You can also view the build logs with the following command:
+您还可以使用以下命令查看构建日志：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -195,16 +203,16 @@ You can also view the build logs with the following command:
 oc logs -f builds/nationalparks-1
 ----
 
-After the build has completed and successfully:
+构建完成并成功后：
 
-* The S2I process will push the resulting image to the internal OpenShift registry
+* The S2I process will push the resulting image to the internal OpenShift registry S2I 进程会将生成的图像推送到内部 OpenShift 注册表
 * The *Deployment* (D) will detect that the image has changed, and this
-  will cause a new deployment to happen.
-* A *ReplicaSet* (RS) will be spawned for this new deployment.
-* The RS will detect no *Pods* are running and will cause one to be deployed, as our default replica count is just 1.
+  will cause a new deployment to happen.在部署（d）将检测到图像发生了变化，这将导致新部署的情况发生。
+* A *ReplicaSet* (RS) will be spawned for this new deployment.将为这个新部署生成一个ReplicaSet (RS)。
+* The RS will detect no *Pods* are running and will cause one to be deployed, as our default replica count is just 1.RS 将检测到没有Pod正在运行，并将导致部署一个，因为我们的默认副本数仅为 1。
 
 In the end, when issuing the `oc get pods` command, you will see that the build Pod
-has finished (exited) and that an application *Pod* is in a ready and running state:
+has finished (exited) and that an application *Pod* is in a ready and running state:最后，当发出oc get pods命令时，您会看到构建 Pod 已完成（退出），并且应用程序Pod处于就绪和运行状态：
 
 [.console-output]
 [source,bash]
@@ -217,7 +225,7 @@ parksmap-57df75c46d-xltcs        1/1       Running     0          2h
 
 If you look again at the web console, you will notice that, when you create the
 application this way, OpenShift also creates a *Route* for you. You can see the
-URL in the web console, or via the command line:
+URL in the web console, or via the command line:如果您再次查看 Web 控制台，您会注意到，当您以这种方式创建应用程序时，OpenShift 还会为您创建一个Route。您可以在 Web 控制台中或通过命令行查看 URL：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -225,7 +233,7 @@ URL in the web console, or via the command line:
 oc get routes
 ----
 
-Where you should see something like the following:
+Where you should see something like the following:您应该在哪里看到类似以下内容：
 
 [.console-output]
 [source,bash,subs="+attributes,macros+"]
@@ -235,7 +243,7 @@ nationalparks   nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%             national
 parksmap        parksmap-%PROJECT%.%CLUSTER_SUBDOMAIN%                  parksmap        8080-tcp        edge        none
 ----
 
-In the above example, the URL is:
+In the above example, the URL is:在上面的示例中，URL 是：
 
 [source,text,role="copypaste",subs="+attributes"]
 ----
@@ -244,20 +252,20 @@ https://nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%
 
 Since this is a backend application, it doesn't actually have a web interface.
 However, it can still be used with a browser. All backends that work with the parksmap
-frontend are required to implement a `/ws/info/` endpoint. To test, visit this URL in your browser:
+frontend are required to implement a `/ws/info/` endpoint. To test, visit this URL in your browser:由于这是一个后端应用程序，它实际上没有 Web 界面。但是，它仍然可以与浏览器一起使用。与 parksmap 前端一起工作的所有后端都需要实现/ws/info/端点。要进行测试，请在浏览器中访问此 URL：
 
 link:https://nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%/ws/info/[National Parks Info Page, role='params-link', window='_blank']
 
-WARNING: If the Pod is Running and the application is not available, please wait a few seconds and refresh the page, since we haven't configured yet Health Checks for that.
+WARNING: If the Pod is Running and the application is not available, please wait a few seconds and refresh the page, since we haven't configured yet Health Checks for that.如果 Pod 正在运行并且应用程序不可用，请等待几秒钟并刷新页面，因为我们尚未为此配置健康检查。
 
-You will see a simple JSON string:
+You will see a simple JSON string:您将看到一个简单的 JSON 字符串：
 
 [source,json]
 ----
 {"id":"nationalparks","displayName":"National Parks","center":{"latitude":"47.039304","longitude":"14.505178"},"zoom":4}
 ----
 
-Earlier we said:
+Earlier we said:之前我们说过：
 
 [source,bash]
 ----
@@ -265,4 +273,4 @@ This is a Java Spring Boot application that performs 2D geo-spatial queries
 against a MongoDB database
 ----
 
-But we don't have a database. Yet.
+But we don't have a database. Yet.但是我们没有数据库。然而。
