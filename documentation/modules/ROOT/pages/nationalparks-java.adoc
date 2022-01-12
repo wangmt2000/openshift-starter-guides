@@ -8,12 +8,7 @@ image::roadshow-app-architecture-nationalparks-1.png[Application architecture,80
 [#source_to_image]
 == Background: Source-to-Image (S2I)
 
-In a previous lab, we learned how to deploy a pre-existing image
-image. Now we will expand on that by learning how OpenShift builds
-container images using source code from an existing repository.  This is accomplished using the Source-to-Image project.
-在之前的实验中，我们学习了如何部署预先存在的镜像。现在，我们将通过学习 OpenShift 如何使用现有存储库中的源代码构建容器镜像来对此进行扩展。这是使用 Source-to-Image 项目完成的。
-
-
+在之前的实验中，我们学习了如何通过预先存在的镜像部署程序。现在，我们将扩展我们的知识，通过学习 OpenShift 如何使用现有存储库中的源代码构建容器镜像。这是使用 Source-to-Image 项目完成的。
 
 https://github.com/openshift/source-to-image[Source-to-Image (S2I)] 是一个由 Red Hat 赞助的开源项目，其目标如下：
 
@@ -25,11 +20,9 @@ assembling a new container image which incorporates the builder image and built
 source. The result is then ready to use with docker run. S2I supports
 incremental builds which re-use previously downloaded dependencies, previously
 built artifacts, etc.
-源到图像（S2I）是一种用于构建可复制容器图像的工具。S2I通过将源代码注入容器映像和组装一个新的容器映像，其中包含生成器映像和构建来源然后，结果就可以与docker run一起使用了。S2I支持重复使用以前下载的依赖项的增量生成，以前人工制品等。
+源到图像（S2I）是一种用于构建可复制容器图像的工具。S2I通过将源代码注入容器映像和组装一个新的容器映像，其中包含生成器映像和构建来源然后，结果就可以与docker run一起使用了。S2I支持增量构建，并可复用下载的依赖项，制成品等。
 ----
 
-OpenShift is S2I-enabled and can use S2I as one of its build mechanisms (in
-addition to building container images from Dockerfiles, and "custom" builds).
 OpenShift 支持 S2I，并且可以使用 S2I 作为其构建机制之一（除了从 Dockerfile 构建容器映像和“自定义”构建）。
 
 OpenShift runs the S2I process inside a special *Pod*, called a Build
@@ -41,7 +34,7 @@ A full discussion of S2I is beyond the scope of this class, but you can find
 more information about it either in the
 {openshift-docs-url}/creating_images/s2i.html[OpenShift S2I documentation]
 or on https://github.com/openshift/source-to-image[GitHub]. The only key concept you need to
-remember about S2I is that it's magic.
+remember about S2I is that it's magic.https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/creating-applications-using-cli#_build-strategy-detection
 S2I 的完整讨论超出了本课程的范围，但您可以在OpenShift S2I 文档 或GitHub 上找到有关它的更多信息 。关于 S2I，您需要记住的唯一关键概念是它很神奇。
 
 [NOTE]
@@ -52,41 +45,30 @@ S2I 的完整讨论超出了本课程的范围，但您可以在OpenShift S2I �
 [#creating_java_application]
 == 练习: Creating a Java application
 
-The backend service that we will be deploying as part of this exercise is
-called `nationalparks`.  This is a Java Spring Boot application that performs 2D
-geo-spatial queries against a MongoDB database to locate and return map
-coordinates of all National Parks in the world. That was just a fancy way of
-saying that we are going to deploy a webservice that returns a JSON list of
-places.
-作为本练习的一部分，我们将部署的后端服务称为nationalparks. 这是一个 Java Spring Boot 应用程序，它对 MongoDB 数据库执行 2D 地理空间查询，以定位和返回世界上所有国家公园的地图坐标。这只是一种奇特的说法，即我们将部署一个返回 JSON 地点列表的 Web 服务。
+作为本练习的一部分，我们将部署的后端服务称为 `nationalparks`. 这是一个 Java Spring Boot 应用程序，它对 MongoDB 数据库执行 2D 地理空间查询，以定位和返回世界上所有国家公园的地图坐标。这只是一种奇特的说法，即我们将部署一个返回 JSON 地点列表的 Web 服务。
 
 [#add_to_project]
 === Add to Project添加到项目
 Because the `nationalparks` component is a backend to serve data that our
 existing frontend (parksmap) will consume, we are going to build it inside the existing
 project that we have been working with. To illustrate how you can interact with OpenShift via the CLI or the web console, we will deploy the nationalparks component using the web console.
-因为该nationalparks组件是为我们现有前端（parksmap）将使用的数据提供服务的后端，所以我们将在我们一直在使用的现有项目中构建它。为了说明如何通过 CLI 或 Web 控制台与 OpenShift 交互，我们将使用 Web 控制台部署 nationalparks 组件。
+因为该 `nationalparks` 组件是为我们现有前端（parksmap）将使用的数据提供服务的后端，所以我们将在我们一直在使用的现有项目中构建它。为了说明如何通过 CLI 或 Web 控制台与 OpenShift 交互，我们将使用 Web 控制台部署 nationalparks 组件。
 
 [#using_application_code_on_git_server]
 === Using Application Code on Git Server在 Git 服务器上使用应用程序代码
 
-OpenShift can work with any accessible Git repository. This could be GitHub,
-GitLab, or any other server that speaks Git. You can even register webhooks in
-your Git server to initiate OpenShift builds triggered by any update to the
-application code!OpenShift 可以使用任何可访问的 Git 存储库。这可以是 GitHub、GitLab 或任何其他使用 Git 的服务器。您甚至可以在您的 Git 服务器中注册 webhook 以启动由应用程序代码的任何更新触发的 OpenShift 构建！
+OpenShift 可以使用任何可访问的 Git 存储库。这可以是 GitHub、GitLab 或任何其他使用 Git 的服务器。您甚至可以在您的 Git 服务器中注册 webhook 以启动由应用程序代码的任何更新触发的 OpenShift 构建！
 
 link:https://github.com/openshift-roadshow/nationalparks.git[NationalParks GitHub Repository]
 
-Later in the lab, we want you to make a code change and then rebuild your
-application. This is a fairly simple Spring framework Java application.稍后在实验室中，我们希望您更改代码，然后重新构建您的应用程序。这是一个相当简单的 Spring 框架 Java 应用程序。
+稍后在实验中，您将更改代码，然后重新构建您的应用程序。这是一个相当简单的 Spring 框架 Java 应用程序。
 
 [#build_code_on_openshift]
 === Build the Code on OpenShift在 OpenShift 上构建代码
 
 Similar to how we used *+Add* before with an existing image, we
 can do the same for specifying a source code repository. Since for this lab you
-have your own git repository, let's use it with a simple Java S2I image.与我们之前对现有图像使用+Add 的方式类似，我们可以对指定源代码存储库执行相同的操作。由于对于本实验，您有自己的 git 存储库，让我们将其与简单的 Java S2I 映像一起使用。
-
+have your own git repository, let's use it with a simple Java S2I image.与我们之前对现有图像使用*+Add*的方式类似，我们可以对指定源代码存储库执行相同的操作。由于对于本实验，您有自己的 git 存储库，让我们将其与简单的 Java S2I 映像一起使用。
 
 In the Developer Perspective, click *+Add* in the left navigation, go to the *Git Repository* section and then choose *From Git* option.在 Developer Perspective 中，单击左侧导航中的+Add，转到Git Repository部分，然后选择From Git选项。
 
@@ -252,7 +234,7 @@ https://nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%
 
 Since this is a backend application, it doesn't actually have a web interface.
 However, it can still be used with a browser. All backends that work with the parksmap
-frontend are required to implement a `/ws/info/` endpoint. To test, visit this URL in your browser:由于这是一个后端应用程序，它实际上没有 Web 界面。但是，它仍然可以与浏览器一起使用。与 parksmap 前端一起工作的所有后端都需要实现/ws/info/端点。要进行测试，请在浏览器中访问此 URL：
+frontend are required to implement a `/ws/info/` endpoint. To test, visit this URL in your browser:由于这是一个后端应用程序，它实际上没有 Web 界面。但是，它仍然可以与浏览器一起使用。与 parksmap 前端一起工作的所有后端都需要实现 `/ws/info/` 端点。要进行测试，请在浏览器中访问此 URL：
 
 link:https://nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%/ws/info/[National Parks Info Page, role='params-link', window='_blank']
 
