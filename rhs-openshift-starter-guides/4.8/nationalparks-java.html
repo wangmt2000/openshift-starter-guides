@@ -607,8 +607,7 @@ built artifacts, etc.</code></pre>
 <div class="paragraph">
 <p>S2I 的完整讨论超出了本课程的范围, 但您可以在
 <a href="https://docs.openshift.com/container-platform/4.8/creating_images/s2i.html">OpenShift S2I 文档</a>
-或在<a href="https://github.com/openshift/source-to-image">GitHub</a>上找到有关它的更多信息 。关于 S2I，您需要记住的唯一关键概念是它很神奇。https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/creating-applications-using-cli#_build-strategy-detection
-，</p>
+或在<a href="https://github.com/openshift/source-to-image">GitHub</a>上找到有关它的更多信息 。关于 S2I，您需要记住的唯一关键概念是它很神奇。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -633,12 +632,9 @@ built artifacts, etc.</code></pre>
 <p>作为本练习的一部分，我们将部署的后端服务称为 <code>nationalparks</code>. 这是一个 Java Spring Boot 应用程序，它对 MongoDB 数据库执行 2D 地理空间查询，以定位和返回世界上所有国家公园的地图坐标。这只是一种奇特的说法，即我们将部署一个返回 JSON 地点列表的 Web 服务。</p>
 </div>
 <div class="sect2">
-<h3 id="add_to_project"><a class="anchor" href="#add_to_project"></a>Add to Project添加到项目</h3>
+<h3 id="add_to_project"><a class="anchor" href="#add_to_project"></a>Add to Project 添加到项目</h3>
 <div class="paragraph">
-<p>Because the <code>nationalparks</code> component is a backend to serve data that our
-existing frontend (parksmap) will consume, we are going to build it inside the existing
-project that we have been working with. To illustrate how you can interact with OpenShift via the CLI or the web console, we will deploy the nationalparks component using the web console.
-因为该 <code>nationalparks</code> 组件是为我们现有前端（parksmap）将使用的数据提供服务的后端，所以我们将在我们一直在使用的现有项目中构建它。为了说明如何通过 CLI 或 Web 控制台与 OpenShift 交互，我们将使用 Web 控制台部署 nationalparks 组件。</p>
+<p>因为 <code>nationalparks</code> 组件是为我们现有前端（parksmap）将使用的数据提供服务的后端，所以我们将在我们一直在使用的现有项目中构建它。为了说明如何通过 CLI 或 Web 控制台与 OpenShift 交互，我们将使用 Web 控制台部署 nationalparks 组件。</p>
 </div>
 </div>
 <div class="sect2">
@@ -654,22 +650,22 @@ project that we have been working with. To illustrate how you can interact with 
 </div>
 </div>
 <div class="sect2">
-<h3 id="build_code_on_openshift"><a class="anchor" href="#build_code_on_openshift"></a>Build the Code on OpenShift在 OpenShift 上构建代码</h3>
+<h3 id="build_code_on_openshift"><a class="anchor" href="#build_code_on_openshift"></a>在 OpenShift 上构建代码</h3>
 <div class="paragraph">
-<p>Similar to how we used <strong>+Add</strong> before with an existing image, we
-can do the same for specifying a source code repository. Since for this lab you
-have your own git repository, let&#8217;s use it with a simple Java S2I image.与我们之前对现有图像使用*+Add*的方式类似，我们可以对指定源代码存储库执行相同的操作。由于对于本实验，您有自己的 git 存储库，让我们将其与简单的 Java S2I 映像一起使用。</p>
+<p>与我们之前对现有图像使用*+Add*的方式类似，我们可以对指定源代码存储库执行相同的操作。由于对于本实验，您有自己的 git 存储库，让我们将其与简单的 Java S2I 映像一起使用。</p>
 </div>
 <div class="paragraph">
-<p>In the Developer Perspective, click <strong>+Add</strong> in the left navigation, go to the <strong>Git Repository</strong> section and then choose <strong>From Git</strong> option.在 Developer Perspective 中，单击左侧导航中的+Add，转到Git Repository部分，然后选择From Git选项。</p>
+<p>在 Developer 视图 中，单击左侧导航中的+Add，转到 <strong>Git Repository</strong> 部分，然后选择 <strong>From Git</strong> 选项。</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="_images/nationalparks-show-add-options.png" alt="Add to Project">
 </div>
 </div>
-<div class="paragraph">
-<p>The <strong>Import from Git</strong> workflow will guide you through the process of deploying your app based on a few selections.在从Git的导入工作流将引导您完成基于一些选择，在部署应用程序的过程。</p>
+<div class="literalblock">
+<div class="content">
+<pre>*Import from Git* 工作流将引导您基于一些选项来完成部署应用程序的过程。</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>为 Git Repo URL 输入以下内容：</p>
@@ -680,7 +676,7 @@ have your own git repository, let&#8217;s use it with a simple Java S2I image.�
 </div>
 </div>
 <div class="paragraph">
-<p>OpenShift will automatically guess the Git server type and the programming language used by the source code. Verify that <strong>Java</strong> has been selected as your Builder Image, and be sure to select version <strong>openjdk-11-ubi8</strong> to have OpenJDK 11.OpenShift 会自动猜测 Git 服务器类型和源代码使用的编程语言。验证是否已选择Java作为您的 Builder Image，并确保选择版本openjdk-11-ubi8以获得 OpenJDK 11。</p>
+<p>OpenShift 会自动猜测 Git 服务器类型和源代码使用的编程语言（<a href="https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/creating-applications-using-cli#_build-strategy-detection">构建器语言检测</a>）。验证是否已选择Java作为您的 Builder Image，并确保选择版本openjdk-11-ubi8以使用 OpenJDK 11。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -688,7 +684,7 @@ have your own git repository, let&#8217;s use it with a simple Java S2I image.�
 </div>
 </div>
 <div class="paragraph">
-<p>Scroll down to the <strong>General</strong> section. Select:向下滚动到常规部分。选择：</p>
+<p>向下滚动到常规部分。选择：</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Name</strong> :</p>
@@ -707,7 +703,7 @@ have your own git repository, let&#8217;s use it with a simple Java S2I image.�
 </div>
 </div>
 <div class="paragraph">
-<p>In <strong>Resources</strong> section, select <strong>Deployment</strong>.在资源部分中，选择部署。</p>
+<p>在资源 <strong>Resources</strong> 部分中，选择部署*Deployment*。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -716,34 +712,34 @@ have your own git repository, let&#8217;s use it with a simple Java S2I image.�
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If present, leave Pipeline section empty here as we will implement it in the next modules如果存在，请在此处将 Pipeline 部分留空，因为我们将在下一个模块中实现它
+如果存在，请在此处将 Pipeline 部分留空，因为我们将在下一个模块中实现它
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Under <strong>Advanced Options</strong>, ensure <strong>Create a route to the application</strong> is <strong>checked</strong> here.在高级选项，确保创建路线到应用程序被选中在这里。</p>
+<p>在高级选项，确保创建路线到应用程序被选中在这里。</p>
 </div>
 <div class="paragraph">
-<p>We are going to create another <strong>Secure Route</strong>, this time directly from this view.我们将直接从这个视图创建另一个安全路由。</p>
+<p>我们将直接从这个视图创建另一个*Secure Route*。</p>
 </div>
 <div class="paragraph">
-<p>Click <strong>Show advanced Routing options</strong>. 单击显示高级路由选项。</p>
+<p>单击显示高级路由 <strong>Show advanced Routing options</strong> 选项。</p>
 </div>
 <div class="paragraph">
 <p>Leave all default options, go under <strong>Security</strong> section.保留所有默认选项，进入安全部分。</p>
 </div>
 <div class="paragraph">
-<p>Check <strong>Secure Route</strong> option.检查安全路由选项。</p>
+<p>检查  <strong>Secure Route</strong> 选项。</p>
 </div>
 <div class="paragraph">
-<p>Under <strong>TLS termination</strong>, select <strong>Edge</strong>.在TLS 终止下，选择Edge。</p>
+<p>在 <strong>TLS termination</strong> 下，选择Edge。</p>
 </div>
 <div class="paragraph">
-<p>Scroll down and expand the <strong>Labels</strong> section to add 3 labels.向下滚动并展开标签部分以添加 3 个标签。</p>
+<p>向下滚动并展开标签 <strong>Labels</strong> 部分以添加 3 个标签。</p>
 </div>
 <div class="paragraph">
-<p>The name of the Application group:应用组名称：</p>
+<p>应用组名称：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -751,7 +747,7 @@ If present, leave Pipeline section empty here as we will implement it in the nex
 </div>
 </div>
 <div class="paragraph">
-<p>Next the name of this deployment.接下来是此部署的名称。</p>
+<p>接下来是此部署的名称。</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -759,7 +755,7 @@ If present, leave Pipeline section empty here as we will implement it in the nex
 </div>
 </div>
 <div class="paragraph">
-<p>And finally, the role this component plays in the overall application.最后，这个组件在整个应用程序中扮演的角色。</p>
+<p>最后，这个组件在整个应用程序中扮演的角色role。</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
@@ -767,7 +763,7 @@ If present, leave Pipeline section empty here as we will implement it in the nex
 </div>
 </div>
 <div class="paragraph">
-<p>Click <strong>Create</strong> to submit.点击创建提交。</p>
+<p>点击创建 <strong>Create</strong> 提交。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -790,7 +786,7 @@ If present, leave Pipeline section empty here as we will implement it in the nex
 </div>
 </div>
 <div class="paragraph">
-<p>To see the build logs, in Topology view, click the <code>nationalparks</code> entry, then click on <strong>View Logs</strong> in the <strong>Builds</strong> section of the <strong>Resources</strong> tab.要查看构建日志，请在拓扑视图中单击nationalparks条目，然后单击资源选项卡的构建部分中的查看日志。</p>
+<p>要查看构建日志，请在拓扑视图中单击nationalparks条目，然后单击资源 <strong>Resources</strong> 选项卡的构建 <strong>Builds</strong> 部分中的查看日志。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -798,12 +794,10 @@ If present, leave Pipeline section empty here as we will implement it in the nex
 </div>
 </div>
 <div class="paragraph">
-<p>This is a Java-based application that uses Maven as the build and dependency system.  For this reason, the initial build
-will take a few minutes as Maven downloads all of the dependencies needed for
-the application. You can see all of this happening in real time!这是一个基于 Java 的应用程序，它使用 Maven 作为构建和依赖系统。由于这个原因，初始构建将需要几分钟，因为 Maven 会下载应用程序所需的所有依赖项。您可以实时看到这一切的发生！</p>
+<p>这是一个基于 Java 的应用程序，它使用 Maven 作为构建和依赖系统。由于这个原因，初始构建将需要几分钟，因为 Maven 会下载应用程序所需的所有依赖项。您可以实时看到这一切的发生！</p>
 </div>
 <div class="paragraph">
-<p>From the command line, you can also see the <strong>Builds</strong>:从命令行，您还可以看到Builds：</p>
+<p>从命令行，您还可以看到Builds：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -860,9 +854,7 @@ parksmap-57df75c46d-xltcs        1/1       Running     0          2h</code></pre
 </div>
 </div>
 <div class="paragraph">
-<p>If you look again at the web console, you will notice that, when you create the
-application this way, OpenShift also creates a <strong>Route</strong> for you. You can see the
-URL in the web console, or via the command line:如果您再次查看 Web 控制台，您会注意到，当您以这种方式创建应用程序时，OpenShift 还会为您创建一个Route。您可以在 Web 控制台中或通过命令行查看 URL：</p>
+<p>如果您再次查看 Web 控制台，您会注意到，当您以这种方式创建应用程序时，OpenShift 还会为您创建一个Route。您可以在 Web 控制台中或通过命令行查看 URL：</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -888,9 +880,7 @@ parksmap        parksmap-%PROJECT%.%CLUSTER_SUBDOMAIN%                  parksmap
 </div>
 </div>
 <div class="paragraph">
-<p>Since this is a backend application, it doesn&#8217;t actually have a web interface.
-However, it can still be used with a browser. All backends that work with the parksmap
-frontend are required to implement a <code>/ws/info/</code> endpoint. To test, visit this URL in your browser:由于这是一个后端应用程序，它实际上没有 Web 界面。但是，它仍然可以与浏览器一起使用。与 parksmap 前端一起工作的所有后端都需要实现 <code>/ws/info/</code> 端点。要进行测试，请在浏览器中访问此 URL：</p>
+<p>由于这是一个后端应用程序，它实际上没有 Web 界面。但是，它仍然可以与浏览器一起使用。与 parksmap 前端一起工作的所有后端都需要实现 <code>/ws/info/</code> 端点。要进行测试，请在浏览器中访问此 URL：</p>
 </div>
 <div class="paragraph">
 <p><a href="https://nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%/ws/info/" class="params-link" target="_blank" rel="noopener">National Parks Info Page</a></p>
@@ -902,13 +892,13 @@ frontend are required to implement a <code>/ws/info/</code> endpoint. To test, v
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If the Pod is Running and the application is not available, please wait a few seconds and refresh the page, since we haven&#8217;t configured yet Health Checks for that.如果 Pod 正在运行并且应用程序不可用，请等待几秒钟并刷新页面，因为我们尚未为此配置健康检查。
+如果 Pod 正在运行并且应用程序不可用，请等待几秒钟并刷新页面，因为我们尚未为此配置健康检查。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>You will see a simple JSON string:您将看到一个简单的 JSON 字符串：</p>
+<p>您将看到一个简单的 JSON 字符串：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -916,7 +906,7 @@ If the Pod is Running and the application is not available, please wait a few se
 </div>
 </div>
 <div class="paragraph">
-<p>Earlier we said:之前我们说过：</p>
+<p>之前我们说过：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -925,7 +915,7 @@ against a MongoDB database</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>But we don&#8217;t have a database. Yet.但是我们没有数据库。然而。</p>
+<p>但是我们现在还没有设置MongoDB数据库。</p>
 </div>
 </div>
 </div>
