@@ -28,8 +28,7 @@ OpenShift 在称为 Build Pod的特殊Pod 中运行 S2I 进程，因此构建受
 
 S2I 的完整讨论超出了本课程的范围, 但您可以在
 {openshift-docs-url}/creating_images/s2i.html[OpenShift S2I 文档]
-或在link:https://github.com/openshift/source-to-image[GitHub]上找到有关它的更多信息 。关于 S2I，您需要记住的唯一关键概念是它很神奇。https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/creating-applications-using-cli#_build-strategy-detection
-，  
+或在link:https://github.com/openshift/source-to-image[GitHub]上找到有关它的更多信息 。关于 S2I，您需要记住的唯一关键概念是它很神奇。
 
 [NOTE]
 ====
@@ -42,11 +41,8 @@ S2I 的完整讨论超出了本课程的范围, 但您可以在
 作为本练习的一部分，我们将部署的后端服务称为 `nationalparks`. 这是一个 Java Spring Boot 应用程序，它对 MongoDB 数据库执行 2D 地理空间查询，以定位和返回世界上所有国家公园的地图坐标。这只是一种奇特的说法，即我们将部署一个返回 JSON 地点列表的 Web 服务。
 
 [#add_to_project]
-=== Add to Project添加到项目
-Because the `nationalparks` component is a backend to serve data that our
-existing frontend (parksmap) will consume, we are going to build it inside the existing
-project that we have been working with. To illustrate how you can interact with OpenShift via the CLI or the web console, we will deploy the nationalparks component using the web console.
-因为该 `nationalparks` 组件是为我们现有前端（parksmap）将使用的数据提供服务的后端，所以我们将在我们一直在使用的现有项目中构建它。为了说明如何通过 CLI 或 Web 控制台与 OpenShift 交互，我们将使用 Web 控制台部署 nationalparks 组件。
+=== Add to Project 添加到项目
+因为 `nationalparks` 组件是为我们现有前端（parksmap）将使用的数据提供服务的后端，所以我们将在我们一直在使用的现有项目中构建它。为了说明如何通过 CLI 或 Web 控制台与 OpenShift 交互，我们将使用 Web 控制台部署 nationalparks 组件。
 
 [#using_application_code_on_git_server]
 === Using Application Code on Git Server在 Git 服务器上使用应用程序代码
@@ -58,17 +54,15 @@ link:https://github.com/openshift-roadshow/nationalparks.git[NationalParks GitHu
 稍后在实验中，您将更改代码，然后重新构建您的应用程序。这是一个相当简单的 Spring 框架 Java 应用程序。
 
 [#build_code_on_openshift]
-=== Build the Code on OpenShift在 OpenShift 上构建代码
+=== 在 OpenShift 上构建代码
 
-Similar to how we used *+Add* before with an existing image, we
-can do the same for specifying a source code repository. Since for this lab you
-have your own git repository, let's use it with a simple Java S2I image.与我们之前对现有图像使用*+Add*的方式类似，我们可以对指定源代码存储库执行相同的操作。由于对于本实验，您有自己的 git 存储库，让我们将其与简单的 Java S2I 映像一起使用。
+与我们之前对现有图像使用*+Add*的方式类似，我们可以对指定源代码存储库执行相同的操作。由于对于本实验，您有自己的 git 存储库，让我们将其与简单的 Java S2I 映像一起使用。
 
-In the Developer Perspective, click *+Add* in the left navigation, go to the *Git Repository* section and then choose *From Git* option.在 Developer Perspective 中，单击左侧导航中的+Add，转到Git Repository部分，然后选择From Git选项。
+在 Developer 视图 中，单击左侧导航中的+Add，转到 *Git Repository* 部分，然后选择 *From Git* 选项。
 
 image::nationalparks-show-add-options.png[Add to Project]
 
-The *Import from Git* workflow will guide you through the process of deploying your app based on a few selections.在从Git的导入工作流将引导您完成基于一些选择，在部署应用程序的过程。
+ *Import from Git* 工作流将引导您基于一些选项来完成部署应用程序的过程。
 
 为 Git Repo URL 输入以下内容：
 
@@ -77,12 +71,12 @@ The *Import from Git* workflow will guide you through the process of deploying y
 https://github.com/openshift-roadshow/nationalparks.git
 ----
 
-OpenShift will automatically guess the Git server type and the programming language used by the source code. Verify that *Java* has been selected as your Builder Image, and be sure to select version *openjdk-11-ubi8* to have OpenJDK 11.OpenShift 会自动猜测 Git 服务器类型和源代码使用的编程语言。验证是否已选择Java作为您的 Builder Image，并确保选择版本openjdk-11-ubi8以获得 OpenJDK 11。
+OpenShift 会自动猜测 Git 服务器类型和源代码使用的编程语言（link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/creating-applications-using-cli#_build-strategy-detection[构建器语言检测]）。验证是否已选择Java作为您的 Builder Image，并确保选择版本openjdk-11-ubi8以使用 OpenJDK 11。
 
 image::nationalparks-import-from-git-url-builder.png[Import from Git]
 
 
-Scroll down to the *General* section. Select:向下滚动到常规部分。选择：
+向下滚动到常规部分。选择：
 
 *Application Name* :
 [source,role=copypaste]
@@ -96,46 +90,46 @@ workshop
 nationalparks
 ----
 
-In *Resources* section, select *Deployment*.在资源部分中，选择部署。
+在资源 *Resources* 部分中，选择部署*Deployment*。
 
-NOTE: If present, leave Pipeline section empty here as we will implement it in the next modules如果存在，请在此处将 Pipeline 部分留空，因为我们将在下一个模块中实现它
+NOTE: 如果存在，请在此处将 Pipeline 部分留空，因为我们将在下一个模块中实现它
 
-Under *Advanced Options*, ensure *Create a route to the application* is *checked* here.在高级选项，确保创建路线到应用程序被选中在这里。
+在高级选项，确保创建路线到应用程序被选中在这里。
 
-We are going to create another *Secure Route*, this time directly from this view.我们将直接从这个视图创建另一个安全路由。
+我们将直接从这个视图创建另一个*Secure Route*。
 
-Click *Show advanced Routing options*. 单击显示高级路由选项。
+单击显示高级路由 *Show advanced Routing options* 选项。
 
 Leave all default options, go under *Security* section.保留所有默认选项，进入安全部分。
 
-Check *Secure Route* option.检查安全路由选项。
+检查  *Secure Route* 选项。
 
-Under *TLS termination*, select *Edge*.在TLS 终止下，选择Edge。
+在 *TLS termination* 下，选择Edge。
 
-Scroll down and expand the *Labels* section to add 3 labels.向下滚动并展开标签部分以添加 3 个标签。
+向下滚动并展开标签 *Labels* 部分以添加 3 个标签。
 
-The name of the Application group:应用组名称：
+应用组名称：
 
 [source,role=copypaste]
 ----
 app=workshop
 ----
 
-Next the name of this deployment.接下来是此部署的名称。
+接下来是此部署的名称。
 
 [source,role=copypaste]
 ----
 component=nationalparks
 ----
 
-And finally, the role this component plays in the overall application.最后，这个组件在整个应用程序中扮演的角色。
+最后，这个组件在整个应用程序中扮演的角色role。
 
 [source,role=copypaste]
 ----
 role=backend
 ----
 
-Click *Create* to submit.点击创建提交。
+点击创建 *Create* 提交。
 
 image::nationalparks-configure-service1.png[Select Builder]
 
@@ -145,16 +139,13 @@ image::nationalparks-configure-service3.png[Secure Route]
 
 image::nationalparks-configure-service4.png[Label]
 
-To see the build logs, in Topology view, click the `nationalparks` entry, then click on *View Logs* in the *Builds* section of the *Resources* tab.要查看构建日志，请在拓扑视图中单击nationalparks条目，然后单击资源选项卡的构建部分中的查看日志。
+要查看构建日志，请在拓扑视图中单击nationalparks条目，然后单击资源 *Resources* 选项卡的构建 *Builds* 部分中的查看日志。
 
 image::nationalparks-java-new-java-build.png[Nationalparks build]
 
+这是一个基于 Java 的应用程序，它使用 Maven 作为构建和依赖系统。由于这个原因，初始构建将需要几分钟，因为 Maven 会下载应用程序所需的所有依赖项。您可以实时看到这一切的发生！
 
-This is a Java-based application that uses Maven as the build and dependency system.  For this reason, the initial build
-will take a few minutes as Maven downloads all of the dependencies needed for
-the application. You can see all of this happening in real time!这是一个基于 Java 的应用程序，它使用 Maven 作为构建和依赖系统。由于这个原因，初始构建将需要几分钟，因为 Maven 会下载应用程序所需的所有依赖项。您可以实时看到这一切的发生！
-
-From the command line, you can also see the *Builds*:从命令行，您还可以看到Builds：
+从命令行，您还可以看到Builds：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -199,9 +190,7 @@ nationalparks-1-build   0/1       Completed   0          3m
 parksmap-57df75c46d-xltcs        1/1       Running     0          2h
 ----
 
-If you look again at the web console, you will notice that, when you create the
-application this way, OpenShift also creates a *Route* for you. You can see the
-URL in the web console, or via the command line:如果您再次查看 Web 控制台，您会注意到，当您以这种方式创建应用程序时，OpenShift 还会为您创建一个Route。您可以在 Web 控制台中或通过命令行查看 URL：
+如果您再次查看 Web 控制台，您会注意到，当您以这种方式创建应用程序时，OpenShift 还会为您创建一个Route。您可以在 Web 控制台中或通过命令行查看 URL：
 
 [.console-input]
 [source,bash,subs="+attributes,macros+"]
@@ -226,22 +215,20 @@ In the above example, the URL is:在上面的示例中，URL 是：
 https://nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%
 ----
 
-Since this is a backend application, it doesn't actually have a web interface.
-However, it can still be used with a browser. All backends that work with the parksmap
-frontend are required to implement a `/ws/info/` endpoint. To test, visit this URL in your browser:由于这是一个后端应用程序，它实际上没有 Web 界面。但是，它仍然可以与浏览器一起使用。与 parksmap 前端一起工作的所有后端都需要实现 `/ws/info/` 端点。要进行测试，请在浏览器中访问此 URL：
+由于这是一个后端应用程序，它实际上没有 Web 界面。但是，它仍然可以与浏览器一起使用。与 parksmap 前端一起工作的所有后端都需要实现 `/ws/info/` 端点。要进行测试，请在浏览器中访问此 URL：
 
 link:https://nationalparks-%PROJECT%.%CLUSTER_SUBDOMAIN%/ws/info/[National Parks Info Page, role='params-link', window='_blank']
 
-WARNING: If the Pod is Running and the application is not available, please wait a few seconds and refresh the page, since we haven't configured yet Health Checks for that.如果 Pod 正在运行并且应用程序不可用，请等待几秒钟并刷新页面，因为我们尚未为此配置健康检查。
+WARNING: 如果 Pod 正在运行并且应用程序不可用，请等待几秒钟并刷新页面，因为我们尚未为此配置健康检查。
 
-You will see a simple JSON string:您将看到一个简单的 JSON 字符串：
+您将看到一个简单的 JSON 字符串：
 
 [source,json]
 ----
 {"id":"nationalparks","displayName":"National Parks","center":{"latitude":"47.039304","longitude":"14.505178"},"zoom":4}
 ----
 
-Earlier we said:之前我们说过：
+之前我们说过：
 
 [source,bash]
 ----
@@ -249,4 +236,4 @@ This is a Java Spring Boot application that performs 2D geo-spatial queries
 against a MongoDB database
 ----
 
-But we don't have a database. Yet.但是我们没有数据库。然而。
+但是我们现在还没有设置MongoDB数据库。
