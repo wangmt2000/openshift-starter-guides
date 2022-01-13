@@ -827,23 +827,21 @@ nationalparks-1   Source    Git@b052ae6   Running    About a minute ago   1m2s</
 <div class="ulist">
 <ul>
 <li>
-<p>The S2I process will push the resulting image to the internal OpenShift registry S2I 进程会将生成的图像推送到内部 OpenShift 注册表</p>
+<p>进程会将生成的图像推送到内部 OpenShift 镜像仓库</p>
 </li>
 <li>
-<p>The <strong>Deployment</strong> (D) will detect that the image has changed, and this
-will cause a new deployment to happen.在部署（d）将检测到图像发生了变化，这将导致新部署的情况发生。</p>
+<p>部署 <strong>Deployment</strong> （d）将检测到镜像发生了变化，这将触发新的部署。</p>
 </li>
 <li>
-<p>A <strong>ReplicaSet</strong> (RS) will be spawned for this new deployment.将为这个新部署生成一个ReplicaSet (RS)。</p>
+<p>将为这个新部署生成一个ReplicaSet (RS)。</p>
 </li>
 <li>
-<p>The RS will detect no <strong>Pods</strong> are running and will cause one to be deployed, as our default replica count is just 1.RS 将检测到没有Pod正在运行，并将导致部署一个，因为我们的默认副本数仅为 1。</p>
+<p>RS 将检测到没有Pod正在运行，将触发部署一个pod，因为我们的默认副本数仅为 1。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In the end, when issuing the <code>oc get pods</code> command, you will see that the build Pod
-has finished (exited) and that an application <strong>Pod</strong> is in a ready and running state:最后，当发出oc get pods命令时，您会看到构建 Pod 已完成（退出），并且应用程序Pod处于就绪和运行状态：</p>
+<p>最后，当执行 oc get pods命令时，您会看到构建 Pod 已完成（退出），并且应用程序Pod处于就绪和运行状态：</p>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -872,7 +870,7 @@ parksmap        parksmap-%PROJECT%.%CLUSTER_SUBDOMAIN%                  parksmap
 </div>
 </div>
 <div class="paragraph">
-<p>In the above example, the URL is:在上面的示例中，URL 是：</p>
+<p>在上面的示例中，URL 是：</p>
 </div>
 <div class="listingblock copypaste">
 <div class="content">
