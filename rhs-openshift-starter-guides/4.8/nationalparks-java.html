@@ -595,26 +595,20 @@ produces ready-to-run images by injecting source code into a container image and
 assembling a new container image which incorporates the builder image and built
 source. The result is then ready to use with docker run. S2I supports
 incremental builds which re-use previously downloaded dependencies, previously
-built artifacts, etc.
-源到图像（S2I）是一种用于构建可复制容器图像的工具。S2I通过将源代码注入容器映像和组装一个新的容器映像，其中包含生成器映像和构建来源然后，结果就可以与docker run一起使用了。S2I支持增量构建，并可复用下载的依赖项，制成品等。</code></pre>
+built artifacts, etc.</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>OpenShift 支持 S2I，并且可以使用 S2I 作为其构建机制之一（除了从 Dockerfile 构建容器映像和“自定义”构建）。</p>
 </div>
 <div class="paragraph">
-<p>OpenShift runs the S2I process inside a special <strong>Pod</strong>, called a Build
-Pod, and thus builds are subject to quotas, limits, resource scheduling, and
-other aspects of OpenShift.
-OpenShift 在称为 Build Pod的特殊Pod 中运行 S2I 进程，因此构建受配额、限制、资源调度和 OpenShift 其他方面的约束。</p>
+<p>OpenShift 在称为 Build Pod的特殊Pod 中运行 S2I 进程，因此构建受配额、限制、资源调度和 OpenShift 其他方面的约束。</p>
 </div>
 <div class="paragraph">
-<p>A full discussion of S2I is beyond the scope of this class, but you can find
-more information about it either in the
-<a href="https://docs.openshift.com/container-platform/4.8/creating_images/s2i.html">OpenShift S2I documentation</a>
-or on <a href="https://github.com/openshift/source-to-image">GitHub</a>. The only key concept you need to
-remember about S2I is that it&#8217;s magic.https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/creating-applications-using-cli#_build-strategy-detection
-S2I 的完整讨论超出了本课程的范围，但您可以在OpenShift S2I 文档 或GitHub 上找到有关它的更多信息 。关于 S2I，您需要记住的唯一关键概念是它很神奇。</p>
+<p>S2I 的完整讨论超出了本课程的范围, 但您可以在
+<a href="https://docs.openshift.com/container-platform/4.8/creating_images/s2i.html">OpenShift S2I 文档</a>
+或在<a href="https://github.com/openshift/source-to-image">GitHub</a>上找到有关它的更多信息 。关于 S2I，您需要记住的唯一关键概念是它很神奇。https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/creating-applications-using-cli#_build-strategy-detection
+，</p>
 </div>
 <div class="admonitionblock note">
 <table>
