@@ -202,7 +202,7 @@ parksmap-65c4f8b676-fxcrq   1/1     Running   0          4m48s
 Health] 小节以及本指南的后面部分
 
 [#scale_down]
-== 练习：缩小 Scale Down
+== 练习：缩减APP副本 Scale Down
 
 在我们继续之前，请继续将您的应用程序缩小到单个实例。随意使用您喜欢的任何方法来执行此操作。
 
