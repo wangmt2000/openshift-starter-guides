@@ -133,9 +133,6 @@ https://redhat-scholars.github.io/openshift-starter-guides/rhs-openshift-starter
 
 Please refer to the link:CONTRIBUTING.adoc#contributing-guide[how to contribute] on how you can contribute to the tutorial.
 
- = Overview
-:navtitle: Overview
-
 本次实验将涵盖的主题包括：
 
 使用 OpenShift 命令行客户端和 Web 控制台。
