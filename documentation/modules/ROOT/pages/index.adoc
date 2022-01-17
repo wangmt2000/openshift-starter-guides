@@ -12,5 +12,5 @@ endif::[]
 
 [NOTE]
 ====
-实验手册已经根据基于link:https://developers.redhat.com/developer-sandbox/get-started[Developer Sandbox for Red Hat OpenShift] 环境做了修改。由于环境的限制，部分原版实验在sandbox上无法完成。但是不影响体验openshift最基本的功能，推荐使用CRC，或者OCP使用英文原版手册进行实验。了解更详细信息请参考link:https://redhat-scholars.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.8/index.html?PROJECT=workshop[原版英文手册]
+实验手册已经根据基于link:https://developers.redhat.com/developer-sandbox/get-started[Developer Sandbox for Red Hat OpenShift] 环境做了修改（因为完全免费且快捷，由于申请页面嵌入了YouTube，Facebook的一些链接，国内访问需要耐心等待网页打开，但是环境在AWS拉起后，国内速度是完全没问题的）。由于环境的限制，部分原版实验在sandbox上无法完成。但是不影响体验openshift最基本的功能，推荐使用link:https://developers.redhat.com/products/codeready-containers/overview[CRC]，或者OCP使用英文原版手册进行实验。了解更详细信息请参考link:https://redhat-scholars.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.8/index.html?PROJECT=workshop[原版英文手册]
 ====
