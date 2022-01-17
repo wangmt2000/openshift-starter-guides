@@ -32,11 +32,7 @@ image::topology.gif[Workshop Topology]
 * Setting up Web Hooks to enable automated application builds.设置 Web Hooks 以启用自动化应用程序构建。
 * Additional topics may also be covered relevant to the specific programming language used by the applications being deployed.还可能涵盖与正在部署的应用程序使用的特定编程语言相关的其他主题。
 
-
-
-
-#以下链接全部指向github上原版实验文档
-
+以下链接全部指向github上原版实验文档
 
 ## Documentation
 
@@ -133,19 +129,11 @@ Example:
 
 https://redhat-scholars.github.io/openshift-starter-guides/rhs-openshift-starter-guides/4.7/index.html?CLUSTER_SUBDOMAIN=apps-crc.testing&USERNAME=developer&PASSWORD=developer&PROJECT=workshop
 
-
 ## Contributing
 
 Please refer to the link:CONTRIBUTING.adoc#contributing-guide[how to contribute] on how you can contribute to the tutorial.
 
- 
-
-
-
-
-
-
-= Overview
+ = Overview
 :navtitle: Overview
 
 本次实验将涵盖的主题包括：
