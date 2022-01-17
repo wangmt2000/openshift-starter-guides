@@ -2,11 +2,11 @@
 
 [NOTE]
 ====
-原版实验环境支持IBM、Developer Sandbox for Red Hat OpenShift、CodeReady Containers等环境，本实验改为只支持Developer Sandbox for Red Hat OpenShift。
-由于国内访问的github的网络原因。您可以自行clone并部署本手册。
+原版实验环境支持IBM Cloud、Developer Sandbox for Red Hat OpenShift、CodeReady Containers等环境，本实验改为只支持Developer Sandbox for Red Hat OpenShift。
+由于国内访问的github的网络原因。您可以自行clone gh-page分支并部署本手册。
 ====
 
-本次研讨会旨在从开发人员的角度向您介绍如何使用OpenShift。
+本次实验旨在从开发人员的角度向您介绍如何使用OpenShift。
 
 容器是将应用程序及其所有依赖项打包以简化部署和加速交付的标准化方式。与虚拟机不同，容器不绑定到操作系统。只有应用程序代码、运行时、库和设置被打包在容器内。因此，与虚拟机相比，容器更轻量、更便携、更高效。
 
