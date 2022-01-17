@@ -8,7 +8,7 @@ endif::[]
 
 在 OpenShift 上开发 {lab-name} 应用程序 - 入门实验室
 
-本实验附有link:https://dn.dev/openshift-workshop[dn.dev/openshift-workshop,window='_blank']提供的幻灯片。
+本实验附有link:https://dn.dev/openshift-workshop[dn.dev/openshift-workshop,window='_blank']提供的PPT,link:https://gitee.com/wangmt2000/OpenShift-Starter-Guides-PPT/tree/master[国内镜像]。
 
 [NOTE]
 ====
