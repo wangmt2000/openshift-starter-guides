@@ -627,8 +627,9 @@ account, we can do interesting things.</p>
 <h2 id="grant_serviceaccount_view_permissions"><a class="anchor" href="#grant_serviceaccount_view_permissions"></a>练习：授予服务帐户查看权限</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>该parksmap应用程序想要交谈的OpenShift API了解其他 吊舱，服务的范围内，和资源项目。你很快就会知道为什么！The parksmap application wants to talk to the OpenShift API to learn about other
-<strong>Pods</strong>, <strong>Services</strong>, and resources within the <strong>Project</strong>. You&#8217;ll soon learn why!</p>
+<p>parksmap 应用程序希望与 OpenShift API 进行通信，以了解其他在
+<strong>项目*中的*Pod</strong>、<strong>Services*和资源。您很快就会知道为什么！你很快就会知道为什么！The parksmap application wants to talk to the OpenShift API to learn about other
+*Pods</strong>, <strong>Services</strong>, and resources within the <strong>Project</strong>. You&#8217;ll soon learn why!</p>
 </div>
 <div class="paragraph">
 <p>parkmap 应用程序在集群上的项目中作为服务帐户运行：即default 服务帐户。正是对这个服务帐户，我们可以授予必要的“视图”访问权限，这将允许它查询 API 以查看项目中的资源。这还具有解决我们之前在日志中看到的错误消息的原因的额外好处。</p>
@@ -736,7 +737,8 @@ The <code>-z</code> flag will only work for service accounts in the <strong>curr
 </div>
 </div>
 <div class="paragraph">
-<p>A new deployment is immediately started. Return to Topology view and click the <code>parksmap</code> entry again to watch it happen. You might not be fast enough! But it will be reflected in the <strong>ReplicaSet</strong> number.</p>
+<p>新的deployment部署立即开始，然后再次单击 <code>parksmap</code> 条目以观看其发生。你可能不够快！但它将反映在 <strong>ReplicaSet</strong> 编号中。
+A new deployment is immediately started. Return to Topology view and click the <code>parksmap</code> entry again to watch it happen. You might not be fast enough! But it will be reflected in the <strong>ReplicaSet</strong> number.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -744,7 +746,7 @@ The <code>-z</code> flag will only work for service accounts in the <strong>curr
 </div>
 </div>
 <div class="paragraph">
-<p>If you look at the logs for the application now, you should see no errors.  That&#8217;s great.</p>
+<p>如果现在查看应用程序的日志，则应该不会看到任何错误。</p>
 </div>
 </div>
 </div>
