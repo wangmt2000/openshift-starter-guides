@@ -14,7 +14,8 @@
 
 由于 OpenShift 是一个声明式平台，因此某些操作将由平台执行，而不是由最终用户（当他或她发出命令时）执行。这些操作是使用服务帐户执行的，服务帐户是user平台将在内部使用的一种特殊类型。这些操作是使用服务帐户执行的， Service Account是平台在内部使用的一种特殊类型的“用户”。
 
-OpenShift 会在每个项目中自动创建一些特殊的服务帐户。在默认的服务帐户是一个正在运行的吊舱的责任，OpenShift用途和注入此服务帐户为每一个被推出吊舱。通过更改该服务帐户的权限，我们可以做一些有趣的事情。
+OpenShift 会在每个项目中自动创建一些特殊的服务帐户。默认的服务帐户 **default** service account 是负责运行 Pod 的帐户，OpenShift 使用此服务帐户并将其注入
+启动的每个容器。通过更改这个服务帐户（SA)的权限，我们可以做一些有趣的事情。
 
 OpenShift automatically creates a few special service accounts in every project.
 The **default** service account is the one taking the responsibility of running the pods, and OpenShift uses and injects this service account into
