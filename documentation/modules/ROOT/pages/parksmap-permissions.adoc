@@ -32,7 +32,8 @@ image::parksmap-permissions-membership.png[Membership]
 
 [#grant_serviceaccount_view_permissions]
 == 练习：授予服务帐户查看权限
-该parksmap应用程序想要交谈的OpenShift API了解其他 吊舱，服务的范围内，和资源项目。你很快就会知道为什么！The parksmap application wants to talk to the OpenShift API to learn about other
+parksmap 应用程序希望与 OpenShift API 进行通信，以了解其他在
+*项目*中的*Pod*、*Services*和资源。您很快就会知道为什么！你很快就会知道为什么！The parksmap application wants to talk to the OpenShift API to learn about other
 *Pods*, *Services*, and resources within the *Project*. You'll soon learn why!
 
 parkmap 应用程序在集群上的项目中作为服务帐户运行：即default 服务帐户。正是对这个服务帐户，我们可以授予必要的“视图”访问权限，这将允许它查询 API 以查看项目中的资源。这还具有解决我们之前在日志中看到的错误消息的原因的额外好处。
@@ -99,9 +100,9 @@ NOTE: The `-z` flag will only work for service accounts in the *current* project
 ----
 oc rollout restart deployment/parksmap
 ----
-
+新的deployment部署立即开始，然后再次单击 `parksmap` 条目以观看其发生。你可能不够快！但它将反映在 *ReplicaSet* 编号中。
 A new deployment is immediately started. Return to Topology view and click the `parksmap` entry again to watch it happen. You might not be fast enough! But it will be reflected in the *ReplicaSet* number.
 
 image::parksmap-permissions-redeployed.png[Application deployed]
 
-If you look at the logs for the application now, you should see no errors.  That's great.
+如果现在查看应用程序的日志，则应该不会看到任何错误。
