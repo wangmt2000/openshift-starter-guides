@@ -632,10 +632,13 @@ account, we can do interesting things.</p>
 *Pods</strong>, <strong>Services</strong>, and resources within the <strong>Project</strong>. You&#8217;ll soon learn why!</p>
 </div>
 <div class="paragraph">
-<p>parkmap 应用程序在集群上的项目中作为服务帐户运行：即default 服务帐户。正是对这个服务帐户，我们可以授予必要的“视图”访问权限，这将允许它查询 API 以查看项目中的资源。这还具有解决我们之前在日志中看到的错误消息的原因的额外好处。</p>
+<p>parkmap 应用程序在集群上的项目中作为服务帐户运行：即 <code>default</code> <strong>Service Account</strong> 。正是对这个服务帐户，我们可以授予必要的“视图”访问权限，这将允许它查询 API 以查看项目中的资源。这还具有解决我们之前在日志中看到的错误消息的原因的额外好处。</p>
 </div>
 <div class="paragraph">
-<p>通过选择下列选项卡为代表的办法来更新default 服务帐户的%PROJECT%项目Choose an approach represented by the following tabs to update the <code>default</code> <strong>Service Account</strong> in the <code>%PROJECT%</code> project</p>
+<p>通过选择下列选项卡的来更新 %PROJECT% 项目中的`default` <strong>Service Account</strong></p>
+</div>
+<div class="paragraph">
+<p>Choose an approach represented by the following tabs to update the <code>default</code> <strong>Service Account</strong> in the <code>%PROJECT%</code> project</p>
 </div>
 <div class="tabset is-loading">
 <div class="ulist tabs">
@@ -653,7 +656,7 @@ account, we can do interesting things.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>从Workloads → Deployments页面，单击Namespace，然后单击Role Bindings，然后单击Create Binding按钮。 （项目project→ <code>%PROJECT%</code> → 角色绑定 4.9版本）</p>
+<p>从Workloads → Deployments页面，单击Namespace，然后单击Role Bindings，然后单击Create Binding按钮。 （管理员视图项目→project→ <code>%PROJECT%</code> → 角色绑定 4.9版本）</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/parksmap-permissions-membership-serviceaccount-list.png" alt="Service account list">
