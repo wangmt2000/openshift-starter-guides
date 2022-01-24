@@ -102,7 +102,7 @@ NOTE: The `-z` flag will only work for service accounts in the *current* project
 ----
 oc rollout restart deployment/parksmap
 ----
-新的deployment部署立即开始，然后再次单击 `parksmap` 条目以观看其发生。你可能不够快！但它将反映在 *ReplicaSet* 编号中。
+新的deployment部署立即开始，回到拓扑视图，然后再次单击 `parksmap` 条目以观看其发生。你可能不够快！但它将反映在 *ReplicaSet* 编号中。
 
 A new deployment is immediately started. Return to Topology view and click the `parksmap` entry again to watch it happen. You might not be fast enough! But it will be reflected in the *ReplicaSet* number.
 
