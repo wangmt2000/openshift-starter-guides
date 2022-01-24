@@ -36,16 +36,18 @@ parksmap 应用程序希望与 OpenShift API 进行通信，以了解其他在
 *项目*中的*Pod*、*Services*和资源。您很快就会知道为什么！你很快就会知道为什么！The parksmap application wants to talk to the OpenShift API to learn about other
 *Pods*, *Services*, and resources within the *Project*. You'll soon learn why!
 
-parkmap 应用程序在集群上的项目中作为服务帐户运行：即default 服务帐户。正是对这个服务帐户，我们可以授予必要的“视图”访问权限，这将允许它查询 API 以查看项目中的资源。这还具有解决我们之前在日志中看到的错误消息的原因的额外好处。
+parkmap 应用程序在集群上的项目中作为服务帐户运行：即 `default` *Service Account* 。正是对这个服务帐户，我们可以授予必要的“视图”访问权限，这将允许它查询 API 以查看项目中的资源。这还具有解决我们之前在日志中看到的错误消息的原因的额外好处。
 
-通过选择下列选项卡为代表的办法来更新default 服务帐户的%PROJECT%项目Choose an approach represented by the following tabs to update the `default` *Service Account* in the `%PROJECT%` project
+通过选择下列选项卡的来更新 %PROJECT% 项目中的`default` *Service Account* 
+
+Choose an approach represented by the following tabs to update the `default` *Service Account* in the `%PROJECT%` project
 
 [tabs]
 ====
 OpenShift Console::
 +
 --
-. 从Workloads → Deployments页面，单击Namespace，然后单击Role Bindings，然后单击Create Binding按钮。 （项目project→ `%PROJECT%` → 角色绑定 4.9版本）
+. 从Workloads → Deployments页面，单击Namespace，然后单击Role Bindings，然后单击Create Binding按钮。 （管理员视图项目→project→ `%PROJECT%` → 角色绑定 4.9版本）
 +
 image::parksmap-permissions-membership-serviceaccount-list.png[Service account list]
 +
