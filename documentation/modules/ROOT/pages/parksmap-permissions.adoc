@@ -45,7 +45,7 @@ parkmap 应用程序在集群上的项目中作为服务帐户运行：即defaul
 OpenShift Console::
 +
 --
-. 从Workloads → Deployments页面，单击Namespace，然后单击Role Bindings，然后单击Create Binding按钮。
+. 从Workloads → Deployments页面，单击Namespace，然后单击Role Bindings，然后单击Create Binding按钮。 （项目project→ `%PROJECT%` → 角色绑定 4.9版本）
 +
 image::parksmap-permissions-membership-serviceaccount-list.png[Service account list]
 +
