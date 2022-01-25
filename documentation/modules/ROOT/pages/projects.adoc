@@ -1,7 +1,7 @@
 = Projects 项目
 :navtitle: Projects
 
-Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户社区（或用户）独立于其他社区来组织和管理他们的内容。每个项目都有自己的资源、策略（谁可以或不能执行操作）和约束（资源配额和限制等）。项目充当您（或您的团队）用于工作的所有应用程序服务和端点的“包装器”。
+Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户社区（或用户）独立于其他社区来组织和管理他们的内容。每个项目都有自己的资源、策略（谁可以或不能执行操作）和约束（资源配额和限-制等）。项目充当您（或您的团队）用于工作的所有应用程序服务和端点的“包装器”。
 
 在本实验中，我们将使用一些不同的命令来确保环境中的事物按预期工作。如果您不理解https://github.com/redhat-scholars/openshift-starter-guides所有术语，请不要担心，因为我们将在后面的实验中详细介绍。
 
@@ -12,7 +12,7 @@ Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户�
 
 [NOTE]
 ====
-**使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节，我们将使用系统自动创建的项目来进行实验**，本实验大部分内容以及在sandbox上做了测试，和其他k8s发行版不同，红帽在openshift上默认启用了安全上下文。由于在Developer Sandbox中，您没有kubeadmin的权限，这意味着您如果使用在dockerhub上root身份运行的容器镜像在Developer Sandbox 上很可能会直接报错。如果需要更深入的了解 *项目* 部分请参考link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/_projects#creating-a-project-using-the-web-console_projects[官方文档]。
+**使用Developer Sandbox for Red Hat OpenShift由于系统的限制，不能创建创建项目，请跳过此环节，我们将使用系统自动创建的项目来进行实验**，本实验大部分内容以及在sandbox上做了测试，和其他k8s发行版不同，红帽在openshift上默认启用了安-全上下文。由于在Developer Sandbox中，您没有kubeadmin的权限，这意味着您如果使用在dockerhub上root身份运行的容器镜像在Developer Sandbox 上很可能会直接报错。如果需要更深入的了解 *项目* 部分请参考link:https://access.redhat.com/documentation/zh-cn/openshift_container_platform/4.8/html/building_applications/_projects#creating-a-project-using-the-web-console_projects[官方文档]。
 ====
 
 [#create_your_first_project]
