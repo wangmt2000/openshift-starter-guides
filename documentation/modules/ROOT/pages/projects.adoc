@@ -24,7 +24,7 @@ Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户�
 
 [NOTE]
 ====
-sandbox 默认域 sandbox.x8i5.p1.openshiftapps.com  默认项目 用户名-dev  。这里只是为了复制粘贴方便
+sandbox 默认域 app.sandbox.x8i5.p1.openshiftapps.com  默认项目 用户名-dev  。(for ctrl+C & V)
 ====
 
 image::prerequisites_create_project.png[Create Project]
