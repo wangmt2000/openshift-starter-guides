@@ -22,6 +22,11 @@ Projects是帮助您组织部署的顶级概念。OpenShift 项目允许用户�
 
 从表单中，输入项目的名称，然后单击“创建”。
 
+[NOTE]
+====
+sandbox 默认域 sandbox.x8i5.p1.openshiftapps.com  默认项目 用户名-dev  。这里只是为了复制粘贴方便
+====
+
 image::prerequisites_create_project.png[Create Project]
 
 如果您有多个项目，您要做的第一件事就是切换到*%PROJECT%*项目，以确保从现在开始您的项目是正确的。
